@@ -1,0 +1,94 @@
+@font-face {
+    font-family: "comfortaa";
+    src: url("../fonts/Comfortaa-Medium.ttf");
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+    font-family: "noto-sans-light";
+    src: url("../fonts/NotoSansCJKkr-Light.otf");
+    unicode-range: U+AC00-U+D7A3;
+}
+@font-face {
+    font-family: "noto-sans-thin";
+    src: url("../fonts/NotoSansCJKkr-Thin.otf");
+    unicode-range: U+AC00-U+D7A3;
+}
+
+.container {
+    width: 100%;
+}
+
+
+.top-menu {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 70px;
+    vertical-align: middle;
+    justify-content: space-between;
+}
+.top-logo {
+    padding: 20px 15px 15px 15px;
+    margin: 0px 15px 0px 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: "comfortaa", "noto-sans-thin";
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 30px 0px 30px;
+}
+
+
+.nav-link-item {
+    font-size: 17px;
+    margin: 5px 35px 5px 35px;
+    text-align: center;
+}
+.nav-link-text:link {
+    font-family: "comfortaa", "noto-sans-thin";
+    text-decoration: none;
+    color: black;
+}
+.nav-link-text:hover {
+    font-family: "comfortaa", "noto-sans-thin";
+    text-decoration: none;
+    color: black;
+}
+.nav-link-text:active {
+    font-family: "comfortaa", "noto-sans-thin";
+    text-decoration: none;
+    color: black;
+}
+.nav-link-text:visited {
+    font-family: "comfortaa", "noto-sans-thin";
+    text-decoration: none;
+    color: black;
+}
+
+
+.search-box {
+    margin: 15px 30px 15px 30px;
+    padding: 0px 15px 0px 15px;
+    background-color: #EEEEEE;
+    stroke: #EEEEEE;
+    text-align: left;
+    border: none;
+    border-radius: 30px;
+    font-family: "comfortaa", "noto-sans-thin";
+}
+.search-box:focus {
+    outline: none;
+}
+
+
+.children-container {
+    padding: 70px 15px 15px 15px;
+    font-family: "comfortaa", "noto-sans-light";
+    font-size: 30px;
+}
