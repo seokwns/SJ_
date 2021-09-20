@@ -13,6 +13,16 @@
     src: url("../fonts/NotoSansCJKkr-Thin.otf");
     unicode-range: U+AC00-U+D7A3;
 }
+@font-face {
+    font-family: "noto-sans-thin-en";
+    src: url("../fonts/NotoSans-Light.ttf");
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
 
 .container {
     width: 100%;
@@ -20,19 +30,22 @@
 
 
 .topMenu {
-    position: fixed;
+    position: sticky;
+    top: 0;
     display: flex;
     width: 100%;
     height: 70px;
     vertical-align: middle;
     justify-content: space-between;
+    background-color: white;
+    z-index: 2;
 }
 .topLogo {
     padding: 15px 15px 15px 15px;
     margin: 0px 15px 0px 15px;
     text-align: center;
     vertical-align: middle;
-    font-family: "comfortaa", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin";
 }
 
 
@@ -47,26 +60,28 @@
 
 .navLinks li {
     font-size: 17px;
-    margin: 5px 35px 5px 35px;
+    margin: 5px 35px 10px 35px;
     text-align: center;
+    vertical-align: middle;
+    font-family: "noto-sans-thin-en", "noto-sans-thin";
 }
 .navLinkText:link {
-    font-family: "comfortaa", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
 .navLinkText:hover {
-    font-family: "comfortaa", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
 .navLinkText:active {
-    font-family: "comfortaa", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
 .navLinkText:visited {
-    font-family: "comfortaa", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
@@ -86,7 +101,7 @@
     text-align: left;
     border: none;
     border-radius: 30px;
-    font-family: "comfortaa", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin";
     height: 40px;
 }
 .searchBox:focus {
@@ -95,16 +110,52 @@
 
 
 .childrenContainer {
-    padding: 70px 15px 15px 15px;
-    font-family: "comfortaa", "noto-sans-light";
+    padding: 0px 15px 15px 15px;
+    font-family: "noto-sans-thin-en", "noto-sans-light";
     font-size: 30px;
-    overflow: hidden;
+    z-index: 1;
 }
 
 
 
-@media screen and (max-width: 970px) {
-    /* 모바일 및 테블릿 세로 */
+@media screen and (max-width: 767px) {
+    /* 모바일 */
+    .navLinks {
+        flex-direction: column;
+        padding: 0px;
+    }
+    .navToggle {
+        display: block;
+    }
+
+    .liAbout {
+        display: none;
+    }
+    .liPosts {
+        display: none;
+    }
+    .liPhotos {
+        display: none;
+    }
+    .liDesigns {
+        display: none;
+    }
+    .liNow {
+        display: block;
+    }
+    .searchBox {
+        display: none;
+    }
+    .topMenu {
+        justify-content: center;
+    }
+    .topLogo {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 970px) {
+    /* 테블릿 세로 */
     .navLinks {
         flex-direction: column;
     }

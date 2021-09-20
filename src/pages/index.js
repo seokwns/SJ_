@@ -28,13 +28,14 @@ const IndexPage = () => {
         <p>갓 전역한 휴학생의 블로그입니다</p>
         <p>편안한 마음으로 봐주시면 감사하겠습니다</p>
         <br></br>
-        <p style={{paddingBottom: "80px"}}>* 아직 개발 중, 앞으로 열심히 추가할 예정입니다! *</p>
+        <p style={{paddingBottom: "80px"}}>* 개발 중인 홈페이지입니다 *</p>
       </BackgroundImage>
       </div>
       <div className={styles.latestPosts}>
         <p style={{fontSize: "20px", verticalAlign: "top", margin: "auto"}}>
           latest posts
         </p>
+        <p>최근에 올린 포스팅이 소개됩니다.</p>
       </div>
     </Layout>
   )
