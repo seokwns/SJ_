@@ -19,7 +19,7 @@
 }
 
 
-.top-menu {
+.topMenu {
     position: fixed;
     display: flex;
     width: 100%;
@@ -27,8 +27,8 @@
     vertical-align: middle;
     justify-content: space-between;
 }
-.top-logo {
-    padding: 20px 15px 15px 15px;
+.topLogo {
+    padding: 15px 15px 15px 15px;
     margin: 0px 15px 0px 15px;
     text-align: center;
     vertical-align: middle;
@@ -36,7 +36,7 @@
 }
 
 
-.nav-links {
+.navLinks {
     display: flex;
     list-style: none;
     text-align: center;
@@ -45,34 +45,40 @@
 }
 
 
-.nav-link-item {
+.navLinks li {
     font-size: 17px;
     margin: 5px 35px 5px 35px;
     text-align: center;
 }
-.nav-link-text:link {
+.navLinkText:link {
     font-family: "comfortaa", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
-.nav-link-text:hover {
+.navLinkText:hover {
     font-family: "comfortaa", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
-.nav-link-text:active {
+.navLinkText:active {
     font-family: "comfortaa", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
-.nav-link-text:visited {
+.navLinkText:visited {
     font-family: "comfortaa", "noto-sans-thin";
     text-decoration: none;
     color: black;
 }
 
 
-.search-box {
+.navToggle {
+    display: none;
+    padding-top: 17px;
+}
+
+
+.searchBox {
     margin: 15px 30px 15px 30px;
     padding: 0px 15px 0px 15px;
     background-color: #EEEEEE;
@@ -81,14 +87,74 @@
     border: none;
     border-radius: 30px;
     font-family: "comfortaa", "noto-sans-thin";
+    height: 40px;
 }
-.search-box:focus {
+.searchBox:focus {
     outline: none;
 }
 
 
-.children-container {
+.childrenContainer {
     padding: 70px 15px 15px 15px;
     font-family: "comfortaa", "noto-sans-light";
     font-size: 30px;
+    overflow: hidden;
+}
+
+
+
+@media screen and (max-width: 970px) {
+    /* 모바일 및 테블릿 세로 */
+    .navLinks {
+        flex-direction: column;
+    }
+    .navToggle {
+        display: block;
+    }
+    .navLinks {
+        padding: 0px;
+    }
+
+    .liAbout {
+        display: none;
+    }
+    .liPosts {
+        display: none;
+    }
+    .liPhotos {
+        display: none;
+    }
+    .liDesigns {
+        display: none;
+    }
+    .liNow {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 971px) {
+    /* 테블릿 가로 및 데스크탑 */
+    .navToggle {
+        display: none;
+    }
+    .liNow {
+        display: none;
+    }
+
+    .navLinks {
+        flex-direction: row;
+    }
+    
+    .liAbout {
+        display: block;
+    }
+    .liPosts {
+        display: block;
+    }
+    .liPhotos {
+        display: block;
+    }
+    .liDesigns {
+        display: block;
+    }
 }

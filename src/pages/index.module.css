@@ -1,10 +1,22 @@
+body {
+    margin-top: 0%;
+}
+
 .container {
     text-align: center;
     vertical-align: middle;
-    padding-top: 70px;
+    overflow: hidden;
+}
+.container p {
+    font-size: 17px;
 }
 
 
 .latestPosts {
-    
+    margin: 40px auto;
+    padding: 15px;
+    background-color: #EEEEEE;
+    border-radius: 10px;
 }
+
+

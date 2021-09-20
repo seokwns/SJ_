@@ -1,6 +1,5 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`,
     title: "SJ_",
   },
   plugins: [
@@ -11,10 +10,19 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
-        path: "./src/pages/",
+        path: `${__dirname}/src/pages`,
       },
       __key: "pages",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images`,
+      },
+      __key: "images",
+    },
     "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
   ],
 };
