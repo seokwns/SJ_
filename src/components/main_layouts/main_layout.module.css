@@ -38,12 +38,6 @@ body {
 }
 
 
-.topLogo {
-    margin: 20px 20px;
-    text-align: center;
-    vertical-align: middle;
-}
-
 a:link {
     color: black;
 }
@@ -126,6 +120,53 @@ a:visited {
 }
 
 
+.sideMenu {
+    position: absolute;
+    width: 375px;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    display: none;
+}
+
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 33, 33, 0.7);
+    z-index: 3;
+    display: none;
+}
+
+
+.sideLinks {
+    list-style: none;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0px 15px;
+}
+
+
+.sideLinks li {
+    font-size: 20px;
+    margin: 40px;
+}
+
+
+.sideLogo {
+    font-size: 25px;
+    text-align: center;
+    margin: 30px 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #757575;
+}
+
+
 @media screen and (max-width: 970px) {
     /* 모바일 및 테블릿 세로 */
     .navLinks {
@@ -133,6 +174,9 @@ a:visited {
     }
     .mobileLogo {
         display: block;
+    }
+    .sideMenu {
+        width: 100%;
     }
 }
 
