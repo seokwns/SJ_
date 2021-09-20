@@ -32,10 +32,12 @@ const IndexPage = () => {
       </BackgroundImage>
       </div>
       <div className={styles.latestPosts}>
-        <p style={{fontSize: "20px", verticalAlign: "top", margin: "auto"}}>
+        <h2 style={{fontSize: "20px", verticalAlign: "top", margin: "auto"}}>
           latest posts
-        </p>
-        <p>최근에 올린 포스팅이 소개됩니다.</p>
+        </h2>
+        <div className={styles.latestPostsDiv}>
+          <p>posts here</p>
+        </div>
       </div>
     </Layout>
   )

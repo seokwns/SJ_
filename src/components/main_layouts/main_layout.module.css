@@ -1,15 +1,10 @@
 @font-face {
-    font-family: "comfortaa";
-    src: url("../fonts/Comfortaa-Medium.ttf");
-    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
-}
-@font-face {
-    font-family: "noto-sans-light";
+    font-family: "noto-sans-light-ko";
     src: url("../fonts/NotoSansCJKkr-Light.otf");
     unicode-range: U+AC00-U+D7A3;
 }
 @font-face {
-    font-family: "noto-sans-thin";
+    font-family: "noto-sans-thin-ko";
     src: url("../fonts/NotoSansCJKkr-Thin.otf");
     unicode-range: U+AC00-U+D7A3;
 }
@@ -39,13 +34,27 @@ body {
     justify-content: space-between;
     background-color: white;
     z-index: 2;
+    border-bottom: 1px solid #EEEEEE;
 }
+
+
 .topLogo {
-    padding: 15px 15px 15px 15px;
-    margin: 0px 15px 0px 15px;
+    margin: 20px 20px;
     text-align: center;
     vertical-align: middle;
-    font-family: "noto-sans-thin-en", "noto-sans-thin";
+}
+
+a:link {
+    color: black;
+}
+a:hover {
+    color: black;
+}
+a:active {
+    color: black;
+}
+a:visited {
+    color: black;
 }
 
 
@@ -54,42 +63,42 @@ body {
     list-style: none;
     text-align: center;
     vertical-align: middle;
-    padding: 0px 30px 0px 30px;
+    padding: 0px 15px;
 }
 
 
 .navLinks li {
     font-size: 17px;
-    margin: 5px 35px 10px 35px;
+    margin: 5px 20px 10px 20px;
     text-align: center;
     vertical-align: middle;
-    font-family: "noto-sans-thin-en", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
+    width: 70px;
 }
 .navLinkText:link {
-    font-family: "noto-sans-thin-en", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     text-decoration: none;
     color: black;
 }
 .navLinkText:hover {
-    font-family: "noto-sans-thin-en", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     text-decoration: none;
     color: black;
 }
 .navLinkText:active {
-    font-family: "noto-sans-thin-en", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     text-decoration: none;
     color: black;
 }
 .navLinkText:visited {
-    font-family: "noto-sans-thin-en", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     text-decoration: none;
     color: black;
 }
 
 
-.navToggle {
+.mobileLogo {
     display: none;
-    padding-top: 17px;
 }
 
 
@@ -101,7 +110,7 @@ body {
     text-align: left;
     border: none;
     border-radius: 30px;
-    font-family: "noto-sans-thin-en", "noto-sans-thin";
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     height: 40px;
 }
 .searchBox:focus {
@@ -110,102 +119,26 @@ body {
 
 
 .childrenContainer {
-    padding: 0px 15px 15px 15px;
-    font-family: "noto-sans-thin-en", "noto-sans-light";
+    padding: 0;
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     font-size: 30px;
     z-index: 1;
 }
 
 
-
-@media screen and (max-width: 767px) {
-    /* 모바일 */
+@media screen and (max-width: 970px) {
+    /* 모바일 및 테블릿 세로 */
     .navLinks {
-        flex-direction: column;
-        padding: 0px;
-    }
-    .navToggle {
-        display: block;
-    }
-
-    .liAbout {
         display: none;
     }
-    .liPosts {
-        display: none;
-    }
-    .liPhotos {
-        display: none;
-    }
-    .liDesigns {
-        display: none;
-    }
-    .liNow {
-        display: block;
-    }
-    .searchBox {
-        display: none;
-    }
-    .topMenu {
-        justify-content: center;
-    }
-    .topLogo {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 970px) {
-    /* 테블릿 세로 */
-    .navLinks {
-        flex-direction: column;
-    }
-    .navToggle {
-        display: block;
-    }
-    .navLinks {
-        padding: 0px;
-    }
-
-    .liAbout {
-        display: none;
-    }
-    .liPosts {
-        display: none;
-    }
-    .liPhotos {
-        display: none;
-    }
-    .liDesigns {
-        display: none;
-    }
-    .liNow {
+    .mobileLogo {
         display: block;
     }
 }
 
 @media screen and (min-width: 971px) {
     /* 테블릿 가로 및 데스크탑 */
-    .navToggle {
-        display: none;
-    }
-    .liNow {
-        display: none;
-    }
-
     .navLinks {
-        flex-direction: row;
-    }
-    
-    .liAbout {
-        display: block;
-    }
-    .liPosts {
-        display: block;
-    }
-    .liPhotos {
-        display: block;
-    }
-    .liDesigns {
-        display: block;
+        display: flex;
     }
 }

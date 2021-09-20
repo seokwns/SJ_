@@ -15,12 +15,14 @@ body {
 .latestPosts {
     margin: 40px auto;
     padding: 15px;
-    background-color: #EEEEEE;
-    border-radius: 10px;
 }
 
-.latestPosts p {
+.latestPostsDiv {
     font-size: 17px;
+    background-color: #EEEEEE;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 15px;
 }
 
 
