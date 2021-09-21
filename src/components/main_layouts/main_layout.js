@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './main_layout.module.css'
 import { Helmet } from 'react-helmet'
+import $ from 'jquery/dist/jquery.slim'
 
 
 const Layout = ({ pageTitle, children }) => {
@@ -33,6 +34,14 @@ const Layout = ({ pageTitle, children }) => {
                         const innerWidth = window.innerWidth;
                         sbar.width = innerWidth >= '768'? '375px' : '100%';
                         sbar.display = 'block';
+
+                        document.getElementById('bg').addEventListener('click', () => {
+                            document.getElementById('sidebar').style.display = 'none';
+                            document.getElementById('bg').style.display = 'none';
+                            $('html, body').removeClass(styles.hidden);
+                        });
+
+                        $('html, body').addClass(styles.hidden);
                     }}>
                         menu
                     </span>
@@ -73,7 +82,7 @@ const Layout = ({ pageTitle, children }) => {
                     </span>
                 </a>
             </div>
-            <div className={styles.childrenContainer}>
+            <div className={styles.childrenContainer} id='child'>
                 {children}
             </div>
 
@@ -82,42 +91,43 @@ const Layout = ({ pageTitle, children }) => {
                     <span className="material-icons" style={{fontSize: '30px', margin: '20px'}} onClick={event => {
                         document.getElementById('sidebar').style.display = 'none';
                         document.getElementById('bg').style.display = 'none';
+                        $('html, body').removeClass(styles.hidden);
                     }}>
                         close
                     </span>
                 </a>
                 <p className={styles.sideLogo}>SJ_log</p>
-                <ul className={styles.sideLinks}>
-                    <li>
-                        <Link to="/" className={styles.navLinkText}>
-                            Home
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/about" className={styles.navLinkText}>
-                            About
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/posts" className={styles.navLinkText}>
-                            Posts
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/photos" className={styles.navLinkText}>
-                            Photos
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/designs" className={styles.navLinkText}>
-                            Designs
-                        </Link>
-                    </li>
-                </ul>
+                <nav style={{maxHeight: 'calc(100vh - 220px)', overflowY: 'auto'}}>
+                    <ul className={styles.sideLinks}>
+                        <li>
+                            <Link to="/" className={styles.navLinkText}>
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/about" className={styles.navLinkText}>
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/posts" className={styles.navLinkText}>
+                                Posts
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/photos" className={styles.navLinkText}>
+                                Photos
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/designs" className={styles.navLinkText}>
+                                Designs
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div className={styles.background} id='bg'>
-
-            </div>
+            <div className={styles.background} id='bg'></div>
         </div>
     )
 }

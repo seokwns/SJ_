@@ -24,6 +24,12 @@ body {
 }
 
 
+.hidden {
+    overflow: hidden;
+    touch-action: none;
+}
+
+
 .topMenu {
     position: sticky;
     top: 0;
