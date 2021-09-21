@@ -164,6 +164,12 @@ a:visited {
     margin: 30px 50px;
     padding-bottom: 20px;
     border-bottom: 1px solid #757575;
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
+}
+
+
+.mobileLogo {
+    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
 }
 
 
