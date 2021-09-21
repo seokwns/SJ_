@@ -46,7 +46,7 @@ const Layout = ({ pageTitle, children }) => {
                         menu
                     </span>
                 </a>
-                <nav style={{display: "flex", justifyContent: "center"}}>
+                <nav style={{display: "flex", justifyContent: "center"}} onClick={()=>$('html, body').removeClass(styles.hidden)}>
                     <ul className={styles.navLinks}>
                         <li>
                             <Link to="/" className={styles.navLinkText}>
@@ -97,7 +97,7 @@ const Layout = ({ pageTitle, children }) => {
                     </span>
                 </a>
                 <p className={styles.sideLogo}>SJ_log</p>
-                <nav style={{maxHeight: 'calc(100vh - 220px)', overflowY: 'auto'}}>
+                <nav style={{maxHeight: 'calc(100vh - 220px)', overflowY: 'auto'}} onClick={()=>$('html, body').removeClass(styles.hidden)}>
                     <ul className={styles.sideLinks}>
                         <li>
                             <Link to="/" className={styles.navLinkText}>
