@@ -4,7 +4,7 @@ import Layout from '../../components/main_layouts/main_layout'
 const postsPage = () => {
     return (
         <Layout pageTitle="Posts">
-            <p>Helllo</p>
+            <p>Posts Here.</p>
         </Layout>
     )
 }

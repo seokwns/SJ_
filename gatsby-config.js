@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: "SJ_",
+    author: "Seokjun Moon",
+    description: "This blog is powered by Gatsby",
+    siteUrl: "https://seokjun.gatsbyjs.io/",
   },
   plugins: [
     "gatsby-plugin-image",
@@ -24,6 +27,15 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://seokjun.gatsbyjs.io/",
+        sitemap: "https://seokjun.gatsbyjs.io/sitemap.xml",
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
   ],
   flags: {
     DEV_SSR: false
