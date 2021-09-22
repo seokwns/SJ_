@@ -30,7 +30,7 @@ const Layout = ({ pageTitle, children }) => {
             </Helmet>
             <div className={styles.topMenu}>
                 <button>
-                    <span className="material-icons" style={{fontSize:'30px', margin: '20px'}} onClick={event => {
+                    <span className="material-icons" style={{fontSize:'30px', margin: '20px', color: 'black'}} onClick={event => {
                         const sbar = document.getElementById('sidebar').style;
                         const bg = document.getElementById('bg').style;
                         bg.display = 'block';
@@ -78,7 +78,7 @@ const Layout = ({ pageTitle, children }) => {
                     <h2 className={styles.mobileLogo}>SJ_log</h2>
                 </nav>
                 <button>
-                    <span className="material-icons" style={{fontSize: '30px', margin:'22px 20px 20px 20px'}}>
+                    <span className="material-icons" style={{fontSize: '30px', margin:'22px 20px 20px 20px', color: 'black'}}>
                         search
                     </span>
                 </button>
@@ -89,7 +89,7 @@ const Layout = ({ pageTitle, children }) => {
 
             <div className={styles.sideMenu} id='sidebar'>
                 <button>
-                    <span className="material-icons" style={{fontSize: '30px', margin: '20px'}} onClick={event => {
+                    <span className="material-icons" style={{fontSize: '30px', margin: '20px', color: 'black'}} onClick={event => {
                         document.getElementById('sidebar').style.display = 'none';
                         document.getElementById('bg').style.display = 'none';
                     }}>
