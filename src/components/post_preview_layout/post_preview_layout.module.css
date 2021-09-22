@@ -1,3 +1,66 @@
-.mainLayout {
-    
+.container {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding: 10px auto 20px auto;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 700px;
+}
+
+
+.ThumbnailImage {
+    width: 200px;
+    height: 200px;
+    margin: 10px 0 10px 20px;
+    max-width: 200px;
+}
+
+
+.contentDiv {
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 200px;
+    overflow: hidden;
+}
+
+
+.contentDiv p {
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+
+.postContent {
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    text-overflow: inherit;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+@media screen and (min-width: 340px) and (max-width: 500px) {
+    .ThumbnailImage {
+        width: calc(100% - 170px);
+    }
+    .postContent {
+        max-width: 250px;
+    }
+}
+
+
+@media screen and (min-width: 501px) {
+    .ThumbnailImage {
+        min-width: 200px;
+    }
 }

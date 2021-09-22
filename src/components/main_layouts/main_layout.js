@@ -23,10 +23,14 @@ const Layout = ({ pageTitle, children }) => {
                 <script src="https://kit.fontawesome.com/d43bad4a7f.js" crossorigin="anonymous"></script>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+                <script>
+                    document.body.style.minWidth = '340px';
+                    document.body.style.overflowY = 'hidden';
+                </script>
             </Helmet>
             <div className={styles.topMenu}>
-                <a href="#">
-                    <span className="material-icons" style={{fontSize:'30px', margin: '22px 20px 20px 20px'}} onClick={event => {
+                <button>
+                    <span className="material-icons" style={{fontSize:'30px', margin: '20px'}} onClick={event => {
                         const sbar = document.getElementById('sidebar').style;
                         const bg = document.getElementById('bg').style;
                         bg.display = 'block';
@@ -38,15 +42,12 @@ const Layout = ({ pageTitle, children }) => {
                         document.getElementById('bg').addEventListener('click', () => {
                             document.getElementById('sidebar').style.display = 'none';
                             document.getElementById('bg').style.display = 'none';
-                            $('html, body').removeClass(styles.hidden);
                         });
-
-                        $('html, body').addClass(styles.hidden);
                     }}>
                         menu
                     </span>
-                </a>
-                <nav style={{display: "flex", justifyContent: "center"}} onClick={()=>$('html, body').removeClass(styles.hidden)}>
+                </button>
+                <nav style={{display: "flex", justifyContent: "center"}}>
                     <ul className={styles.navLinks}>
                         <li>
                             <Link to="/" className={styles.navLinkText}>
@@ -76,28 +77,27 @@ const Layout = ({ pageTitle, children }) => {
                     </ul>
                     <h2 className={styles.mobileLogo}>SJ_log</h2>
                 </nav>
-                <a href="#">
+                <button>
                     <span className="material-icons" style={{fontSize: '30px', margin:'22px 20px 20px 20px'}}>
                         search
                     </span>
-                </a>
+                </button>
             </div>
-            <div className={styles.childrenContainer} id='child'>
+            <div className={styles.childrenContainer}>
                 {children}
             </div>
 
             <div className={styles.sideMenu} id='sidebar'>
-                <a href="#">
+                <button>
                     <span className="material-icons" style={{fontSize: '30px', margin: '20px'}} onClick={event => {
                         document.getElementById('sidebar').style.display = 'none';
                         document.getElementById('bg').style.display = 'none';
-                        $('html, body').removeClass(styles.hidden);
                     }}>
                         close
                     </span>
-                </a>
+                </button>
                 <p className={styles.sideLogo}>SJ_log</p>
-                <nav style={{maxHeight: 'calc(100vh - 220px)', overflowY: 'auto'}} onClick={()=>$('html, body').removeClass(styles.hidden)}>
+                <nav style={{maxHeight: 'calc(100vh - 220px)', overflowY: 'auto'}}>
                     <ul className={styles.sideLinks}>
                         <li>
                             <Link to="/" className={styles.navLinkText}>

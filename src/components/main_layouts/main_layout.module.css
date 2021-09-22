@@ -24,9 +24,9 @@ body {
 }
 
 
-.hidden {
-    overflow: hidden;
-    touch-action: none;
+button {
+    border: none;
+    background-color: transparent;
 }
 
 
@@ -123,6 +123,8 @@ a:visited {
     font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     font-size: 30px;
     z-index: 1;
+    height: calc(100vh - 70px);
+    overflow: auto;
 }
 
 
