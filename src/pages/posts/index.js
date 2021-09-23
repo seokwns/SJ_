@@ -8,7 +8,6 @@ const PostsPage = ({ data }) => {
     return (
         <Layout pageTitle="Posts">
             <div className={styles.container}>
-                <h5 style={{margin: '30px auto 0 auto'}}>최근 포스팅</h5>
                 <ul style={{listStyle: 'none', margin: '0', padding: '0'}}>
                 {
                     data.allMdx.nodes.map(node => (

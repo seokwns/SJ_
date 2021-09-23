@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './main_layout.module.css'
 import { Helmet } from 'react-helmet'
-import { StaticImage } from 'gatsby-plugin-image'
 
 
 const links = [

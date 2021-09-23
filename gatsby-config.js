@@ -8,7 +8,6 @@ module.exports = {
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -28,10 +27,17 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "blog",
-        path: `${__dirname}/blog`,
+        name: "posts",
+        path: `${__dirname}/posts`,
       },
-      __key: "blog",
+      __key: "posts",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog-images",
+        path: `${__dirname}/posts/post-images`,
+      },
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
@@ -44,6 +50,22 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
+    "gatsby-remark-images",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        root: __dirname,
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 500,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    }
   ],
   flags: {
     DEV_SSR: false
