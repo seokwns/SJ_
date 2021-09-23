@@ -12,7 +12,7 @@ const AboutPage = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             </Helmet>
             <div className={styles.container} style={{paddingTop: '50px'}}>
-                <StaticImage src='../../images/profile.jpg' alt='profile image' className={styles.profileImage}></StaticImage>
+                <StaticImage src='../../images/profile.jpg' alt='profile image' className={styles.profileImage} defer></StaticImage>
                 <p>Moon Seok Jun</p>
             </div>
         </Layout>

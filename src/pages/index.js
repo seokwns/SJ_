@@ -1,8 +1,7 @@
 import * as React from 'react'
 import Layout from '../components/main_layouts/main_layout'
-import PostPreviewLayout from '../components/post_preview_layout/post_preview_layout'
 import * as styles from './index.module.css'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 
 
@@ -11,7 +10,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout pageTitle="Welcome">
       <div className={styles.container}>
-      <BackgroundImage Tag={`section`} fluid={data.file.childImageSharp.fluid}>
+      <BackgroundImage Tag={`section`} fluid={data.file.childImageSharp.fluid} defer>
         <div style={{height: 'calc(100vh - 70px)'}}>
           <p style={{fontSize: "40px", paddingTop: "80px", margin: "0px"}}>Thanks for coming</p>
           <br></br>

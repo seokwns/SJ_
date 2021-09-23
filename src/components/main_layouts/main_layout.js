@@ -2,7 +2,31 @@ import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import * as styles from './main_layout.module.css'
 import { Helmet } from 'react-helmet'
-import $ from 'jquery/dist/jquery.slim'
+import { StaticImage } from 'gatsby-plugin-image';
+
+
+const links = [
+    {
+        url: '/',
+        text: 'Home'
+    },
+    {
+        url: '/about',
+        text: 'About'
+    },
+    {
+        url: '/posts',
+        text: 'Posts'
+    },
+    {
+        url: '/photos',
+        text: 'Photos'
+    },
+    {
+        url: '/designs',
+        text: 'Designs'
+    }
+];
 
 
 const Layout = ({ pageTitle, children }) => {
@@ -20,7 +44,6 @@ const Layout = ({ pageTitle, children }) => {
         <div className={styles.container}>
             <Helmet>
                 <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-                <script src="https://kit.fontawesome.com/d43bad4a7f.js" crossorigin="anonymous"></script>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
                 <script>
@@ -30,9 +53,9 @@ const Layout = ({ pageTitle, children }) => {
             </Helmet>
             <div className={styles.topMenu}>
                 <button>
-                    <span className="material-icons" style={{fontSize:'30px', margin: '20px', color: 'black'}} onClick={event => {
-                        const sbar = document.getElementById('sidebar').style;
-                        const bg = document.getElementById('bg').style;
+                    <StaticImage src='../../images/icons/outline_menu_black_36dp.png' alt='menu' onClick={() => {
+                        let sbar = document.getElementById('sidebar').style;
+                        let bg = document.getElementById('bg').style;
                         bg.display = 'block';
 
                         const innerWidth = window.innerWidth;
@@ -43,44 +66,26 @@ const Layout = ({ pageTitle, children }) => {
                             document.getElementById('sidebar').style.display = 'none';
                             document.getElementById('bg').style.display = 'none';
                         });
-                    }}>
-                        menu
-                    </span>
+                    }} imgStyle={{width: '27px', height: '27px', margin: '20px'}} style={{width: '70px', height: '70px'}} defer/>
                 </button>
                 <nav style={{display: "flex", justifyContent: "center"}}>
                     <ul className={styles.navLinks}>
-                        <li>
-                            <Link to="/" className={styles.navLinkText}>
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/about" className={styles.navLinkText}>
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/posts" className={styles.navLinkText}>
-                                Posts
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/photos" className={styles.navLinkText}>
-                                Photos
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/designs" className={styles.navLinkText}>
-                                Designs
-                            </Link>
-                        </li>
+                        {
+                            links.map(node => (
+                                <li key={node.url}>
+                                    <Link to={node.url} className={styles.navLinkText}>
+                                        {node.text}
+                                    </Link>
+                                </li>
+                            ))
+                        }
                     </ul>
                     <h2 className={styles.mobileLogo}>SJ_log</h2>
                 </nav>
                 <button>
-                    <span className="material-icons" style={{fontSize: '30px', margin:'22px 20px 20px 20px', color: 'black'}}>
-                        search
-                    </span>
+                    <StaticImage src='../../images/icons/outline_search_black_36dp.png' alt='search' 
+                                 imgStyle={{width: '27px', height: '27px', margin: '22px 5px 18px 25px'}} 
+                                 style={{width: '70px', height: '70px'}} defer/>
                 </button>
             </div>
             <div className={styles.childrenContainer}>
@@ -89,41 +94,23 @@ const Layout = ({ pageTitle, children }) => {
 
             <div className={styles.sideMenu} id='sidebar'>
                 <button>
-                    <span className="material-icons" style={{fontSize: '30px', margin: '20px', color: 'black'}} onClick={event => {
+                    <StaticImage src='../../images/icons/outline_clear_black_36dp.png' alt='close' onClick={() => {
                         document.getElementById('sidebar').style.display = 'none';
                         document.getElementById('bg').style.display = 'none';
-                    }}>
-                        close
-                    </span>
+                    }} imgStyle={{width: '27px', height: '27px', margin: '20px'}} style={{width: '70px', height: '70px'}} defer/>
                 </button>
                 <p className={styles.sideLogo}>SJ_log</p>
                 <nav style={{maxHeight: 'calc(100vh - 220px)', overflowY: 'auto'}}>
                     <ul className={styles.sideLinks}>
-                        <li>
-                            <Link to="/" className={styles.navLinkText}>
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/about" className={styles.navLinkText}>
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/posts" className={styles.navLinkText}>
-                                Posts
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/photos" className={styles.navLinkText}>
-                                Photos
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/designs" className={styles.navLinkText}>
-                                Designs
-                            </Link>
-                        </li>
+                    {
+                        links.map(node => (
+                            <li key={node.url}>
+                                <Link to={node.url} className={styles.navLinkText}>
+                                    {node.text}
+                                </Link>
+                            </li>
+                        ))
+                    }
                     </ul>
                 </nav>
             </div>

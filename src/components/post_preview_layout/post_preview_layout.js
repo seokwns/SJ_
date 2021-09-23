@@ -15,7 +15,7 @@ const PostPreviewLayout = ({ PostData }) => {
                 <p className={styles.postContent}>{PostData.excerpt}</p>
                 <p style={{color: '#9E9E9E'}}>{PostData.frontmatter.date}</p>
             </div>
-            {ThumbnailImage && (<GatsbyImage image={ThumbnailImage} alt="thumbnail image" className={styles.ThumbnailImage}/>)}
+            {ThumbnailImage && (<GatsbyImage image={ThumbnailImage} alt="thumbnail image" className={styles.ThumbnailImage} defer/>)}
             
         </div>
     )
