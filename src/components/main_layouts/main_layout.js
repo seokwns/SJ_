@@ -66,7 +66,7 @@ const Layout = ({ pageTitle, children }) => {
                             document.getElementById('sidebar').style.display = 'none';
                             document.getElementById('bg').style.display = 'none';
                         });
-                    }} imgStyle={{width: '27px', height: '27px', margin: '20px'}} style={{width: '70px', height: '70px'}} defer/>
+                    }} imgStyle={{width: '27px', height: '27px', margin: '20px'}} style={{width: '70px', height: '70px'}}/>
                 </button>
                 <nav style={{display: "flex", justifyContent: "center"}}>
                     <ul className={styles.navLinks}>
@@ -85,7 +85,7 @@ const Layout = ({ pageTitle, children }) => {
                 <button>
                     <StaticImage src='../../images/icons/outline_search_black_36dp.png' alt='search' 
                                  imgStyle={{width: '27px', height: '27px', margin: '22px 5px 18px 25px'}} 
-                                 style={{width: '70px', height: '70px'}} defer/>
+                                 style={{width: '70px', height: '70px'}}/>
                 </button>
             </div>
             <div className={styles.childrenContainer}>
@@ -97,7 +97,7 @@ const Layout = ({ pageTitle, children }) => {
                     <StaticImage src='../../images/icons/outline_clear_black_36dp.png' alt='close' onClick={() => {
                         document.getElementById('sidebar').style.display = 'none';
                         document.getElementById('bg').style.display = 'none';
-                    }} imgStyle={{width: '27px', height: '27px', margin: '20px'}} style={{width: '70px', height: '70px'}} defer/>
+                    }} imgStyle={{width: '27px', height: '27px', margin: '20px'}} style={{width: '70px', height: '70px'}}/>
                 </button>
                 <p className={styles.sideLogo}>SJ_log</p>
                 <nav style={{maxHeight: 'calc(100vh - 220px)', overflowY: 'auto'}}>
