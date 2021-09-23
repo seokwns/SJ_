@@ -85,7 +85,7 @@ const Layout = ({ pageTitle, children }) => {
                             ))
                         }
                     </ul>
-                    <h2 className={styles.mobileLogo}>SJ_log</h2>
+                    <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
                 </nav>
                 <button>
                 <span className="material-icons" style={{fontSize:'30px', margin: '20px', color: 'black'}}>search</span>

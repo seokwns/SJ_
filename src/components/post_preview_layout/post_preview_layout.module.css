@@ -51,10 +51,10 @@ a {
 
 @media screen and (min-width: 340px) and (max-width: 500px) {
     .ThumbnailImage {
-        width: calc(100% - 170px);
+        width: calc(100vw - 110px);
     }
     .postContent {
-        max-width: 250px;
+        max-width: 100vw;
     }
 }
 
