@@ -7,13 +7,24 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 
 const ViewPostPage = ({ data }) => {
+
+    const temp = data.mdx.frontmatter.category.split("-");
+    temp.shift();
+    const displayCategory = temp.join(" > ");
+
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
+            <script type="text/javascript">
+                const temp = location.href.split("?");
+                const data = temp.split(":");
+                const key = data[0];
+                const vale = data[1];
+            </script>
             <div className={styles.container}>
-                <p style={{fontSize: '15px', marginBottom: '20px', color: '#01579B'}}>{ data.mdx.frontmatter.category }</p>
-                <p style={{fontSize: '30px', margin: '20px 0', textAlign: 'left'}}>{ data.mdx.frontmatter.title }</p>
-                <p style={{fontSize: '15px', color: '#9E9E9E', margin: '20px 0 60px 0', paddingBottom: '20px', borderBottom: '1px solid #E0E0E0'}}>{ data.mdx.frontmatter.date }</p>
-                <MDXRenderer>
+                <p className={styles.category} style={{color: '#01579B'}}>{ displayCategory }</p>
+                <p className={styles.title}>{ data.mdx.frontmatter.title }</p>
+                <p className={styles.date}>{ data.mdx.frontmatter.date }</p>
+                <MDXRenderer className={styles.content}>
                     { data.mdx.body }
                 </MDXRenderer>
             </div>

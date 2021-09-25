@@ -1,16 +1,41 @@
 @font-face {
     font-family: "noto-sans-light-ko";
-    src: url("../fonts/NotoSansCJKkr-Light.ttf");
+    src: url("../fonts/NotoSansKR-Light.otf");
     unicode-range: U+AC00-U+D7A3;
 }
 @font-face {
     font-family: "noto-sans-thin-ko";
-    src: url("../fonts/NotoSansCJKkr-Thin.ttf");
+    src: url("../fonts/NotoSansKR-Thin.otf");
     unicode-range: U+AC00-U+D7A3;
 }
 @font-face {
-    font-family: "noto-sans-thin-en";
+    font-family: "noto-sans-medium-ko";
+    src: url("../fonts/NotoSansKR-Medium.otf");
+    unicode-range: U+AC00-U+D7A3;
+}
+@font-face {
+    font-family: "noto-sans-bold-ko";
+    src: url("../fonts/NotoSansKR-Bold.otf");
+    unicode-range: U+AC00-U+D7A3;
+}
+@font-face {
+    font-family: "noto-sans-light-en";
     src: url("../fonts/NotoSans-Light.ttf");
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+    font-family: "noto-sans-thin-en";
+    src: url("../fonts/NotoSans-thin.ttf");
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+    font-family: "noto-sans-medium-en";
+    src: url("../fonts/NotoSans-Medium.ttf");
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+@font-face {
+    font-family: "noto-sans-bold-en";
+    src: url("../fonts/NotoSans-Bold.ttf");
     unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
 }
 
@@ -30,6 +55,12 @@ button {
     padding: 0;
 }
 
+
+button:hover {
+    cursor: pointer;
+}
+
+
 button div {
     background-color: transparent;
     transition: none;
@@ -46,20 +77,12 @@ button div {
     justify-content: space-between;
     background-color: white;
     z-index: 2;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 
-a:link {
-    color: black;
-}
-a:hover {
-    color: black;
-}
-a:active {
-    color: black;
-}
-a:visited {
+a {
+    text-decoration: none;
     color: black;
 }
 
@@ -67,39 +90,35 @@ a:visited {
 .navLinks {
     display: flex;
     list-style: none;
-    text-align: center;
-    vertical-align: middle;
     padding: 0px 15px;
+    margin: 0 auto;
 }
 
 
 .navLinks li {
     font-size: 17px;
-    margin: 5px 20px 10px 20px;
-    text-align: center;
-    vertical-align: middle;
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
-    width: 70px;
+    margin: 0;
+    font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
+    width: 120px;
+    height: 70px;
 }
-.navLinkText:link {
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
+
+
+.navLinks li:hover {
+    border-bottom: 3px solid #212121;
+    font-family: "noto-sans-bold-en", "noto-sans-bold-ko";
+    cursor: pointer;
+    transition: border-bottom 0.25s;
+}
+
+
+.navLinkText {
     text-decoration: none;
     color: black;
-}
-.navLinkText:hover {
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
-    text-decoration: none;
-    color: black;
-}
-.navLinkText:active {
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
-    text-decoration: none;
-    color: black;
-}
-.navLinkText:visited {
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
-    text-decoration: none;
-    color: black;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 
@@ -116,7 +135,6 @@ a:visited {
     text-align: left;
     border: none;
     border-radius: 30px;
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
     height: 40px;
 }
 .searchBox:focus {
@@ -126,10 +144,10 @@ a:visited {
 
 .childrenContainer {
     padding: 0;
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
+    font-family: "noto-sans-light-en", "noto-sans-light-ko";
     z-index: 1;
-    height: calc(100vh - 70px);
     overflow: auto;
+    height: calc(100vh - 90px);
 }
 
 
@@ -168,7 +186,15 @@ a:visited {
 
 .sideLinks li {
     font-size: 20px;
-    margin: 40px;
+    margin: 20px 40px;
+    font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
+}
+
+
+.sideLinks li:hover {
+    font-family: "noto-sans-bold-en", "noto-sans-bold-ko";
+    color: #1A237E;
+    cursor: pointer;
 }
 
 
@@ -178,12 +204,11 @@ a:visited {
     margin: 0 50px 0 50px;
     padding-bottom: 40px;
     border-bottom: 1px solid #757575;
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
 }
 
 
 .mobileLogo {
-    font-family: "noto-sans-thin-en", "noto-sans-thin-ko";
+    font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
 }
 
 

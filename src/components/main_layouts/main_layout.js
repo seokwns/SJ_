@@ -7,25 +7,34 @@ import { Helmet } from 'react-helmet'
 const links = [
     {
         url: '/',
-        text: 'Home'
+        text: 'Home',
     },
     {
         url: '/about',
-        text: 'About'
+        text: 'About',
     },
     {
         url: '/posts',
-        text: 'Posts'
+        text: 'Posts',
+        categories: {}
     },
     {
         url: '/photos',
-        text: 'Photos'
+        text: 'Photos',
+        categories: {}
     },
     {
         url: '/designs',
-        text: 'Designs'
+        text: 'Designs',
     }
 ];
+
+
+const MaterialIconStyle = {
+    fontSize:'30px',
+    margin: '20px', 
+    color: 'black'
+};
 
 
 const Layout = ({ pageTitle, children }) => {
@@ -36,9 +45,49 @@ const Layout = ({ pageTitle, children }) => {
                     title
                 }
             }
+            allMdx {
+                nodes {
+                    frontmatter {
+                        category
+                        date
+                        tag
+                        title
+                    }
+                    id
+                    slug
+                    body
+                }
+            }
         }
     `)
+
+
+    const makeProperty = (parentProperties, newPropertyName, childrenContent) => {
+        
+    }
+
+
+    const parseCategories = () => {
+        const DataNodes = data.allMdx.nodes;
+        DataNodes.forEach(node => {
+            if(node.frontmatter.category != null) {
+                const temp = node.frontmatter.category.split("-");
+                if(temp[0] == "Posts") {
+                    for(let i = 1; i < temp.length; i++) {
+                        
+                    }
+                }
+                if(temp[0] == "Photos") {
+                    for(let i = 1; i < temp.length; i++) {
+                        
+                    }
+                }
+            }
+        })
+    }
+    parseCategories();
     
+
     return (
         <div className={styles.container}>
             <Helmet>
@@ -71,14 +120,14 @@ const Layout = ({ pageTitle, children }) => {
                         document.getElementById('bg').style.display = 'none';
                     });
                 }}>
-                    <span className="material-icons" style={{fontSize:'30px', margin: '20px', color: 'black'}}>menu</span>
+                    <span className="material-icons" style={MaterialIconStyle}>menu</span>
                 </button>
                 <nav style={{display: "flex", justifyContent: "center"}}>
                     <ul className={styles.navLinks}>
                         {
                             links.map(node => (
                                 <li key={node.url}>
-                                    <Link to={node.url} className={styles.navLinkText}>
+                                    <Link to={node.url} className={styles.navLinkText} style={{textAlign: 'center'}}>
                                         {node.text}
                                     </Link>
                                 </li>
@@ -88,7 +137,7 @@ const Layout = ({ pageTitle, children }) => {
                     <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
                 </nav>
                 <button>
-                <span className="material-icons" style={{fontSize:'30px', margin: '20px', color: 'black'}}>search</span>
+                <span className="material-icons" style={MaterialIconStyle}>search</span>
                 </button>
             </div>
             <div className={styles.childrenContainer}>
@@ -100,7 +149,7 @@ const Layout = ({ pageTitle, children }) => {
                     document.getElementById('sidebar').style.display = 'none';
                     document.getElementById('bg').style.display = 'none';
                 }}>
-                    <span className="material-icons" style={{fontSize:'30px', margin: '20px', color: 'black'}}>clear</span>
+                    <span className="material-icons" style={MaterialIconStyle}>clear</span>
                 </button>
                 <p className={styles.sideLogo}>SJ_log</p>
                 <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>

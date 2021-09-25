@@ -5,13 +5,20 @@ import PostPreviewLayout from '../../components/post_preview_layout/post_preview
 import * as styles from './index.module.css'
 
 const PostsPage = ({ data }) => {
+    const PostNodes = data.allMdx.nodes;
+    let NodesData = [];
+    for (let i = 0; i < PostNodes.length; i++) {
+        let np = (i == 0? null : PostNodes[i-1]);
+        let pp = (i == PostNodes.length - 1 ? null : PostNodes[i+1]);
+        NodesData.push([PostNodes[i], pp, np]);
+    }
     return (
         <Layout pageTitle="Posts">
             <div className={styles.container}>
                 <ul style={{listStyle: 'none', margin: '0', padding: '0'}}>
                 {
-                    data.allMdx.nodes.map(node => (
-                        <li key={node.id}><PostPreviewLayout PostData={node}></PostPreviewLayout></li>
+                    NodesData.map(node => (
+                        <li key={node[0].id}><PostPreviewLayout PostData={node[0]}></PostPreviewLayout></li>
                     ))
                 }
                 </ul>
