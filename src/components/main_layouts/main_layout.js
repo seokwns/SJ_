@@ -59,7 +59,6 @@ const Layout = ({ pageTitle, pageCat, children }) => {
             allMdx {
                 nodes {
                     frontmatter {
-                        category
                         date
                         tag
                         title
@@ -69,50 +68,8 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                     body
                 }
             }
-            allFile(
-                filter: {absolutePath: {regex: "/SJ_/posts/"}}
-                sort: {order: ASC, fields: relativeDirectory}) {
-                nodes {
-                    relativeDirectory
-                    absolutePath
-                }
-            }
         }
     `)
-
-
-    const PostCategories = [];  //[category name, category level, post amount, all category]
-    const PhotoCategories = [];
-    
-    data.allFile.nodes.map((value, index) => {
-        if(value.relativeDirectory == "post-images") return;
-
-        const name_temp = value.absolutePath.split("/");
-        const fileName = name_temp[name_temp.length - 1];
-
-        if(value.relativeDirectory.indexOf("/") == -1) {
-        }
-
-        const temp = value.relativeDirectory.split("/");
-        if (temp[0] == "photos") {
-            for(let i = 1; i < temp.length; i++) {
-            }
-        } 
-        else {
-            for(let i = 1; i < temp.length; i++) {
-            }
-        } 
-    })
-
-
-    const UpCase = ( str ) => {
-        const temp = str.split("").map((value, index) => {
-            if( index == 0 ) return value.toUpperCase();
-            else return value;
-        });
-
-        return temp.join("");
-    }
 
 
     return (

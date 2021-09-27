@@ -10,19 +10,17 @@ const IndexPage = ({ data }) => {
   return (
     <Layout pageTitle="Welcome" pageCat="Home">
       <div className={styles.container}>
-        <BackgroundImage Tag={`section`} fluid={data.file.childImageSharp.fluid} defer>
-          <div style={{height: 'calc(100vh - 90px)'}}>
-            <p style={{fontSize: "40px", paddingTop: "80px", margin: "0px"}}>Thanks for coming</p>
-            <br></br>
-            <p>갓 전역한 휴학생의 블로그!</p>
-            <p>프론트앤드 공부 겸 Gatsby 공부 겸</p>
-            <p>뚝딱뚝딱 만들고 있는 홈페이지 입니다</p>
-            <p>생각보다 재미있네요</p>
-            <p></p>
-            <br></br>
-            <p style={{paddingBottom: "80px", marginBottom: '0'}}>그럼 이만.</p>
-          </div>
-        </BackgroundImage>
+        <div style={{height: 'calc(100vh - 90px)'}}>
+          <p style={{fontSize: "40px", paddingTop: "80px", margin: "0px"}}>Thanks for coming</p>
+          <br></br>
+          <p>갓 전역한 휴학생의 블로그!</p>
+          <p>프론트앤드 공부 겸 Gatsby 공부 겸</p>
+          <p>뚝딱뚝딱 만들고 있는 홈페이지 입니다</p>
+          <p>생각보다 재미있네요</p>
+          <p></p>
+          <br></br>
+          <p style={{paddingBottom: "80px", marginBottom: '0'}}>그럼 이만.</p>
+        </div>
       </div>
     </Layout>
   )
@@ -43,7 +41,6 @@ export const query = graphql`
             frontmatter {
                 title
                 date(formatString: "MMMM D, YYYY")
-                category
                 tag
                 thumbnail {
                     childImageSharp {

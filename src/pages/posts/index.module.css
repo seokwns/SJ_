@@ -1,14 +1,50 @@
 .container {
-    margin: auto 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: auto;
+    margin-top: 10px;
 }
 
-li {
+
+.ViewPost {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-flow: row wrap;
+    justify-content: left;
     align-items: center;
+    margin: auto;
+}
+
+
+@media screen and (min-width: 340px) and (max-width: 699px) {
+    .ViewPost {
+        width: 100%;
+    }
+    .container {
+        margin-top: 0;
+    }
+}
+
+
+@media screen and (min-width: 700px) and (max-width: 1056px) {
+    .ViewPost {
+        width: 700px;
+    }
+}
+
+
+@media screen and (min-width: 1057px) and (max-width: 1440px) {
+    .ViewPost {
+        width: 1050px;
+    }
+}
+
+
+@media screen and (min-width: 1441px) and (max-width: 1830px) {
+    .ViewPost {
+        width: 1400px;
+    }
+}
+
+
+@media screen and (min-width: 1831px) {
+    .ViewPost {
+        width: 1750px;
+    }
 }

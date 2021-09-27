@@ -42,6 +42,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    background-color: rgb(248, 249, 250);
 }
 
 .container {
@@ -75,7 +76,7 @@ button div {
     height: 70px;
     vertical-align: middle;
     justify-content: space-between;
-    background-color: white;
+    background-color: rgb(248, 249, 250);
     z-index: 2;
     border-bottom: 1px solid #E0E0E0;
 }
@@ -96,6 +97,10 @@ a {
 
 
 .navLinks li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     font-size: 17px;
     margin: 0;
@@ -120,7 +125,7 @@ a {
     height: 3px;
     box-sizing: border-box;
     border-bottom: 3px solid #212121;
-    transition: width 0.4s, left 0.4s
+    transition: width 0.4s, left 0.4s;
 }
 
 
@@ -206,6 +211,10 @@ a {
     font-size: 20px;
     margin: 10px 40px;
     font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 

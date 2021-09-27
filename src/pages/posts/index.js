@@ -8,20 +8,20 @@ const PostsPage = ({ data }) => {
     const PostNodes = data.allMdx.nodes;
     let NodesData = [];
     for (let i = 0; i < PostNodes.length; i++) {
-        let np = (i == 0? null : PostNodes[i-1]);
-        let pp = (i == PostNodes.length - 1 ? null : PostNodes[i+1]);
+        let np = (i === 0? null : PostNodes[i-1]);
+        let pp = (i === PostNodes.length - 1 ? null : PostNodes[i+1]);
         NodesData.push([PostNodes[i], pp, np]);
     }
     return (
         <Layout pageTitle="Posts" pageCat="Posts">
             <div className={styles.container}>
-                <ul style={{listStyle: 'none', margin: '0', padding: '0'}}>
+                <div className={styles.ViewPost}>
                 {
                     NodesData.map(node => (
-                        <li key={node[0].id}><PostPreviewLayout PostData={node[0]}></PostPreviewLayout></li>
+                        <PostPreviewLayout PostData={node[0]} key={node[0].id}/>
                     ))
                 }
-                </ul>
+                </div>
             </div>
         </Layout>
     )
@@ -34,12 +34,13 @@ export const query = graphql`
             nodes {
                 frontmatter {
                     title
-                    date(formatString: "MMMM D, YYYY")
-                    category
+                    date(formatString: "YYYY.M.D")
                     tag
                     thumbnail {
                         childImageSharp {
-                            gatsbyImageData
+                            fluid {
+                                ...GatsbyImageSharpFluid
+                            }
                         }
                     }
                 }

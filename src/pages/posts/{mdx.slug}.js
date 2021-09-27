@@ -8,9 +8,10 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 const ViewPostPage = ({ data }) => {
 
-    const temp = data.mdx.frontmatter.category.split("-");
-    temp.shift();
-    const displayCategory = temp.join(" > ");
+    const displayTag = data.mdx.frontmatter.tag.split("#").map((node, index) => {
+        if(index == 0) return;
+        else return ("#" + node + " ");
+    });
 
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
@@ -23,7 +24,7 @@ const ViewPostPage = ({ data }) => {
             <div className={styles.container}>
                 <p className={styles.title}>{ data.mdx.frontmatter.title }</p>
                 <div className={styles.bottomDiv}>
-                    <p className={styles.category} style={{color: '#01579B'}}>{ displayCategory }</p>
+                    <p className={styles.category} style={{color: '#01579B'}}>{ displayTag }</p>
                     <p className={styles.date}>{ data.mdx.frontmatter.date }</p>
                 </div>
                 <MDXRenderer className={styles.content}>
@@ -41,7 +42,6 @@ export const query = graphql`
             frontmatter {
                 title
                 date(formatString: "MMMM D, YYYY")
-                category
                 tag
                 thumbnail {
                     childImageSharp {
