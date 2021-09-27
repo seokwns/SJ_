@@ -21,9 +21,11 @@ const ViewPostPage = ({ data }) => {
                 const vale = data[1];
             </script>
             <div className={styles.container}>
-                <p className={styles.category} style={{color: '#01579B'}}>{ displayCategory }</p>
                 <p className={styles.title}>{ data.mdx.frontmatter.title }</p>
-                <p className={styles.date}>{ data.mdx.frontmatter.date }</p>
+                <div className={styles.bottomDiv}>
+                    <p className={styles.category} style={{color: '#01579B'}}>{ displayCategory }</p>
+                    <p className={styles.date}>{ data.mdx.frontmatter.date }</p>
+                </div>
                 <MDXRenderer className={styles.content}>
                     { data.mdx.body }
                 </MDXRenderer>

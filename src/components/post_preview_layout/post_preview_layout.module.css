@@ -56,7 +56,7 @@
 
 .contentDiv {
     padding: 0;
-    margin: 10px 0 20px 0;
+    margin: 50px 0 60px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -69,26 +69,26 @@
     word-break: break-all;
     display: -webkit-box;
     text-overflow: inherit;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
 
 .postContent {
     font-size: 1rem;
+    margin: 0;
 }
 
 
 .postTitle {
     font-family: "noto-sans-bold-ko", "noto-sans-bold-en";
     font-size: 1.5rem;
-    margin: 20px 0 10px 0;
+    margin: 10px 0 10px 0;
 }
 
 
 .bottomItem {
     display: flex;
-    font-family: "noto-sans-light-ko", "noto-sans-light-en";
     font-size: 1rem;
 }
 

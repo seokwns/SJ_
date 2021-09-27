@@ -8,24 +8,35 @@ const links = [
     {
         url: '/',
         text: 'Home',
+        categories: {
+        }
     },
     {
         url: '/about',
         text: 'About',
+        categories: {
+        }
     },
     {
         url: '/posts',
         text: 'Posts',
-        categories: {}
+        categories: {
+            count: 0
+        }
     },
     {
         url: '/photos',
         text: 'Photos',
-        categories: {}
+        categories: {
+            count: 0
+        }
     },
     {
         url: '/designs',
         text: 'Designs',
+        categories: {
+            count: 0
+        }
     }
 ];
 
@@ -37,7 +48,7 @@ const MaterialIconStyle = {
 };
 
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ pageTitle, pageCat, children }) => {
     const data = useStaticQuery(graphql`
         query {
             site {
@@ -58,46 +69,62 @@ const Layout = ({ pageTitle, children }) => {
                     body
                 }
             }
+            allFile(
+                filter: {absolutePath: {regex: "/SJ_/posts/"}}
+                sort: {order: ASC, fields: relativeDirectory}) {
+                nodes {
+                    relativeDirectory
+                    absolutePath
+                }
+            }
         }
     `)
 
 
-    const makeProperty = (parentProperties, newPropertyName, childrenContent) => {
-        
-    }
-
-
-    const parseCategories = () => {
-        const DataNodes = data.allMdx.nodes;
-        DataNodes.forEach(node => {
-            if(node.frontmatter.category != null) {
-                const temp = node.frontmatter.category.split("-");
-                if(temp[0] == "Posts") {
-                    for(let i = 1; i < temp.length; i++) {
-                        
-                    }
-                }
-                if(temp[0] == "Photos") {
-                    for(let i = 1; i < temp.length; i++) {
-                        
-                    }
-                }
-            }
-        })
-    }
-    parseCategories();
+    const PostCategories = [];  //[category name, category level, post amount, all category]
+    const PhotoCategories = [];
     
+    data.allFile.nodes.map((value, index) => {
+        if(value.relativeDirectory == "post-images") return;
+
+        const name_temp = value.absolutePath.split("/");
+        const fileName = name_temp[name_temp.length - 1];
+
+        if(value.relativeDirectory.indexOf("/") == -1) {
+        }
+
+        const temp = value.relativeDirectory.split("/");
+        if (temp[0] == "photos") {
+            for(let i = 1; i < temp.length; i++) {
+            }
+        } 
+        else {
+            for(let i = 1; i < temp.length; i++) {
+            }
+        } 
+    })
+
+
+    const UpCase = ( str ) => {
+        const temp = str.split("").map((value, index) => {
+            if( index == 0 ) return value.toUpperCase();
+            else return value;
+        });
+
+        return temp.join("");
+    }
+
 
     return (
         <div className={styles.container}>
             <Helmet>
                 <title>{pageTitle} | {data.site.siteMetadata.title}</title>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <script>
                     document.body.style.minWidth = '340px';
                     document.body.style.overflowY = 'hidden';
                 </script>
-                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
             </Helmet>
             <div className={styles.topMenu}>
                 <button onClick={() => {
@@ -125,13 +152,15 @@ const Layout = ({ pageTitle, children }) => {
                 <nav style={{display: "flex", justifyContent: "center"}}>
                     <ul className={styles.navLinks}>
                         {
-                            links.map(node => (
-                                <li key={node.url}>
-                                    <Link to={node.url} className={styles.navLinkText} style={{textAlign: 'center'}}>
-                                        {node.text}
-                                    </Link>
-                                </li>
-                            ))
+                            links.map(node => {
+                                const ns = (pageCat == node.text? {textAlign: 'center', borderBottom: '3px solid #212121'} : {textAlign: 'center'});
+                                return (
+                                    <li key={node.url}>
+                                        <Link to={node.url} className={styles.navLinkText} style={ns}>
+                                            {node.text}
+                                        </Link>
+                                    </li>
+                            )})
                         }
                     </ul>
                     <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
@@ -154,15 +183,32 @@ const Layout = ({ pageTitle, children }) => {
                 <p className={styles.sideLogo}>SJ_log</p>
                 <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
                     <ul className={styles.sideLinks}>
-                    {
-                        links.map(node => (
-                            <li key={node.url}>
-                                <Link to={node.url} className={styles.navLinkText}>
-                                    {node.text}
-                                </Link>
-                            </li>
-                        ))
-                    }
+                        <li>
+                            <Link to="/" className={styles.navLinkText}>
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/about" className={styles.navLinkText}>
+                                About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/posts" className={styles.navLinkText}>
+                                Posts
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/photos" className={styles.navLinkText}>
+                                Photos
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to="/designs" className={styles.navLinkText}>
+                                Designs
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
             </div>

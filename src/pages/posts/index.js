@@ -13,7 +13,7 @@ const PostsPage = ({ data }) => {
         NodesData.push([PostNodes[i], pp, np]);
     }
     return (
-        <Layout pageTitle="Posts">
+        <Layout pageTitle="Posts" pageCat="Posts">
             <div className={styles.container}>
                 <ul style={{listStyle: 'none', margin: '0', padding: '0'}}>
                 {
@@ -46,6 +46,7 @@ export const query = graphql`
                 id
                 slug
                 excerpt(pruneLength: 1000)
+                fileAbsolutePath
             }
         }
     }

@@ -16,14 +16,14 @@ const PostPreviewLayout = ({ PostData}) => {
             <div className={styles.contentDiv}>
                 {ThumbnailImage && (<GatsbyImage image={ThumbnailImage} alt="thumbnail image" className={styles.ThumbnailImage} defer/>)}
                 <Link to={`/posts/${PostData.slug}?category:${PostData.frontmatter.category}`}><p className={styles.postTitle}>{PostData.frontmatter.title}</p></Link>
-                <p className={styles.postContent}>{PostData.excerpt}</p>
+                <p className={styles.postContent} style={{color: '#616161'}}>{PostData.excerpt}</p>
                 <div className={styles.bottomItem}>
                     {
                         PostData.frontmatter.category != null && (
                             <p style={{color: '#01579B', borderRight: '1px solid #E0E0E0', paddingRight: '10px'}}>{displayCategory}</p>
                         )
                     }
-                    <p style={{color: '#9E9E9E', marginLeft: '10px'}}>{PostData.frontmatter.date}</p>
+                    <p style={{color: '#616161', marginLeft: '10px'}}>{PostData.frontmatter.date}</p>
                 </div>
             </div>
         </div>

@@ -1,13 +1,13 @@
 import * as React from 'react'
 import Layout from '../../components/main_layouts/main_layout'
 
-const designPage = () => {
+const DesignPage = () => {
     return (
-        <Layout pageTitle="Designs">
+        <Layout pageTitle="Designs" pageCat="Designs">
             <p>Helllo</p>
         </Layout>
     )
 }
 
 
-export default designPage
+export default DesignPage

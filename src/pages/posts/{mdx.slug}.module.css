@@ -41,16 +41,9 @@
 
 
 .container {
-    width: 80%;
-    max-width: 900px;
+    width: 90%;
+    max-width: 800px;
     margin: 30px auto;
-}
-
-
-.category {
-    font-size: 1rem;
-    font-family: "noto-sans-light-ko", "noto-sans-light-en";
-    margin-bottom: 20px;
 }
 
 
@@ -62,13 +55,26 @@
 }
 
 
+.bottomDiv {
+    display: flex;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 40px;
+}
+
+
+.category {
+    font-size: 1rem;
+    font-family: "noto-sans-light-ko", "noto-sans-light-en";
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid #E0E0E0;
+}
+
+
 .date {
     font-size: 1rem;
     font-family: "noto-sans-light-ko", "noto-sans-light-en";
     color: '#9E9E9E';
-    margin: 20px 0 60px 0;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #E0E0E0
 }
 
 

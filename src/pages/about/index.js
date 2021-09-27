@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 
 const AboutPage = () => {
     return (
-        <Layout pageTitle="About">
+        <Layout pageTitle="About" pageCat="About">
             <Helmet>
                 <script src="https://kit.fontawesome.com/d43bad4a7f.js" crossorigin="anonymous"></script>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>

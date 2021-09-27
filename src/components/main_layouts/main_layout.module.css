@@ -96,6 +96,7 @@ a {
 
 
 .navLinks li {
+    position: relative;
     font-size: 17px;
     margin: 0;
     font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
@@ -105,10 +106,27 @@ a {
 
 
 .navLinks li:hover {
-    border-bottom: 3px solid #212121;
-    font-family: "noto-sans-bold-en", "noto-sans-bold-ko";
     cursor: pointer;
-    transition: border-bottom 0.25s;
+}
+
+
+.navLinks li:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 67px;
+    left: 50%;
+    width: 0%;
+    height: 3px;
+    box-sizing: border-box;
+    border-bottom: 3px solid #212121;
+    transition: width 0.4s, left 0.4s
+}
+
+
+.navLinks li:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 
@@ -186,7 +204,7 @@ a {
 
 .sideLinks li {
     font-size: 20px;
-    margin: 20px 40px;
+    margin: 10px 40px;
     font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
 }
 
@@ -200,6 +218,7 @@ a {
 
 .sideLogo {
     font-size: 25px;
+    font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
     text-align: center;
     margin: 0 50px 0 50px;
     padding-bottom: 40px;
