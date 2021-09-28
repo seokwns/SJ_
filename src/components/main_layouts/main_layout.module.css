@@ -69,11 +69,11 @@ button div {
 
 
 .topMenu {
-    position: sticky;
+    position: fixed;
     top: 0;
     display: flex;
     width: 100%;
-    height: 70px;
+    height: 69px;
     vertical-align: middle;
     justify-content: space-between;
     background-color: rgb(248, 249, 250);
@@ -91,7 +91,7 @@ a {
 .navLinks {
     display: flex;
     list-style: none;
-    padding: 0px 15px;
+    padding: 0;
     margin: 0 auto;
 }
 
@@ -166,7 +166,7 @@ a {
 
 
 .childrenContainer {
-    padding: 0;
+    padding: 70px 0 0 0;
     font-family: "noto-sans-light-en", "noto-sans-light-ko";
     z-index: 1;
     overflow: auto;
@@ -226,11 +226,11 @@ a {
 
 
 .sideLogo {
+    height: 70px;
     font-size: 25px;
     font-family: "noto-sans-medium-en", "noto-sans-medium-ko";
     text-align: center;
-    margin: 0 50px 0 50px;
-    padding-bottom: 40px;
+    margin: 0 55px;
     border-bottom: 1px solid #757575;
 }
 
@@ -240,7 +240,7 @@ a {
 }
 
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 699px) {
     /* 모바일 및 테블릿 세로 */
     .navLinks {
         display: none;
@@ -251,11 +251,17 @@ a {
     .sideMenu {
         width: 100%;
     }
+    .SideMenuButton {
+        display: block;
+    }
 }
 
-@media screen and (min-width: 971px) {
+@media screen and (min-width: 700px) {
     /* 테블릿 가로 및 데스크탑 */
     .navLinks {
         display: flex;
+    }
+    .SideMenuButton {
+        display: none;
     }
 }

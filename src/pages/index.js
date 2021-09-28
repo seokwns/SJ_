@@ -9,8 +9,8 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout pageTitle="Welcome" pageCat="Home">
-      <div className={styles.container}>
-        <div style={{height: 'calc(100vh - 90px)'}}>
+      <BackgroundImage Tag="section" fluid={data.file.childImageSharp.fluid} alt="main background">
+        <div className={styles.container} style={{color: 'white'}}>
           <p style={{fontSize: "40px", paddingTop: "80px", margin: "0px"}}>Thanks for coming</p>
           <br></br>
           <p>갓 전역한 휴학생의 블로그!</p>
@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
           <br></br>
           <p style={{paddingBottom: "80px", marginBottom: '0'}}>그럼 이만.</p>
         </div>
-      </div>
+      </BackgroundImage>
     </Layout>
   )
 }

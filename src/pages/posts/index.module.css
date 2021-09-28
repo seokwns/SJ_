@@ -1,50 +1,41 @@
 .container {
-    margin-top: 10px;
+    margin: 20px;
 }
 
 
 .ViewPost {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: left;
-    align-items: center;
-    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    grid-auto-rows: 1fr;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: auto;
 }
 
 
-@media screen and (min-width: 340px) and (max-width: 699px) {
+@media screen and (max-width: 699px) {
     .ViewPost {
-        width: 100%;
+        grid-auto-rows: auto;
+    }
+}
+
+
+@media screen and (min-width: 700px) {
+    .ViewPost {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 40%;
     }
     .container {
-        margin-top: 0;
+        margin: 20px 10%;
     }
 }
 
 
-@media screen and (min-width: 700px) and (max-width: 1056px) {
+@media screen and (min-width: 1024px) {
     .ViewPost {
-        width: 700px;
-    }
-}
-
-
-@media screen and (min-width: 1057px) and (max-width: 1440px) {
-    .ViewPost {
-        width: 1050px;
-    }
-}
-
-
-@media screen and (min-width: 1441px) and (max-width: 1830px) {
-    .ViewPost {
-        width: 1400px;
-    }
-}
-
-
-@media screen and (min-width: 1831px) {
-    .ViewPost {
-        width: 1750px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: 1fr;
     }
 }

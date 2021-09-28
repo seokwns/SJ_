@@ -56,18 +56,6 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                     title
                 }
             }
-            allMdx {
-                nodes {
-                    frontmatter {
-                        date
-                        tag
-                        title
-                    }
-                    id
-                    slug
-                    body
-                }
-            }
         }
     `)
 
@@ -84,7 +72,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 </script>
             </Helmet>
             <div className={styles.topMenu}>
-                <button onClick={() => {
+                <button className={styles.SideMenuButton} onClick={() => {
                     let sbar = document.getElementById('sidebar').style;
                     let bg = document.getElementById('bg').style;
 
@@ -117,7 +105,8 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                                             {node.text}
                                         </Link>
                                     </li>
-                            )})
+                                )
+                            })
                         }
                     </ul>
                     <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
@@ -126,6 +115,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 <span className="material-icons" style={MaterialIconStyle}>search</span>
                 </button>
             </div>
+
             <div className={styles.childrenContainer}>
                 {children}
             </div>

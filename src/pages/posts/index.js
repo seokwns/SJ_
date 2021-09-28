@@ -38,16 +38,13 @@ export const query = graphql`
                     tag
                     thumbnail {
                         childImageSharp {
-                            fluid {
-                                ...GatsbyImageSharpFluid
-                            }
+                            gatsbyImageData
                         }
                     }
                 }
                 id
                 slug
                 excerpt(pruneLength: 1000)
-                fileAbsolutePath
             }
         }
     }

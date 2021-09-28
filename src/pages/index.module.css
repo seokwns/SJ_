@@ -5,6 +5,8 @@ body {
 .container {
     text-align: center;
     vertical-align: middle;
+    background-color: rgba(33, 33, 33, 0.4);
+    height: calc(100vh - 90px);
 }
 .container p {
     font-size: 17px;
