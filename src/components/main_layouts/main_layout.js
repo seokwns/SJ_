@@ -68,7 +68,6 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <script>
                     document.body.style.minWidth = '340px';
-                    document.body.style.overflowY = 'hidden';
                 </script>
             </Helmet>
             <div className={styles.topMenu}>
@@ -86,10 +85,12 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                     }
 
                     sbar.display = 'block';
+                    document.body.style.overflowY = 'hidden';
 
                     document.getElementById('bg').addEventListener('click', () => {
                         document.getElementById('sidebar').style.display = 'none';
                         document.getElementById('bg').style.display = 'none';
+                        document.body.style.overflowY = 'auto';
                     });
                 }}>
                     <span className="material-icons" style={MaterialIconStyle}>menu</span>
@@ -124,6 +125,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 <button onClick={() => {
                     document.getElementById('sidebar').style.display = 'none';
                     document.getElementById('bg').style.display = 'none';
+                    document.body.style.overflowY = 'auto';
                 }}>
                     <span className="material-icons" style={MaterialIconStyle}>clear</span>
                 </button>

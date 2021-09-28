@@ -14,7 +14,7 @@ const ViewPostPage = ({ data }) => {
     });
 
     return (
-        <Layout pageTitle={data.mdx.frontmatter.title}>
+        <Layout pageTitle={data.mdx.frontmatter.title} pageCat="Posts">
             <script type="text/javascript">
                 const temp = location.href.split("?");
                 const data = temp.split(":");

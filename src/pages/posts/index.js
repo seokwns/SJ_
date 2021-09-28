@@ -3,8 +3,24 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/main_layouts/main_layout'
 import PostPreviewLayout from '../../components/post_preview_layout/post_preview_layout'
 import * as styles from './index.module.css'
+import Tag from '../../components/Tag/Tag'
+
 
 const PostsPage = ({ data }) => {
+    const AllTags = [];
+    const _nodes = data.allMdx.nodes;
+
+    _nodes.map((value) => {
+        const tag_split = value.frontmatter.tag.split("#");
+        tag_split.map(_tag => {
+            if(AllTags.indexOf(_tag) === -1 && _tag != "") AllTags.push(_tag);
+            return _tag;
+        });
+        return value;
+    });
+
+
+
     const PostNodes = data.allMdx.nodes;
     let NodesData = [];
     for (let i = 0; i < PostNodes.length; i++) {
@@ -15,6 +31,13 @@ const PostsPage = ({ data }) => {
     return (
         <Layout pageTitle="Posts" pageCat="Posts">
             <div className={styles.container}>
+                <div className={styles.TagList}>
+                    {
+                        AllTags.map(node => (
+                            <Tag TagData={"#" + node} key={node}/>
+                        ))
+                    }
+                </div>
                 <div className={styles.ViewPost}>
                 {
                     NodesData.map(node => (

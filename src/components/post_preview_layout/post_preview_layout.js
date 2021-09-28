@@ -27,11 +27,11 @@ const PostPreviewLayout = ({ PostData }) => {
     const ExcerptStyle = (ThumbnailImage == false?
         {
             WebkitLineClamp: 5,
-            color: '#616161'
+            color: '#616161',
         } :
         {
             WebkitLineClamp: 3,
-            color: '#616161'
+            color: '#616161',
         }
     );
     

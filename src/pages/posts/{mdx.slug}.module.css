@@ -1,49 +1,8 @@
-@font-face {
-    font-family: "noto-sans-light-ko";
-    src: url("../../components/fonts/NotoSansKR-Light.otf");
-    unicode-range: U+AC00-U+D7A3;
-}
-@font-face {
-    font-family: "noto-sans-thin-ko";
-    src: url("../../components/fonts/NotoSansKR-Thin.otf");
-    unicode-range: U+AC00-U+D7A3;
-}
-@font-face {
-    font-family: "noto-sans-medium-ko";
-    src: url("../../components/fonts/NotoSansKR-Medium.otf");
-    unicode-range: U+AC00-U+D7A3;
-}
-@font-face {
-    font-family: "noto-sans-bold-ko";
-    src: url("../../components/fonts/NotoSansKR-Bold.otf");
-    unicode-range: U+AC00-U+D7A3;
-}
-@font-face {
-    font-family: "noto-sans-light-en";
-    src: url("../../components/fonts/NotoSans-Light.ttf");
-    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
-}
-@font-face {
-    font-family: "noto-sans-thin-en";
-    src: url("../../components/fonts/NotoSans-Thin.ttf");
-    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
-}
-@font-face {
-    font-family: "noto-sans-medium-en";
-    src: url("../../components/fonts/NotoSans-Medium.ttf");
-    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
-}
-@font-face {
-    font-family: "noto-sans-bold-en";
-    src: url("../../components/fonts/NotoSans-Bold.ttf");
-    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
-}
-
-
 .container {
     width: 90%;
     max-width: 800px;
     margin: 30px auto;
+    overflow: auto;
 }
 
 
