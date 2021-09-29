@@ -7,36 +7,23 @@ import { Helmet } from 'react-helmet'
 const links = [
     {
         url: '/',
-        text: 'Home',
-        categories: {
-        }
+        text: 'Home'
     },
     {
         url: '/about',
-        text: 'About',
-        categories: {
-        }
+        text: 'About'
     },
     {
         url: '/posts',
-        text: 'Posts',
-        categories: {
-            count: 0
-        }
+        text: 'Posts'
     },
     {
         url: '/photos',
-        text: 'Photos',
-        categories: {
-            count: 0
-        }
+        text: 'Photos'
     },
     {
         url: '/designs',
-        text: 'Designs',
-        categories: {
-            count: 0
-        }
+        text: 'Designs'
     }
 ];
 

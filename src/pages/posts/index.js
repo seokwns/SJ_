@@ -1,12 +1,38 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Layout from '../../components/main_layouts/main_layout'
 import PostPreviewLayout from '../../components/post_preview_layout/post_preview_layout'
 import * as styles from './index.module.css'
 import Tag from '../../components/Tag/Tag'
 
 
-const PostsPage = ({ data, location }) => {
+const PostsPage = ({ location }) => {
+
+
+    const data = useStaticQuery(graphql`
+        query {
+            allMdx(sort: {order: DESC, fields: frontmatter___date}) {
+                nodes {
+                    frontmatter {
+                        title
+                        date(formatString: "YYYY년 M월 D일")
+                        tag
+                        thumbnail {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    id
+                    slug
+                    excerpt(pruneLength: 1000)
+                    timeToRead
+                }
+            }
+        }
+    `)
+
+    
     const AllTags = [];
     const _nodes = data.allMdx.nodes;
 
@@ -66,31 +92,6 @@ const PostsPage = ({ data, location }) => {
         </Layout>
     )
 }
-
-
-export const query = graphql`
-    query {
-        allMdx(sort: {order: DESC, fields: frontmatter___date}) {
-            nodes {
-                frontmatter {
-                    title
-                    date(formatString: "YYYY년 M월 D일")
-                    tag
-                    thumbnail {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-                id
-                slug
-                excerpt(pruneLength: 1000)
-                timeToRead
-            }
-        }
-    }
-    
-`
 
 
 export default PostsPage
