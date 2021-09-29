@@ -3,7 +3,6 @@ import * as styles from './{mdx.slug}.module.css'
 import Layout from '../../components/main_layouts/main_layout'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Tag from '../../components/Tag/Tag'
 
 

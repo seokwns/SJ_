@@ -48,16 +48,17 @@ const PostsPage = ({ location }) => {
     AllTags.unshift("전체보기");
 
 
-    const SelectedTag = location.state.tag;
+    const { state = {} } = location
+    const { tag } = state
 
 
     const PostNodes = data.allMdx.nodes;
     let NodesData = [];
     for (let i = 0; i < PostNodes.length; i++) {
-        if(SelectedTag == "전체보기") {
+        if(tag == "전체보기") {
             NodesData.push(PostNodes[i])
         } else {
-            if(PostNodes[i].frontmatter.tag.indexOf(SelectedTag) != -1) {
+            if(PostNodes[i].frontmatter.tag.indexOf(tag) != -1) {
                 NodesData.push(PostNodes[i])
             }
         }
@@ -68,7 +69,7 @@ const PostsPage = ({ location }) => {
                 <div className={styles.TagList}>
                     {
                         AllTags.map(node => {
-                            if(node == SelectedTag) {
+                            if(node == tag) {
                                 return (
                                     <Tag TagData={node} key={node} backgroundStyle={{backgroundColor: '#0091EA'}} textStyle={{color: 'white'}}/>
                                 )
