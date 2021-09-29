@@ -4,14 +4,15 @@
     margin: 0;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px; 
+    box-shadow: rgb(0 0 0 / 6%) 0px 4px 16px 0px; 
     -webkit-font-smoothing: antialiased;
     height: 100%;
     font-weight: 300;
+    margin-bottom: 30px;
 }
 
 
-.container:hover {
+/* .container:hover {
     transform: translateY(-10px);
     box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px 0px; 
     transition-duration: 0.4s;
@@ -20,9 +21,9 @@
 
 .container:not(:hover) {
     transform: translateY(0);
-    box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px; 
+    box-shadow: rgb(0 0 0 / 6%) 0px 4px 16px 0px; 
     transition-duration: 0.4s;
-}
+} */
 
 
 .ThumbnailImage {
@@ -58,6 +59,7 @@
 .postContent {
     font-size: 0.9rem;
     margin: 0;
+    color: #616161;
 }
 
 
@@ -69,7 +71,6 @@
 
 
 .bottomItem {
-    display: flex;
     font-size: 0.9rem;
     margin-bottom: 5px;
 }
@@ -78,14 +79,4 @@
 a {
     text-decoration: none;
     height: auto;
-}
-
-
-@media screen and (max-width: 767px) {
-    .container {
-        max-width: 100vw;
-    }
-    .PostInfo {
-        min-height: auto !important;
-    }
 }

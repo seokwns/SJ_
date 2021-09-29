@@ -1,10 +1,19 @@
-.container {
-    border-radius: 20px;
-    background-color: #00BFA5;
-    margin: 5px;
+.ContainerStyle:hover {
+    background-color: #FAFAFA !important;
+    transition: background-color 0.3s;
+}
+
+.ContainerStyle:not(:hover) {
+    background-color: rgb(241, 243, 245);
+    transition: background-color 0.3s;
 }
 
 
-.TagDiv {
-    margin: 8px 15px;
+.TagText:hover {
+    color: black !important;
+    transition: background-color 0.3s;
+}
+
+.TagText:not(:hover) {
+    transition: background-color 0.3s;
 }

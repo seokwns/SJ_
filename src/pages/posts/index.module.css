@@ -1,31 +1,33 @@
 .container {
     margin: 20px;
     height: inherit;
+    align-items: center;
 }
 
 
 .ViewPost {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
-    grid-auto-rows: 1fr;
-    max-width: 1100px;
+    grid-auto-rows: 1fr; */
+    max-width: 700px;
     margin: 0 auto;
-    padding: 0 10px 5px 20px;
+    padding: 0 10px 5px 10px;
 }
 
 
 .TagList {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+    overflow: auto;
+    width: inherit;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 
-@media screen and (max-width: 520px) {
+/* @media screen and (max-width: 520px) {
     .ViewPost {
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
@@ -37,7 +39,7 @@
 @media screen and (min-width: 521px) and (max-width: 767px) {
     .ViewPost {
         grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 0.8fr;
+        grid-auto-rows: 0.7fr;
         padding: 0;
     }
 }
@@ -49,7 +51,7 @@
     }
     .container {
         margin: 20px;
-        grid-auto-rows: 0.9fr;
+        grid-auto-rows: 0.85fr;
     }
 }
 
@@ -57,6 +59,6 @@
 @media screen and (min-width: 1024px) {
     .ViewPost {
         grid-template-columns: 1fr 1fr 1fr;
-        grid-auto-rows: 0.9fr;
+        grid-auto-rows: 0.85fr;
     }
-}
+} */

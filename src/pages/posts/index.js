@@ -6,7 +6,7 @@ import * as styles from './index.module.css'
 import Tag from '../../components/Tag/Tag'
 
 
-const PostsPage = ({ data }) => {
+const PostsPage = ({ data, location }) => {
     const AllTags = [];
     const _nodes = data.allMdx.nodes;
 
@@ -19,29 +19,46 @@ const PostsPage = ({ data }) => {
         return value;
     });
 
+    AllTags.sort();
+    AllTags.unshift("전체보기");
+
+
+    const SelectedTag = location.state.tag;
 
 
     const PostNodes = data.allMdx.nodes;
     let NodesData = [];
     for (let i = 0; i < PostNodes.length; i++) {
-        let np = (i === 0? null : PostNodes[i-1]);
-        let pp = (i === PostNodes.length - 1 ? null : PostNodes[i+1]);
-        NodesData.push([PostNodes[i], pp, np]);
+        if(SelectedTag == "전체보기") {
+            NodesData.push(PostNodes[i])
+        } else {
+            if(PostNodes[i].frontmatter.tag.indexOf(SelectedTag) != -1) {
+                NodesData.push(PostNodes[i])
+            }
+        }
     }
     return (
         <Layout pageTitle="Posts" pageCat="Posts">
             <div className={styles.container}>
                 <div className={styles.TagList}>
                     {
-                        AllTags.map(node => (
-                            <Tag TagData={"#" + node} key={node}/>
-                        ))
+                        AllTags.map(node => {
+                            if(node == SelectedTag) {
+                                return (
+                                    <Tag TagData={node} key={node} backgroundStyle={{backgroundColor: '#0091EA'}} textStyle={{color: 'white'}}/>
+                                )
+                            } else {
+                                return (
+                                    <Tag TagData={node} key={node}/>
+                                )
+                            }
+                        })
                     }
                 </div>
                 <div className={styles.ViewPost}>
                 {
                     NodesData.map(node => (
-                        <PostPreviewLayout PostData={node[0]} key={node[0].id}/>
+                        <PostPreviewLayout PostData={node} key={node.id}/>
                     ))
                 }
                 </div>
@@ -57,7 +74,7 @@ export const query = graphql`
             nodes {
                 frontmatter {
                     title
-                    date(formatString: "YYYY.M.D")
+                    date(formatString: "YYYY년 M월 D일")
                     tag
                     thumbnail {
                         childImageSharp {
@@ -68,6 +85,7 @@ export const query = graphql`
                 id
                 slug
                 excerpt(pruneLength: 1000)
+                timeToRead
             }
         }
     }

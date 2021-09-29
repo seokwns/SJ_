@@ -18,7 +18,7 @@ const links = [
         }
     },
     {
-        url: '/posts',
+        url: encodeURI('/posts?tag=전체보기'),
         text: 'Posts',
         categories: {
             count: 0
@@ -56,8 +56,40 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                     title
                 }
             }
+            allMdx(sort: {order: DESC, fields: frontmatter___date}) {
+                nodes {
+                    frontmatter {
+                        title
+                        date(formatString: "YYYY.M.D")
+                        tag
+                        thumbnail {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    id
+                    slug
+                    excerpt(pruneLength: 1000)
+                }
+            }
         }
     `)
+
+    const AllTags = [];
+    const _nodes = data.allMdx.nodes;
+
+    _nodes.map((value) => {
+        const tag_split = value.frontmatter.tag.split("#");
+        tag_split.map(_tag => {
+            if(AllTags.indexOf(_tag) === -1 && _tag != "") AllTags.push(_tag);
+            return _tag;
+        });
+        return value;
+    });
+
+    AllTags.sort();
+    AllTags.unshift("전체보기");
 
 
     return (
@@ -90,14 +122,24 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                         <ul className={styles.navLinks}>
                             {
                                 links.map(node => {
-                                    // const ns = (pageCat == node.text? {textAlign: 'center', borderBottom: '3px solid #212121'} : {textAlign: 'center'});
-                                    return (
-                                        <li key={node.url}>
-                                            <Link to={node.url} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
-                                                {node.text}
-                                            </Link>
-                                        </li>
-                                    )
+                                    if(node.text == "Posts") {
+                                        return (
+                                            <li key={node.url}>
+                                                <Link to={node.url} state={{tag: "전체보기"}} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
+                                                    {node.text}
+                                                </Link>
+                                            </li>
+                                        )
+                                    }
+                                    else {
+                                        return (
+                                            <li key={node.url}>
+                                                <Link to={node.url} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
+                                                    {node.text}
+                                                </Link>
+                                            </li>
+                                        )
+                                    }
                                 })
                             }
                         </ul>
@@ -122,7 +164,11 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                     <span className="material-icons" style={MaterialIconStyle}>clear</span>
                 </button>
                 <h2 className={styles.sideLogo} onClick={() => document.body.style.overflowY = 'auto'}>SJ_log</h2>
-                <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}} onClick={() => document.body.style.overflowY = 'auto'}>
+                <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}} onClick={() => {
+                    document.body.style.overflowY = 'auto';
+                    document.getElementById('sidebar').style.display = 'none';
+                    document.getElementById('bg').style.display = 'none';
+                }}>
                     <ul className={styles.sideLinks}>
                         <li>
                             <Link to="/" className={styles.navLinkText}>
@@ -135,10 +181,19 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/posts" className={styles.navLinkText}>
+                            <Link to={"/posts"} state={{tag: "전체보기"}} className={styles.navLinkText}>
                                 Posts
                             </Link>
                         </li>
+                        {
+                            AllTags.map((node) => (
+                                <li key={node}>
+                                    <Link to={"/posts"} state={{tag: node}} className={styles.navTagText}>
+                                        {node}
+                                    </Link>
+                                </li>
+                            ))
+                        }
                         <li>
                             <Link to="/photos" className={styles.navLinkText}>
                                 Photos

@@ -1,10 +1,16 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 
+:root {
+    --background-color: rgb(248, 249, 250);
+    --background-color-white: rgb(255, 255, 255);
+}
+
+
 body {
     margin: 0px;
     padding: 0px;
-    background-color: rgb(248, 249, 250);
+    background-color: var(--background-color-white);
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 300;
     min-width: 340px;
@@ -42,7 +48,7 @@ button div {
     height: 69px;
     vertical-align: middle;
     justify-content: space-between;
-    background-color: rgb(248, 249, 250);
+    background-color: var(--background-color-white);
     z-index: 2;
     border-bottom: 1px solid #E0E0E0;
 }
@@ -168,6 +174,26 @@ a {
 .sideLinks li:hover {
     font-weight: 600;
     cursor: pointer;
+}
+
+
+.navTagText {
+    font-size: 1rem;
+    margin: 10px auto 10px 30px;
+    font-weight: lighter;
+    color: #9E9E9E;
+}
+
+
+.navTagText:hover {
+    color: #616161;
+    transition: color 0.3s;
+}
+
+
+.navTagText:not(:hover) {
+    color: #9E9E9E;
+    transition: color 0.3s;
 }
 
 
