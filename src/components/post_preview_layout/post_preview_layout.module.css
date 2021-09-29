@@ -11,7 +11,7 @@
 }
 
 
-/* .container:hover {
+.container:hover {
     transform: translateY(-10px);
     box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px 0px; 
     transition-duration: 0.4s;
@@ -22,7 +22,7 @@
     transform: translateY(0);
     box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px 0px; 
     transition-duration: 0.4s;
-} */
+}
 
 
 .ThumbnailImage {
@@ -30,8 +30,8 @@
     height: auto;
     margin: 0;
     cursor: pointer;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
 }
 
 

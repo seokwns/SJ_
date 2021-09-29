@@ -66,52 +66,44 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 <title>{pageTitle} | {data.site.siteMetadata.title}</title>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <script>
-                    document.body.style.minWidth = '340px';
-                </script>
             </Helmet>
             <div className={styles.topMenu}>
-                <button className={styles.SideMenuButton} onClick={() => {
-                    let sbar = document.getElementById('sidebar').style;
-                    let bg = document.getElementById('bg').style;
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <button onClick={() => {
+                        let sbar = document.getElementById('sidebar').style;
+                        let bg = document.getElementById('bg').style;
 
-                    const innerWidth = window.innerWidth;
-                    if (innerWidth >= '768') {
-                        sbar.width = '375px';
                         bg.display = 'block';
-                    } else if (innerWidth < '768') {
-                        sbar.width = '100%';
-                        sbar.height = 'calc(100vh + 50px)';
-                    }
+                        sbar.display = 'block';
 
-                    sbar.display = 'block';
-                    document.body.style.overflowY = 'hidden';
+                        document.body.style.overflowY = 'hidden';
 
-                    document.getElementById('bg').addEventListener('click', () => {
-                        document.getElementById('sidebar').style.display = 'none';
-                        document.getElementById('bg').style.display = 'none';
-                        document.body.style.overflowY = 'auto';
-                    });
-                }}>
-                    <span className="material-icons" style={MaterialIconStyle}>menu</span>
-                </button>
-                <nav style={{display: "flex", justifyContent: "center"}}>
-                    <ul className={styles.navLinks}>
-                        {
-                            links.map(node => {
-                                const ns = (pageCat == node.text? {textAlign: 'center', borderBottom: '3px solid #212121'} : {textAlign: 'center'});
-                                return (
-                                    <li key={node.url}>
-                                        <Link to={node.url} className={styles.navLinkText} style={ns}>
-                                            {node.text}
-                                        </Link>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                    <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
-                </nav>
+                        document.getElementById('bg').addEventListener('click', () => {
+                            document.getElementById('sidebar').style.display = 'none';
+                            document.getElementById('bg').style.display = 'none';
+                            document.body.style.overflowY = 'auto';
+                        });
+                    }}>
+                        <span className="material-icons" style={MaterialIconStyle}>menu</span>
+                    </button>
+                    <nav style={{display: "flex", justifyContent: "center"}}>
+                        <ul className={styles.navLinks}>
+                            {
+                                links.map(node => {
+                                    // const ns = (pageCat == node.text? {textAlign: 'center', borderBottom: '3px solid #212121'} : {textAlign: 'center'});
+                                    return (
+                                        <li key={node.url}>
+                                            <Link to={node.url} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
+                                                {node.text}
+                                            </Link>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </nav>
+                </div>
+                <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
                 <button>
                 <span className="material-icons" style={MaterialIconStyle}>search</span>
                 </button>
@@ -129,8 +121,8 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 }}>
                     <span className="material-icons" style={MaterialIconStyle}>clear</span>
                 </button>
-                <p className={styles.sideLogo}>SJ_log</p>
-                <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}}>
+                <h2 className={styles.sideLogo} onClick={() => document.body.style.overflowY = 'auto'}>SJ_log</h2>
+                <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}} onClick={() => document.body.style.overflowY = 'auto'}>
                     <ul className={styles.sideLinks}>
                         <li>
                             <Link to="/" className={styles.navLinkText}>
