@@ -19,7 +19,6 @@ const ViewPostPage = ({ data }) => {
             <div className={styles.container}>
                 <p className={styles.title}>{ data.mdx.frontmatter.title }</p>
                 <div className={styles.bottomDiv}>
-                    <p className={styles.date} style={{color: '#616161'}}>{ data.mdx.frontmatter.date }</p>
                     <div style={{display: 'flex', flexDirection: 'row'}}>
                         {
                             displayTag != null && displayTag.map((node, index) => {
@@ -31,6 +30,7 @@ const ViewPostPage = ({ data }) => {
                             })
                         }
                     </div>
+                    <p className={styles.date} style={{color: '#616161'}}>{ data.mdx.frontmatter.date }</p>
                 </div>
                 <MDXRenderer className={styles.content}>
                     { data.mdx.body }

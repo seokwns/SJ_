@@ -65,7 +65,16 @@ module.exports = {
           },
         ],
       },
-    }
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+            "gatsby-remark-line-breaks",
+            "gatsby-remark-prismjs",
+        ]
+      }
+    },
   ],
   flags: {
     DEV_SSR: false

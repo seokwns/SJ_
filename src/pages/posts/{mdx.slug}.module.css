@@ -16,6 +16,7 @@
 
 .bottomDiv {
     margin-bottom: 100px;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 
@@ -33,4 +34,5 @@
 
 .content {
     font-size: 1rem;
+    white-space: pre;
 }
