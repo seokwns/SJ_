@@ -13,11 +13,8 @@ const ViewPostPage = ({ data }) => {
     const displayTag = data.mdx.frontmatter.tag.split("#").map((node) => {
         if(node != "") return node;
     });
-
-
-    const ThumbnailImage = (data.mdx.frontmatter.thumbnail != null? getImage(data.mdx.frontmatter.thumbnail.childImageSharp.gatsbyImageData) : false);
-
-
+    
+    
     return (
         <Layout pageTitle={data.mdx.frontmatter.title} pageCat="Posts">
             <div className={styles.container}>

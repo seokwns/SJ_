@@ -26,7 +26,6 @@ const PostsPage = ({ location }) => {
                     id
                     slug
                     excerpt(pruneLength: 1000)
-                    timeToRead
                 }
             }
         }
