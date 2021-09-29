@@ -18,7 +18,7 @@ const links = [
         }
     },
     {
-        url: encodeURI('/posts?tag=전체보기'),
+        url: '/posts',
         text: 'Posts',
         categories: {
             count: 0
