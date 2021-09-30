@@ -15,7 +15,8 @@ const ViewPostPage = ({ data, location }) => {
 
 
     const { state = {} } = location
-    const { posts, current } = state
+    const { posts } = state
+    const { current } = state
 
     const PreviousPostData = (posts[current + 1] == null? 'none' : posts[current + 1]);
     const NextPostData = (posts[current - 1] == null? 'none' : posts[current - 1]);
