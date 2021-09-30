@@ -28,7 +28,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "post-files",
-        path: `${__dirname}/post_files`,
+        path: `${__dirname}/posts`,
       },
       __key: "posts",
     },
@@ -36,7 +36,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "blog-images",
-        path: `${__dirname}/post_files/post-images`,
+        path: `${__dirname}/posts/post-images`,
       },
     },
     "gatsby-transformer-sharp",
