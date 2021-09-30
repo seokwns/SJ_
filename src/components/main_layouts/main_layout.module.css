@@ -1,6 +1,3 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-
 :root {
     --background-color: rgb(248, 249, 250);
     --background-color-white: rgb(255, 255, 255);
@@ -12,8 +9,9 @@ body {
     padding: 0px;
     background-color: var(--background-color-white);
     font-family: "Noto Sans KR", sans-serif;
-    font-weight: 300;
+    font-weight: normal;
     min-width: 340px;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {

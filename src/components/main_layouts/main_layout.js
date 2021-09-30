@@ -14,7 +14,7 @@ const links = [
         text: 'About'
     },
     {
-        url: '/posts',
+        url: encodeURI('/posts?tag=전체보기'),
         text: 'Posts'
     },
     {
@@ -66,6 +66,31 @@ const Layout = ({ pageTitle, pageCat, children }) => {
     const AllTags = [];
     const _nodes = data.allMdx.nodes;
 
+
+    const CloseSideMenuFunction = () => {
+        document.getElementById('sidebar').style.display = 'none';
+        document.getElementById('bg').style.display = 'none';
+        document.body.style.overflowY = 'auto';
+    };
+
+
+    const OpenSideMenuFunction = () => {
+        let sbar = document.getElementById('sidebar').style;
+        let bg = document.getElementById('bg').style;
+
+        bg.display = 'block';
+        sbar.display = 'block';
+
+        document.body.style.overflowY = 'hidden';
+
+        document.getElementById('bg').addEventListener('click', () => {
+            document.getElementById('sidebar').style.display = 'none';
+            document.getElementById('bg').style.display = 'none';
+            document.body.style.overflowY = 'auto';
+        });
+    }
+
+
     _nodes.map((value) => {
         const tag_split = value.frontmatter.tag.split("#");
         tag_split.map(_tag => {
@@ -81,58 +106,37 @@ const Layout = ({ pageTitle, pageCat, children }) => {
 
     return (
         <div className={styles.container}>
+
             <Helmet>
                 <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
             </Helmet>
+
             <div className={styles.topMenu}>
+                
                 <div style={{display: 'flex', justifyContent: 'center'}}>
-                    <button onClick={() => {
-                        let sbar = document.getElementById('sidebar').style;
-                        let bg = document.getElementById('bg').style;
 
-                        bg.display = 'block';
-                        sbar.display = 'block';
-
-                        document.body.style.overflowY = 'hidden';
-
-                        document.getElementById('bg').addEventListener('click', () => {
-                            document.getElementById('sidebar').style.display = 'none';
-                            document.getElementById('bg').style.display = 'none';
-                            document.body.style.overflowY = 'auto';
-                        });
-                    }}>
+                    <button onClick={() => OpenSideMenuFunction()}>
                         <span className="material-icons" style={MaterialIconStyle}>menu</span>
                     </button>
+
                     <nav style={{display: "flex", justifyContent: "center"}}>
                         <ul className={styles.navLinks}>
                             {
-                                links.map(node => {
-                                    if(node.text == "Posts") {
-                                        return (
-                                            <li key={node.url}>
-                                                <Link to={node.url} state={{tag: "전체보기"}} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
-                                                    {node.text}
-                                                </Link>
-                                            </li>
-                                        )
-                                    }
-                                    else {
-                                        return (
-                                            <li key={node.url}>
-                                                <Link to={node.url} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
-                                                    {node.text}
-                                                </Link>
-                                            </li>
-                                        )
-                                    }
-                                })
+                                links.map(node => (
+                                    <li key={node.url}>
+                                        <Link to={node.url} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
+                                            {node.text}
+                                        </Link>
+                                    </li>
+                                ))
                             }
                         </ul>
                     </nav>
                 </div>
+
                 <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
+
                 <button>
                 <span className="material-icons" style={MaterialIconStyle}>search</span>
                 </button>
@@ -143,19 +147,13 @@ const Layout = ({ pageTitle, pageCat, children }) => {
             </div>
 
             <div className={styles.sideMenu} id='sidebar'>
-                <button onClick={() => {
-                    document.getElementById('sidebar').style.display = 'none';
-                    document.getElementById('bg').style.display = 'none';
-                    document.body.style.overflowY = 'auto';
-                }}>
+                <button onClick={() => CloseSideMenuFunction()}>
                     <span className="material-icons" style={MaterialIconStyle}>clear</span>
                 </button>
+
                 <h2 className={styles.sideLogo} onClick={() => document.body.style.overflowY = 'auto'}>SJ_log</h2>
-                <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}} onClick={() => {
-                    document.body.style.overflowY = 'auto';
-                    document.getElementById('sidebar').style.display = 'none';
-                    document.getElementById('bg').style.display = 'none';
-                }}>
+
+                <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}} onClick={() => CloseSideMenuFunction()}>
                     <ul className={styles.sideLinks}>
                         <li>
                             <Link to="/" className={styles.navLinkText}>
@@ -168,18 +166,22 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link to={"/posts"} state={{tag: "전체보기"}} className={styles.navLinkText}>
+                            <Link to={links[2].url}className={styles.navLinkText}>
                                 Posts
                             </Link>
                         </li>
                         {
-                            AllTags.map((node) => (
-                                <li key={node}>
-                                    <Link to={"/posts"} state={{tag: node}} className={styles.navTagText}>
-                                        {node}
-                                    </Link>
-                                </li>
-                            ))
+                            AllTags.map((node) => {
+                                if(node != "전체보기") {
+                                    return (
+                                        <li key={node}>
+                                            <Link to={"/posts?tag=" + node} className={styles.navTagText}>
+                                                {node}
+                                            </Link>
+                                        </li>
+                                    )
+                                }
+                            })
                         }
                         <li>
                             <Link to="/photos" className={styles.navLinkText}>
@@ -195,7 +197,9 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                     </ul>
                 </nav>
             </div>
+
             <div className={styles.background} id='bg'></div>
+            
         </div>
     )
 }

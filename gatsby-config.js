@@ -59,7 +59,6 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 500,
               linkImagesToOriginal: false,
             },
           },
@@ -74,6 +73,15 @@ module.exports = {
             "gatsby-remark-prismjs",
         ]
       }
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'material icons',
+          'Noto+Sans+KR\:100, 200, 300, 400, 500, 600, 700, 800, 900',
+        ],
+      },
     },
   ],
   flags: {

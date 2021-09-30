@@ -6,7 +6,7 @@ import * as styles from './index.module.css'
 import Tag from '../../components/Tag/Tag'
 
 
-const PostsPage = ({ location }) => {
+const PostsPage = () => {
 
 
     const data = useStaticQuery(graphql`
@@ -48,8 +48,7 @@ const PostsPage = ({ location }) => {
     AllTags.unshift("전체보기");
 
 
-    const { state = {} } = location
-    const { tag } = state
+    const tag = decodeURI(window.location.href).split("tag=")[1];
 
 
     const PostNodes = data.allMdx.nodes;
@@ -83,8 +82,12 @@ const PostsPage = ({ location }) => {
                 </div>
                 <div className={styles.ViewPost}>
                 {
-                    NodesData.map(node => (
-                        <PostPreviewLayout PostData={node} key={node.id}/>
+                    NodesData.map((node, index) => (
+                        <PostPreviewLayout 
+                            PostData={node}
+                            key={node.id}
+                            PostNodes={{posts: NodesData, current: index}}
+                        />
                     ))
                 }
                 </div>
