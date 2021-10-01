@@ -48,9 +48,9 @@ const PostsPage = () => {
     AllTags.unshift("전체보기");
 
 
-    const tag = decodeURI(window.location.href).split("tag=")[1];
-
-
+    const tag = (typeof window !== 'undefined'? decodeURI(window.location.href).split("tag=")[1] : "전체보기");
+    
+    
     const PostNodes = data.allMdx.nodes;
     let NodesData = [];
     for (let i = 0; i < PostNodes.length; i++) {

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './{mdx.slug}.module.css'
 import Layout from '../../components/main_layouts/main_layout'
-import { graphql, Link } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Tag from '../../components/Tag/Tag'
 
@@ -15,10 +15,11 @@ const ViewPostPage = ({ data, location }) => {
 
 
     const { state = {} } = location
-    const { posts, current } = state
+    const { posts } = state
+    const { current } = state
 
-    const PreviousPostData = (posts[current + 1] == null? 'none' : posts[current + 1]);
-    const NextPostData = (posts[current - 1] == null? 'none' : posts[current - 1]);
+    const PreviousPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current + 1] == null? 'none' : posts[current + 1]) : 'none';
+    const NextPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current - 1] == null? 'none' : posts[current - 1]) : 'none';
 
     
     return (
