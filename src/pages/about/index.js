@@ -1,23 +1,31 @@
 import * as React from 'react'
 import Layout from '../../components/main_layouts/main_layout'
 import * as styles from './index.module.css'
-import { StaticImage } from 'gatsby-plugin-image'
-import { Helmet } from 'react-helmet'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { graphql } from 'gatsby'
 
-const AboutPage = () => {
+
+const AboutPage = ({ data }) => {
     return (
         <Layout pageTitle="About" pageCat="About">
-            <Helmet>
-                <script src="https://kit.fontawesome.com/d43bad4a7f.js" crossorigin="anonymous"></script>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            </Helmet>
-            <div className={styles.container} style={{paddingTop: '50px'}}>
-                <StaticImage src='../../images/profile.jpg' alt='profile image' className={styles.profileImage} defer></StaticImage>
+            <div className={styles.container}>
+                <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} className={styles.profileImage} />
                 <p>Moon Seok Jun</p>
             </div>
         </Layout>
     )
 }
+
+
+export const query = graphql`
+    {
+        file(relativePath: {eq: "profile.jpg"}) {
+            childImageSharp {
+                gatsbyImageData(quality: 100)
+            }
+        }
+    }
+`
 
 
 export default AboutPage

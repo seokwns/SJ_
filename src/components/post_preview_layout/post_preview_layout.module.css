@@ -43,46 +43,25 @@
 
 .postContent {
     font-size: 0.9rem;
-    margin: 0 30px;
+    margin: 0 25px;
     color: #757575;
 }
 
 
 .postTitle {
     font-size: 1.25rem;
-    margin: 20px 30px 10px 30px;
+    margin: 20px 25px 10px 25px;
     font-weight: 600;
 }
 
 
 .bottomItem {
     font-size: 0.9rem;
-    margin: 0 30px 10px 30px;
+    margin: 0 25px 10px 25px;
 }
 
 
 a {
     text-decoration: none;
     height: auto;
-}
-
-
-@media screen and (max-width: 599px) {
-    .container {
-        box-shadow: none;
-        border-radius: 0;
-        border-bottom: 1px solid #E0E0E0;
-    }
-    .postTitle {
-        margin: 20px 5px 10px 5px;
-    }
-    .postContent {
-        margin: 0 5px;
-    }
-    .bottomItem {
-        margin: 0 5px 40px 5px;
-    }
-    .ThumbnailImage {
-        margin-top: 30px;
-    }
 }

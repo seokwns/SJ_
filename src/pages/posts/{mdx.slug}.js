@@ -71,7 +71,7 @@ const ViewPostPage = ({ data, location }) => {
                     }
                     {
                         NextPostData != "none" && (
-                            <Link to={`/posts/${NextPostData.slug}`} state={{posts: posts, current: current - 1}} className={styles.BottomPostItem} style={{textAlign: 'right', justifyContent: 'right', margin: '0'}}>
+                            <Link to={`/posts/${NextPostData.slug}`} state={{posts: posts, current: current - 1}} className={styles.BottomPostItem} style={{textAlign: 'right', justifyContent: 'right', margin: '0 0 20px 0'}}>
                                 <div>
                                     <p style={{width: '100%'}}>다음 포스트</p>
                                     <p style={BottomPostTitleStyle}>{NextPostData.frontmatter.title}</p>

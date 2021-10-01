@@ -31,9 +31,7 @@ export const query = graphql`
   query {
     file(relativePath: {eq: "main-container-bg.jpg"}) {
       childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(quality: 100)
       }
     }
     allMdx(sort: {order: DESC, fields: frontmatter___date}) {

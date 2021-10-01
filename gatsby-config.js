@@ -71,6 +71,7 @@ module.exports = {
         plugins: [
             "gatsby-remark-line-breaks",
             "gatsby-remark-prismjs",
+            "gatsby-remark-responsive-iframe"
         ]
       }
     },

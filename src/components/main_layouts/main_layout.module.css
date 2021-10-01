@@ -175,9 +175,29 @@ a {
 }
 
 
+.sideNavLinkText {
+    color: #212121;
+    text-decoration: none;
+    height: 100%;
+    margin: 20px 10px 10px 10px;
+}
+
+
+.sideNavLinkText:hover {
+    color: #0091EA;
+    transition: color 0.3s;
+}
+
+
+.sideNavLinkText:not(:hover) {
+    color: #212121;
+    transition: color 0.3s;
+}
+
+
 .navTagText {
     font-size: 1rem;
-    margin: 8px auto 8px 30px;
+    margin: 5px auto 5px 30px;
     font-weight: lighter;
     color: #9E9E9E;
 }
@@ -199,7 +219,7 @@ a {
     height: 70px;
     font-size: 25px;
     text-align: center;
-    margin: 0 55px;
+    margin: 0 45px;
     border-bottom: 1px solid #757575;
 }
 

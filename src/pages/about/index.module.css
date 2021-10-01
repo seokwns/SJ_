@@ -1,10 +1,13 @@
 .container {
     text-align: center;
     vertical-align: middle;
+    padding: 0;
+    font-size: 1.25rem;
 }
 
 .profileImage {
     width: 250px;
     height: 250px;
-    border-radius: 50%;
+    border-radius: 50% !important;
+    margin-top: 50px;
 }

@@ -115,7 +115,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 <div style={{display: 'flex', justifyContent: 'center'}}>
 
                     <button onClick={() => OpenSideMenuFunction()}>
-                        <span className="material-icons" style={MaterialIconStyle}>menu</span>
+                        <span className="material-icons" style={MaterialIconStyle} defer>menu</span>
                     </button>
 
                     <nav style={{display: "flex", justifyContent: "center"}}>
@@ -136,7 +136,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
 
                 <button>
-                <span className="material-icons" style={MaterialIconStyle}>search</span>
+                <span className="material-icons" style={MaterialIconStyle} defer>search</span>
                 </button>
             </div>
 
@@ -146,7 +146,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
 
             <div className={styles.sideMenu} id='sidebar'>
                 <button onClick={() => CloseSideMenuFunction()}>
-                    <span className="material-icons" style={MaterialIconStyle}>clear</span>
+                    <span className="material-icons" style={MaterialIconStyle} defer>clear</span>
                 </button>
 
                 <h2 className={styles.sideLogo} onClick={() => document.body.style.overflowY = 'auto'}>SJ_log</h2>
@@ -154,17 +154,17 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                 <nav style={{maxHeight: 'calc(100vh - 180px)', overflowY: 'auto'}} onClick={() => CloseSideMenuFunction()}>
                     <ul className={styles.sideLinks}>
                         <li>
-                            <Link to="/" className={styles.navLinkText}>
+                            <Link to="/" className={styles.sideNavLinkText}>
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link to="/about" className={styles.navLinkText}>
+                            <Link to="/about" className={styles.sideNavLinkText}>
                                 About
                             </Link>
                         </li>
                         <li>
-                            <Link to={links[2].url}className={styles.navLinkText}>
+                            <Link to={links[2].url}className={styles.sideNavLinkText}>
                                 Posts
                             </Link>
                         </li>
@@ -182,7 +182,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                             })
                         }
                         <li>
-                            <Link to="/designs" className={styles.navLinkText}>
+                            <Link to="/designs" className={styles.sideNavLinkText}>
                                 Designs
                             </Link>
                         </li>
