@@ -3,7 +3,7 @@ module.exports = {
     title: "SJ_",
     author: "Seokjun Moon",
     description: "This blog is powered by Gatsby",
-    siteUrl: "https://seokjun.gatsbyjs.io/",
+    siteUrl: "https://seokjun.gatsbyjs.io",
   },
   plugins: [
     "gatsby-plugin-image",
