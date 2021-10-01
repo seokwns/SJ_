@@ -28,6 +28,14 @@ const ViewPostPage = ({ data, location }) => {
         title: data.mdx.frontmatter.title
     }
 
+
+    const BottomPostTitleStyle = {
+        fontWeight: '500',
+        fontSize: '1.1rem',
+        marginTop: '5px'
+    };
+
+
     return (
         <Layout pageTitle={data.mdx.frontmatter.title} pageCat="Posts">
             <div className={styles.container}>
@@ -56,17 +64,17 @@ const ViewPostPage = ({ data, location }) => {
                                 <span className="material-icons" style={{margin: 'auto 20px auto 10px'}}>arrow_back</span>
                                 <div>
                                     <p style={{width: '100%'}}>이전 포스트</p>
-                                    <p style={{fontWeight: '500', fontSize: '1.1rem', marginTop: '5px'}}>{PreviousPostData.frontmatter.title}</p>
+                                    <p style={BottomPostTitleStyle}>{PreviousPostData.frontmatter.title}</p>
                                 </div>
                             </Link>
                         )
                     }
                     {
                         NextPostData != "none" && (
-                            <Link to={`/posts/${NextPostData.slug}`} state={{posts: posts, current: current - 1}} className={styles.BottomPostItem} style={{textAlign: 'right', justifyContent: 'right !important', margin: '0'}}>
+                            <Link to={`/posts/${NextPostData.slug}`} state={{posts: posts, current: current - 1}} className={styles.BottomPostItem} style={{textAlign: 'right', justifyContent: 'right', margin: '0'}}>
                                 <div>
                                     <p style={{width: '100%'}}>다음 포스트</p>
-                                    <p style={{fontWeight: '500', fontSize: '1.1rem', marginTop: '5px'}}>{NextPostData.frontmatter.title}</p>
+                                    <p style={BottomPostTitleStyle}>{NextPostData.frontmatter.title}</p>
                                 </div>
                                 <span className="material-icons" style={{margin: 'auto 10px auto 20px'}}>arrow_forward</span>
                             </Link>

@@ -72,7 +72,7 @@ a {
     justify-content: center;
     align-items: center;
     position: relative;
-    font-size: 1.05rem;
+    font-size: 1rem;
     margin: auto 15px;
     font-weight: 600;
 }
@@ -81,7 +81,7 @@ a {
 .navLinkText {
     text-decoration: none;
     height: 100%;
-    margin: 20px 5px;
+    margin: 20px 10px;
 }
 
 
@@ -177,7 +177,7 @@ a {
 
 .navTagText {
     font-size: 1rem;
-    margin: 10px auto 10px 30px;
+    margin: 8px auto 8px 30px;
     font-weight: lighter;
     color: #9E9E9E;
 }
@@ -204,11 +204,8 @@ a {
 }
 
 
-.mobileLogo {
-}
 
-
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 599px) {
     /* 모바일 및 테블릿 세로 */
     .navLinks {
         display: none;
@@ -221,7 +218,7 @@ a {
     }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
     /* 테블릿 가로 및 데스크탑 */
     .navLinks {
         display: flex;

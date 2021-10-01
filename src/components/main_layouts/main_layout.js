@@ -182,12 +182,6 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                             })
                         }
                         <li>
-                            <Link to="/photos" className={styles.navLinkText}>
-                                Photos
-                            </Link>
-                        </li>
-
-                        <li>
                             <Link to="/designs" className={styles.navLinkText}>
                                 Designs
                             </Link>

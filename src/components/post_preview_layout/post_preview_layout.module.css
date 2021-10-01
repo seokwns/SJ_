@@ -67,7 +67,7 @@ a {
 }
 
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 599px) {
     .container {
         box-shadow: none;
         border-radius: 0;
