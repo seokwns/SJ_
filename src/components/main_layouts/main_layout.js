@@ -110,6 +110,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
             <Helmet>
                 <title>{pageTitle} | {data.site.siteMetadata.title}</title>
                 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+                <meta name="google-site-verification" content="S95aiNB-3XMc9IV5nBMwGuCWYRyGgYAmW96lzDuaGss" />
             </Helmet>
 
             <div className={styles.topMenu}>
