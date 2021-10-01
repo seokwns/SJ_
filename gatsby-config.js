@@ -46,7 +46,7 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://seokjun.gatsbyjs.io/",
-        sitemap: "https://seokjun.gatsbyjs.io/sitemap.xml",
+        sitemap: "https://seokjun.gatsbyjs.io/sitemap/sitemap-0.xml",
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
