@@ -83,6 +83,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+          shortname: `seokjun-gatsbyjs-io`
+      }
+    },
   ],
   flags: {
     DEV_SSR: false

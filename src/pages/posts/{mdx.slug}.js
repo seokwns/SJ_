@@ -4,7 +4,7 @@ import Layout from '../../components/main_layouts/main_layout'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Tag from '../../components/Tag/Tag'
-
+import { Disqus } from 'gatsby-plugin-disqus'
 
 
 const ViewPostPage = ({ data, location }) => {
@@ -21,7 +21,13 @@ const ViewPostPage = ({ data, location }) => {
     const PreviousPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current + 1] == null? 'none' : posts[current + 1]) : 'none';
     const NextPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current - 1] == null? 'none' : posts[current - 1]) : 'none';
 
-    
+
+    const disqusConfig = {
+        url: data.site.siteMetadata.siteUrl + location.pathname,
+        identifier: data.mdx.id,
+        title: data.mdx.frontmatter.title
+    }
+
     return (
         <Layout pageTitle={data.mdx.frontmatter.title} pageCat="Posts">
             <div className={styles.container}>
@@ -67,6 +73,7 @@ const ViewPostPage = ({ data, location }) => {
                         )
                     }
                 </div>
+                <Disqus config={disqusConfig} />
             </div>
         </Layout>
     )
@@ -87,6 +94,13 @@ export const query = graphql`
                 }
             }
             body
+            slug
+            id
+        }
+        site {
+            siteMetadata {
+                siteUrl
+            }
         }
     }
 `
