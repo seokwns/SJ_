@@ -18,10 +18,6 @@ const links = [
         text: 'Posts'
     },
     {
-        url: '/photos',
-        text: 'Photos'
-    },
-    {
         url: '/designs',
         text: 'Designs'
     }
