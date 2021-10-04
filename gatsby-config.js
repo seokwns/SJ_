@@ -58,7 +58,16 @@ module.exports = {
           "gatsby-remark-embed-video",
           "gatsby-remark-responsive-iframe",
           "gatsby-remark-line-breaks",
-          "gatsby-remark-prismjs",
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+            },
+          },
           {
             resolve: "gatsby-remark-images",
             options: {
