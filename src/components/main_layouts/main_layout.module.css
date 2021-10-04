@@ -179,7 +179,7 @@ a {
     color: #212121;
     text-decoration: none;
     height: 100%;
-    margin: 20px 10px 10px 10px;
+    margin: 20px 10px;
 }
 
 
@@ -197,7 +197,7 @@ a {
 
 .navTagText {
     font-size: 1rem;
-    margin: 5px auto 5px 30px;
+    margin: 10px auto 10px 30px;
     font-weight: lighter;
     color: #9E9E9E;
 }
