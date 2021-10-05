@@ -9,7 +9,7 @@ const AboutPage = ({ data }) => {
     return (
         <Layout pageTitle="About" pageCat="About">
             <div className={styles.container}>
-                <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} className={styles.profileImage} />
+                <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt='profile image' className={styles.profileImage} />
                 <p>Moon Seok Jun</p>
             </div>
         </Layout>

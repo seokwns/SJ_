@@ -1,5 +1,11 @@
+.mainButton {
+    border: none;
+}
+
+
 .mainButton span {
     position: absolute;
+    border: none;
     border-radius: 50%;
     background-color: white;
     transform: translate(-50%, -50%);

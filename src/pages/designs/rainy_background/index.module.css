@@ -1,0 +1,44 @@
+.container {
+    margin: 0 auto 30px auto;
+    width: 90vw;
+    max-width: 700px;
+}
+
+
+.container h1 {
+    margin: 50px auto 30px auto;
+}
+
+
+.container h2 {
+    margin: 100px auto 20px auto;
+}
+
+
+.container p {
+    margin: 15px auto;
+}
+
+
+.container span {
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background: linear-gradient(rgba(0, 0, 0, 0), 80%, rgb(222, 222, 222));
+    opacity: 0.5;
+    border: none;
+    animation: animate 0.8s infinite ease-in;
+    z-index: -1;
+}
+
+
+@keyframes animate {
+    0% {
+        top: 0;
+        height: 60px;
+    }
+    100% {
+        top: 70vh;
+        height: 200px;
+    }
+}

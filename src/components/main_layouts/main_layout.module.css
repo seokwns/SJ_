@@ -19,19 +19,19 @@ body {
 }
 
 
-button {
+.topMenu button, .sideMenu button {
     border: none;
     background-color: transparent;
     padding: 0;
 }
 
 
-button:hover {
+.topMenu button:hover, .sideMenu button:hover {
     cursor: pointer;
 }
 
 
-button div {
+.topMenu button div, .sideMenu button div {
     background-color: transparent;
     transition: none;
 }

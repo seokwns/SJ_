@@ -24,6 +24,15 @@ const links = [
 ];
 
 
+const designs = [
+    {
+        title: 'Ripple Effect',
+        url: '/designs/ripple_effect',
+        description: 'Google의 Material Design 중 클릭 효과인 Ripple 효과를 구현하였습니다'
+    }
+];
+
+
 const MaterialIconStyle = {
     fontSize:'30px',
     margin: '20px', 
@@ -186,6 +195,15 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                                 Designs
                             </Link>
                         </li>
+                        {
+                            designs.map((node) => (
+                                <li key={node.url}>
+                                    <Link to={node.url} className={styles.navTagText}>
+                                        {node.title}
+                                    </Link>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </nav>
             </div>

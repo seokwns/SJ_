@@ -1,59 +1,79 @@
 import * as React from 'react'
-import Layout from '../components/main_layouts/main_layout'
 import * as styles from './index.module.css'
-import { graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
+import { Link } from 'gatsby';
+import { Helmet } from 'react-helmet'
 
 
-const IndexPage = ({ data }) => { 
-
-  return (
-    <Layout pageTitle="Welcome" pageCat="Home">
-      {/* <BackgroundImage Tag="section" fluid={data.file.childImageSharp.fluid} alt="main background" defer> */}
-        <div className={styles.container}>
-          <p style={{fontSize: "40px", paddingTop: "80px", margin: "0px"}}>Thanks for coming</p>
-          <br></br>
-          <p>갓 전역한 휴학생의 블로그!</p>
-          <p>프론트앤드 공부 겸 Gatsby 공부 겸</p>
-          <p>뚝딱뚝딱 만들고 있는 홈페이지 입니다</p>
-          <p>생각보다 재미있네요</p>
-          <p></p>
-          <br></br>
-          <p style={{paddingBottom: "80px", marginBottom: '0'}}>그럼 이만.</p>
-        </div>
-      {/* </BackgroundImage> */}
-    </Layout>
-  )
-}
-
-
-export const query = graphql`
-  query {
-    file(relativePath: {eq: "main-container-bg.jpg"}) {
-      childImageSharp {
-        gatsbyImageData(quality: 100)
-      }
+const links = [
+    {
+        url: '/about',
+        text: 'About'
+    },
+    {
+        url: encodeURI('/posts?tag=전체보기'),
+        text: 'Posts'
+    },
+    {
+        url: '/designs',
+        text: 'Designs'
     }
-    allMdx(sort: {order: DESC, fields: frontmatter___date}) {
-        nodes {
-            frontmatter {
-                title
-                date(formatString: "MMMM D, YYYY")
-                tag
-                thumbnail {
-                    childImageSharp {
-                        gatsbyImageData
-                    }
-                }
-            }
-            id
-            slug
-            excerpt(pruneLength: 1000)
+];
+
+
+const MainTextStyle = {
+    margin: '0',
+    padding: '10px 40px 10px 10px',
+    textAlign: 'right',
+    fontWeight: '300',
+    fontSize: '4rem',
+    borderRight: '3px solid black'
+};
+
+
+const IndexPage = () => {
+
+
+    React.useEffect(() => {
+        const homeContainer = document.querySelector('#home\-container');
+        for (let i = 0; i < 500; i++) {
+            setTimeout(() => {
+                const drop = document.createElement('span');
+
+
+                drop.style.top = '0';
+                drop.style.left = (Math.random() * 100) + 'vw';
+
+                if (homeContainer != null) homeContainer.appendChild(drop);
+            }, Math.random() * 1000);
         }
-    }
-  }
-    
-`
+    });
+
+
+    return (
+        <div className={styles.container} id='home-container'>
+            <Helmet>
+                <title>Welcome | SJ_</title>
+            </Helmet>
+
+            <div className={styles.contentDiv}>
+                <p style={MainTextStyle}>Thanks<br/>for<br/>coming</p>
+                <div className={styles.menuNav}>
+                    <ul className={styles.menuList}>
+                        {
+                            links.map(node => (
+                                <li key={node.text} className={styles.menuItems}>
+                                    <Link to={node.url}>
+                                        {node.text}
+                                    </Link>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 
 export default IndexPage
