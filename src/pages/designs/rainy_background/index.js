@@ -16,10 +16,13 @@ const RippleEffectPage = ({ data, location }) => {
 
     React.useEffect(() => {
         const homeContainer = document.querySelector('#home\-container');
-        for (let i = 0; i < 500; i++) {
+        const innerWidth = window.innerWidth * 0.5;
+
+        const count = (innerWidth > 500? 500 : innerWidth);
+
+        for (let i = 0; i < count; i++) {
             setTimeout(() => {
                 const drop = document.createElement('span');
-
 
                 drop.style.top = '0';
                 drop.style.left = 'calc(' + (Math.random() * 100) + 'vw - 20px)';
