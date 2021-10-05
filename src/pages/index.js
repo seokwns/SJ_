@@ -35,9 +35,11 @@ const IndexPage = () => {
 
     React.useEffect(() => {
         const homeContainer = document.querySelector('#home\-container');
-        const counts = window.innerWidth * 0.5;
+        const innerWidth = window.innerWidth * 0.5;
+
+        const count = (innerWidth > 500? 500 : innerWidth);
         
-        for (let i = 0; i < counts; i++) {
+        for (let i = 0; i < count; i++) {
             setTimeout(() => {
                 const drop = document.createElement('span');
 
