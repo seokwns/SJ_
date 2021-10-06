@@ -16,7 +16,7 @@ const RippleEffectPage = ({ data, location }) => {
 
     React.useEffect(() => {
         const homeContainer = document.querySelector('#home\-container');
-        const innerWidth = window.innerWidth * 0.5;
+        const innerWidth = window.innerWidth * 0.4;
 
         const count = (innerWidth > 500? 500 : innerWidth);
 

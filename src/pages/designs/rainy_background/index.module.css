@@ -22,9 +22,9 @@
 
 .container span {
     position: absolute;
-    width: 2px;
+    width: 1px;
     height: 60px;
-    background: linear-gradient(rgba(0, 0, 0, 0), 80%, rgb(222, 222, 222));
+    background: linear-gradient(rgba(0, 0, 0, 0), 80%, rgba(189, 189, 189, 0.5));
     opacity: 0.5;
     border: none;
     animation: animate 0.8s infinite ease-in;
