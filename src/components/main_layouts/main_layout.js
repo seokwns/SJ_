@@ -29,6 +29,16 @@ const designs = [
         title: 'Ripple Effect',
         url: '/designs/ripple_effect',
         description: 'Google의 Material Design 중 클릭 효과인 Ripple 효과를 구현하였습니다'
+    },
+    {
+        title: 'Rainy Background',
+        url: '/designs/rainy_background',
+        description: '비가 내리는 모션이 추가된 배경화면입니다'
+    },
+    {
+        title: 'Oil Paint Design',
+        url: '/designs/oil_paint_design',
+        description: '유화 디자인'
     }
 ];
 

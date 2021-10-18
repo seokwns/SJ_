@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import { Disqus } from 'gatsby-plugin-disqus'
 
 
-const RippleEffectPage = ({ data, location }) => {
+const RainyBackgroundPage = ({ data, location }) => {
 
     const disqusConfig = {
         url: data.site.siteMetadata.siteUrl + location.pathname,
@@ -69,4 +69,4 @@ export const query = graphql`
 `
 
 
-export default RippleEffectPage
+export default RainyBackgroundPage

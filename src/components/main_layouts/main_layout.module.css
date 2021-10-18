@@ -121,6 +121,7 @@ a {
     padding-top: 70px;
     z-index: 1;
     height: inherit;
+    overflow-x: hidden;
 }
 
 

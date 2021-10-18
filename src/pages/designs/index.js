@@ -14,6 +14,11 @@ const designs = [
         title: 'Rainy Background',
         url: '/designs/rainy_background',
         description: '비가 내리는 모션이 추가된 배경화면입니다'
+    },
+    {
+        title: 'Oil Paint Design',
+        url: '/designs/oil_paint_design',
+        description: '유화 디자인'
     }
 ]
 
