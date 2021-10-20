@@ -1,0 +1,61 @@
+---
+title: "백준 10757번 : 큰 수 A+B"
+date: "2021-10-20 21:10"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+
+<br/>
+<br/>
+
+## #입력
+
+첫째 줄에 A와 B가 주어진다. (0 < A,B < 10^10000)
+
+<br/>
+<br/>
+
+## #출력
+
+첫째 줄에 A+B를 출력한다.
+
+<br/>
+<br/>
+
+## #예제 입/출력
+
+- input: 9223372036854775807 9223372036854775808
+    output: 18446744073709551615
+
+<br/>
+<br/>
+
+## #풀이
+
+얼핏 보기엔 정말 간단해 보였다. 그런데 예제 입력을 보니....아 자바스크립트에서 다룰 수 있는 int의 범위를 넘어섰다. 이럴땐? BigInt를 쓰면 끝 ㅎㅎ
+
+```javascript
+let fs = require('fs');
+let input = fs.readFileSync('/dev/stdin').toString().split(' ');
+
+let a = BigInt(input[0]);
+let b = BigInt(input[1]);
+
+console.log(BigInt(a+b).toString());
+```
+
+간단......이것보다 파이썬으로 하면 더 간단하다. 파이썬은 숫자의 크기를 고민할 필요없이 다룰 수 있기 때문에 그냥 덧셈연산을 해주면 끝.
+
+```python
+a, b = input().split()
+a = int(a)
+b = int(b)
+
+print(a+b)
+```
+
+간단한 문제였당 ㅎㅎ
