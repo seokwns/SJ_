@@ -137,7 +137,7 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                         <span className="material-icons" style={MaterialIconStyle} defer>menu</span>
                     </button>
 
-                    <h3>SJ_log</h3>
+                    <Link to='/'><h3>SJ_log</h3></Link>
                     {/* <nav style={{display: "flex", justifyContent: "center"}}>
                         <ul className={styles.navLinks}>
                             {

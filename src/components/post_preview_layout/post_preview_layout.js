@@ -15,8 +15,8 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
 
     let sp = PostData.frontmatter.date.split(' ')
     let date = new Date(sp[0].split('년')[0], sp[1].split('월')[0], sp[2].split('일')[0]);
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC']
-    const days = ['SUN', 'MON', "TUE", 'WED', 'THUR', 'FRI', 'SAT'] ;
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'];
+    const days = ['SUN', 'MON', "TUE", 'WED', 'THUR', 'FRI', 'SAT'];
 
     
     return (
@@ -34,7 +34,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
             }
             {
                 !ThumbnailImage && (
-                    <div style={{textAlign: 'center', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+                    <div style={{textAlign: 'center', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#FBFBFB'}}>
                         {/* <p style={{margin: '0', fontSize: '0.8rem'}}>
                             {months[date.getMonth()]}
                         </p> */}
@@ -42,8 +42,8 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                         <p style={{fontSize: '3rem', fontWeight: '800', margin: '0'}}>
                             {date.getDate()}
                         </p>
-                        <p style={{margin: '0', fontSize: '0.8rem'}}>
-                            {days[date.getDay()]}
+                        <p style={{margin: '0', fontSize: '0.8rem', height: '25px'}}>
+                            {days[date.getDay()] + ', ' + months[date.getMonth() - 1]}
                         </p>
                     </div>
                 )

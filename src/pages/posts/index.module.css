@@ -1,5 +1,5 @@
 .container {
-    margin: 0 10px;
+    margin: 0 5px;
     height: inherit;
     align-items: center;
 }
@@ -14,9 +14,11 @@
 
 .TagList {
     display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
     overflow: auto;
     width: inherit;
     max-width: 700px;
     margin: 0 auto;
-    padding: 40px 0 20px 0;
+    padding: 40px 0;
 }

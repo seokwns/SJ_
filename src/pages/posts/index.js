@@ -62,6 +62,8 @@ const PostsPage = () => {
             }
         }
     }
+
+
     return (
         <Layout pageTitle="Posts">
             <div className={styles.container}>
