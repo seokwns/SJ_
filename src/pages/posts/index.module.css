@@ -1,5 +1,5 @@
 .container {
-    margin: 10px;
+    margin: 0 10px;
     height: inherit;
     align-items: center;
 }
@@ -18,5 +18,5 @@
     width: inherit;
     max-width: 700px;
     margin: 0 auto;
-    padding-bottom: 20px;
+    padding: 40px 0 20px 0;
 }

@@ -63,14 +63,14 @@ const PostsPage = () => {
         }
     }
     return (
-        <Layout pageTitle="Posts" pageCat="Posts">
+        <Layout pageTitle="Posts">
             <div className={styles.container}>
                 <div className={styles.TagList}>
                     {
                         AllTags.map(node => {
                             if(node == tag) {
                                 return (
-                                    <Tag TagData={node} key={node} backgroundStyle={{backgroundColor: '#0091EA'}} textStyle={{color: 'white'}}/>
+                                    <Tag TagData={node} key={node} textStyle={{color: 'black'}}/>
                                 )
                             } else {
                                 return (

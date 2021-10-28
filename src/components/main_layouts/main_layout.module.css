@@ -38,9 +38,9 @@ body {
 
 
 .topMenu {
-    position: fixed;
+    /* position: fixed;
     top: 0;
-    left: 0;
+    left: 0; */
     display: flex;
     width: 100%;
     height: 69px;
@@ -48,7 +48,7 @@ body {
     justify-content: space-between;
     background-color: var(--background-color-white);
     z-index: 2;
-    border-bottom: 1px solid #E0E0E0;
+    /* border-bottom: 1px solid #E0E0E0; */
 }
 
 
@@ -118,7 +118,7 @@ a {
 
 
 .childrenContainer {
-    padding-top: 70px;
+    /* padding-top: 70px; */
     z-index: 1;
     height: inherit;
     overflow-x: hidden;

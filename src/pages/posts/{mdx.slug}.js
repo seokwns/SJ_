@@ -37,7 +37,7 @@ const ViewPostPage = ({ data, location }) => {
 
 
     return (
-        <Layout pageTitle={data.mdx.frontmatter.title} pageCat="Posts">
+        <Layout pageTitle={data.mdx.frontmatter.title}>
             <div className={styles.container}>
                 <p className={styles.title}>{ data.mdx.frontmatter.title }</p>
                 <div className={styles.bottomDiv}>

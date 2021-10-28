@@ -137,7 +137,8 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                         <span className="material-icons" style={MaterialIconStyle} defer>menu</span>
                     </button>
 
-                    <nav style={{display: "flex", justifyContent: "center"}}>
+                    <h3>SJ_log</h3>
+                    {/* <nav style={{display: "flex", justifyContent: "center"}}>
                         <ul className={styles.navLinks}>
                             {
                                 links.map(node => (
@@ -149,10 +150,10 @@ const Layout = ({ pageTitle, pageCat, children }) => {
                                 ))
                             }
                         </ul>
-                    </nav>
+                    </nav> */}
                 </div>
-
-                <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link>
+{/* 
+                <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link> */}
 
                 <button>
                 <span className="material-icons" style={MaterialIconStyle} defer>search</span>

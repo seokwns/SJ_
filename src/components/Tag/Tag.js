@@ -5,16 +5,17 @@ import * as styles from './Tag.module.css'
 
 const ContainerStyle = {
     borderRadius: '20px',
-    backgroundColor: 'rgb(241, 243, 245)',
+    // backgroundColor: 'rgb(241, 243, 245)',
     marginRight: '10px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    padding: '4px 8px 4px 0'
 };
 
 
 const TagStyle = {
-    padding: '4px 15px',
+    // padding: '4px 15px',
     margin: '0',
-    color: '#0091EA',
+    color: '#0D47A1',
     fontSize: '0.8rem',
     whiteSpace: 'nowrap',
     fontWeight: '400'
@@ -33,7 +34,7 @@ const Tag = ({ TagData, backgroundStyle, textStyle }) => {
 
     return (
         <div className={styles.ContainerStyle} id='tag-back' style={thisBackStyle}>
-            <Link to={"/posts?tag=" + TagData}><p className={styles.TagText} style={thisTextStyle}>{TagData}</p></Link>
+            <Link to={"/posts?tag=" + TagData}><p className={styles.TagText} style={thisTextStyle}>{'#' + TagData}</p></Link>
         </div>
     )
 }
