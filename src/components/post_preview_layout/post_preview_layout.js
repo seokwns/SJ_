@@ -7,7 +7,7 @@ import Tag from '../Tag/Tag'
 
 const gridStyle = {
     display: 'grid',
-    gridTemplateColumns: '0.5fr 1fr',
+    gridTemplateColumns: '1fr 0.5fr',
     gridColumnGap: '15px',
     gridAutoRows: '180px'
 };
@@ -21,7 +21,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
         if(node != "") return node;
     });
 
-    const containerStyle = (ThumbnailImage == false? {} : gridStyle);
+    const containerStyle = (ThumbnailImage == false? {height: '180px'} : gridStyle);
 
 
     let date = new Date(PostData.frontmatter.date);
@@ -31,19 +31,6 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
     
     return (
         <article className={styles.container} style={containerStyle}>
-            {
-                ThumbnailImage && (
-                    <Link to={`/posts/${PostData.slug}`} state={PostNodes}>
-                        <GatsbyImage
-                            image={ThumbnailImage}
-                            alt="thumbnail image"
-                            className={styles.ThumbnailImage}
-                            imgStyle={{height: '180px', margin: '0'}}
-                            defer
-                        />
-                    </Link>
-                )
-            }
             {/* {
                 !ThumbnailImage && (
                     <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{textAlign: 'center', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#FBFBFB'}}>
@@ -57,7 +44,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                     </Link>
                 )
             } */}
-            <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+            <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px'}}>
                 <div>
                     <div style={{display: 'flex', marginTop: '0', alignItems: 'center'}}>
                         {
@@ -81,9 +68,22 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                 </div>
 
                 <p style={{color: 'black', margin: '0 10px 0 0', fontSize: '0.9rem', color: '#757575'}}>
-                        {date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear()}
-                    </p>
+                    {date.getFullYear() + '년 ' + date.getMonth() + '월 ' + date.getDate() + '일'}
+                </p>
             </Link>
+            {
+                ThumbnailImage && (
+                    <Link to={`/posts/${PostData.slug}`} state={PostNodes}>
+                        <GatsbyImage
+                            image={ThumbnailImage}
+                            alt="thumbnail image"
+                            className={styles.ThumbnailImage}
+                            imgStyle={{height: '180px', margin: '0'}}
+                            defer
+                        />
+                    </Link>
+                )
+            }
         </article>
     )
 }

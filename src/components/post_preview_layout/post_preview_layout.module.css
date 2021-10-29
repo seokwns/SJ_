@@ -3,7 +3,7 @@
     grid-template-columns: 0.5fr 1fr;
     grid-column-gap: 15px;
     grid-auto-rows: 180px; */
-    padding: 40px 0;
+    padding: 50px 0;
     /* border-radius: 5px; */
     overflow: hidden;
     /* box-shadow: rgb(0 0 0 / 6%) 0px 4px 16px 0px;  */
@@ -15,6 +15,7 @@
 
 .ThumbnailImage {
     margin: 0;
+    height: 180px !important;
     /* aspect-ratio: 1; */
     /* border-top-left-radius: 5px !important;
     border-top-right-radius: 5px !important; */
