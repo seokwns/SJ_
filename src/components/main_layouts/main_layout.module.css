@@ -8,10 +8,15 @@ body {
     margin: 0px;
     padding: 0px;
     background-color: var(--background-color-white);
-    font-family: "Noto Sans KR", sans-serif;
+    font-family: "Nanum Gothic", sans-serif;
     font-weight: normal;
     min-width: 340px;
     -webkit-font-smoothing: antialiased;
+}
+
+
+body p {
+    line-height: 150%;
 }
 
 .container {

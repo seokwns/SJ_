@@ -46,7 +46,7 @@ const ViewPostPage = ({ data, location }) => {
                             displayTag != null && displayTag.map((node, index) => {
                                 if(index != 0) {
                                     return (
-                                        <Tag TagData={node} key={node}/>
+                                        <Tag TagData={node} key={node} textStyle={{fontSize: '1rem'}}/>
                                     )
                                 }
                             })

@@ -1,0 +1,69 @@
+---
+title: "백준 1157번 : 단어 공부"
+date: "2021-10-29 15:13"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+알파벳 대소문자로 된 단어가 주어지면, 이 단어에서 가장 많이 사용된 알파벳이 무엇인지 알아내는 프로그램을 작성하시오. 단, 대문자와 소문자를 구분하지 않는다.
+
+<br/>
+
+## #입력
+
+첫째 줄에 알파벳 대소문자로 이루어진 단어가 주어진다. 주어지는 단어의 길이는 1,000,000을 넘지 않는다.
+
+<br/>
+
+## #출력
+
+첫째 줄에 이 단어에서 가장 많이 사용된 알파벳을 대문자로 출력한다. 단, 가장 많이 사용된 알파벳이 여러 개 존재하는 경우에는 ?를 출력한다.
+
+<br/>
+
+## #풀이
+
+앞전에 풀었던 문제 중에서 아스키코드 값의 차이로 해당 알파벳이 무엇인지 알아내는 방법이 있었다. 그 방법을 이용해서 등장횟수를 카운트 해준다. 
+
+```javascript
+const count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+data.toLowerCase().split('').forEach(el => {
+    let loc = el.charCodeAt(0) - 'a'.charCodeAt(0);
+    count[loc]++;
+});
+```
+
+count 배열은 등장횟수를 저장할 배열이다. 입력받은 내용을 toLowerCase() 로 소문자로 바꾼 다음 forEach로 각 요소들에 접근한다. 그리고 해당 요소들의 위치를 구한 뒤, count 배열에서 해당하는 값을 1 증가시킨다. 생각해보면 reduce 를 사용해도 괜찮았을 문제 같다?
+
+그 다음은 count 배열에서 최대값을 찾는다. 최댓값이 여러개이면, ?를 출력한다.
+
+```javascript
+let max = count[0];
+let index = 0;
+let check = false;
+
+for (let i = 1; i < count.length; i++) {
+    if (count[i] > max) {
+        max = count[i];
+        index = i;
+        check = false;
+    }
+    else if (count[i] === max) {
+        check = true;
+    }
+}
+
+
+if (check) {
+    console.log('?');
+}
+else if (!check) {
+    console.log((String.fromCharCode('a'.charCodeAt(0) + index)).toUpperCase());
+}
+```
+
+check 변수를 통해서 최댓값과 중복되는 경우가 발생하는지를 잡아내었다. 
+
+같은 아이디어를 우려먹는 문제였당~

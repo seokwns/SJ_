@@ -16,9 +16,9 @@ const TagStyle = {
     // padding: '4px 15px',
     margin: '0',
     color: '#0D47A1',
-    fontSize: '0.8rem',
+    fontSize: '0.9rem',
     whiteSpace: 'nowrap',
-    fontWeight: '400'
+    fontWeight: '400',
 };
 
 

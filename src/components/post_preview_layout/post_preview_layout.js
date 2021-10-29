@@ -13,9 +13,9 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
         if(node != "") return node;
     });
 
-    let sp = PostData.frontmatter.date.split(' ')
-    let date = new Date(sp[0].split('년')[0], sp[1].split('월')[0], sp[2].split('일')[0]);
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'];
+
+    let date = new Date(PostData.frontmatter.date.replace(/년|월|일/g, '-'));
+    const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
     const days = ['SUN', 'MON', "TUE", 'WED', 'THUR', 'FRI', 'SAT'];
 
     
@@ -34,16 +34,13 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
             }
             {
                 !ThumbnailImage && (
-                    <div style={{textAlign: 'center', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#FBFBFB'}}>
-                        {/* <p style={{margin: '0', fontSize: '0.8rem'}}>
-                            {months[date.getMonth()]}
-                        </p> */}
+                    <div style={{textAlign: 'center', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#FCFCFC'}}>
                         <div height='0'></div>
                         <p style={{fontSize: '3rem', fontWeight: '800', margin: '0'}}>
                             {date.getDate()}
                         </p>
-                        <p style={{margin: '0', fontSize: '0.8rem', height: '25px'}}>
-                            {days[date.getDay()] + ', ' + months[date.getMonth() - 1]}
+                        <p style={{margin: '0', fontSize: '0.8rem', minHeight: '25px'}}>
+                            {days[date.getDay()]}
                         </p>
                     </div>
                 )
@@ -55,12 +52,13 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
             >
 
                 <div>
-                    <div style={{display: 'flex', marginTop: '0'}}>
+                    <div style={{display: 'flex', marginTop: '0', alignItems: 'center'}}>
+
                         {
                             PostData.frontmatter.tag != null && displayTag.map((node, index) => {
                                 if(index != 0) {
                                     return (
-                                        <Tag TagData={node} key={node}/>
+                                        <Tag TagData={node} key={node} />
                                     )
                                 }
                             })
@@ -76,7 +74,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                     </div>
                 </div>
                 <div className={styles.bottomItem}>
-                    <p style={{color: '#757575', margin: '10px 0'}}>
+                    <p style={{color: '#757575', margin: '5px 0', fontSize: '0.9rem'}}>
                         {PostData.frontmatter.date}
                     </p>
                 </div>
