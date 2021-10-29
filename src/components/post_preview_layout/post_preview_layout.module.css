@@ -1,9 +1,9 @@
 .container {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 0.5fr 1fr;
     grid-column-gap: 15px;
-    grid-auto-rows: 180px;
-    padding: 40px 0 40px 0;
+    grid-auto-rows: 180px; */
+    padding: 40px 0;
     /* border-radius: 5px; */
     overflow: hidden;
     /* box-shadow: rgb(0 0 0 / 6%) 0px 4px 16px 0px;  */
@@ -61,10 +61,3 @@ a {
     text-decoration: none;
     height: auto;
 }
-
-
-/* @media screen and (min-width: 340px) and (max-width: 500px) {
-    .container {
-        grid-template-columns: 120px 1fr;
-    }
-} */

@@ -5,6 +5,14 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Tag from '../Tag/Tag'
 
 
+const gridStyle = {
+    display: 'grid',
+    gridTemplateColumns: '0.5fr 1fr',
+    gridColumnGap: '15px',
+    gridAutoRows: '180px'
+};
+
+
 const PostPreviewLayout = ({ PostData, PostNodes }) => {
 
     const ThumbnailImage = (PostData.frontmatter.thumbnail != null? getImage(PostData.frontmatter.thumbnail.childImageSharp.gatsbyImageData) : false);
@@ -13,6 +21,8 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
         if(node != "") return node;
     });
 
+    const containerStyle = (ThumbnailImage == false? {} : gridStyle);
+
 
     let date = new Date(PostData.frontmatter.date);
     const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
@@ -20,7 +30,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
 
     
     return (
-        <article className={styles.container}>
+        <article className={styles.container} style={containerStyle}>
             {
                 ThumbnailImage && (
                     <Link to={`/posts/${PostData.slug}`} state={PostNodes}>
@@ -34,7 +44,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                     </Link>
                 )
             }
-            {
+            {/* {
                 !ThumbnailImage && (
                     <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{textAlign: 'center', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#FBFBFB'}}>
                         <div height='0'></div>
@@ -46,7 +56,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                         </p>
                     </Link>
                 )
-            }
+            } */}
             <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                 <div>
                     <div style={{display: 'flex', marginTop: '0', alignItems: 'center'}}>
