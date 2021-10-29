@@ -1,8 +1,18 @@
 import * as React from 'react'
 import * as styles from './post_preview_layout.module.css'
+import RippleButton from '../ripple_effect/RippleButton'
 import { Link } from 'gatsby'
 import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Tag from '../Tag/Tag'
+
+
+const RippleButtonStyle = {
+    margin: '20px 0 0 0',
+    width: '100px',
+    backgroundColor: 'white',
+    color: 'black',
+    border: '2px solid black'
+};
 
 
 const PostPreviewLayout = ({ PostData, PostNodes }) => {
@@ -21,7 +31,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
     
     return (
         <article className={styles.container}>
-            {
+            {/* {
                 ThumbnailImage && (
                     <GatsbyImage
                         image={ThumbnailImage}
@@ -44,41 +54,38 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                         </p>
                     </div>
                 )
-            }
-            <Link
-                to={`/posts/${PostData.slug}`}
-                state={PostNodes}
-                style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}
-            >
-
-                <div>
-                    <div style={{display: 'flex', marginTop: '0', alignItems: 'center'}}>
-
-                        {
-                            PostData.frontmatter.tag != null && displayTag.map((node, index) => {
-                                if(index != 0) {
-                                    return (
-                                        <Tag TagData={node} key={node} />
-                                    )
-                                }
-                            })
-                        }
-                    </div>
-                    <div style={{cursor: 'pointer'}}>
-                        <p className={styles.postTitle} style={{color: '#212121'}}>
-                            {PostData.frontmatter.title}
-                        </p>
-                        <p className={styles.postContent}>
-                            {PostData.excerpt}
-                        </p>
-                    </div>
-                </div>
-                <div className={styles.bottomItem}>
-                    <p style={{color: '#757575', margin: '5px 0', fontSize: '0.9rem'}}>
-                        {PostData.frontmatter.date}
+            } */}
+            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+                <div style={{display: 'flex', marginTop: '0', alignItems: 'center'}}>
+                    <p style={{color: 'black', margin: '0 10px 0 0', fontSize: '0.9rem', fontWeight: '800'}}>
+                        {date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear()}
                     </p>
+                    {
+                        PostData.frontmatter.tag != null && displayTag.map((node, index) => {
+                            if(index != 0) {
+                                return (
+                                    <Tag TagData={node} key={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '800'}} />
+                                )
+                            }
+                        })
+                    }
                 </div>
-            </Link>
+
+                <p className={styles.postTitle} style={{color: '#212121'}}>
+                    {PostData.frontmatter.title}
+                </p>
+
+                <p className={styles.postContent}>
+                    {PostData.excerpt}
+                </p>
+
+                <Link
+                    to={`/posts/${PostData.slug}`}
+                    state={PostNodes}
+                >
+                    <p style={{fontWeight: '800', color: '#0288D1'}}>Read</p>
+                </Link>
+            </div>
         </article>
     )
 }

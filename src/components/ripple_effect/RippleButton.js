@@ -20,7 +20,7 @@ const ObjectCopy = (a, b) => {
 };
 
 
-const RippleButton = ({ children, setClickListener, buttonStyle }) => {
+const RippleButton = ({ children, setClickListener, buttonStyle, effectColor }) => {
     const applicateStyle = (buttonStyle == null? mainButtonStyle : ObjectCopy(mainButtonStyle, buttonStyle));
 
     return (
@@ -31,6 +31,7 @@ const RippleButton = ({ children, setClickListener, buttonStyle }) => {
             const ripples = document.createElement('span');
             ripples.style.left = x + 'px';
             ripples.style.top = y + 'px';
+            ripples.style.backgroundColor = (effectColor == null? 'white' : effectColor);
             e.target.appendChild(ripples);
 
             setTimeout(() => {

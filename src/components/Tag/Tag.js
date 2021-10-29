@@ -15,7 +15,7 @@ const ContainerStyle = {
 const TagStyle = {
     // padding: '4px 15px',
     margin: '0',
-    color: '#0D47A1',
+    color: '#FFA000',
     fontSize: '0.9rem',
     whiteSpace: 'nowrap',
     fontWeight: '400',
@@ -34,7 +34,7 @@ const Tag = ({ TagData, backgroundStyle, textStyle }) => {
 
     return (
         <div className={styles.ContainerStyle} id='tag-back' style={thisBackStyle}>
-            <Link to={"/posts?tag=" + TagData}><p className={styles.TagText} style={thisTextStyle}>{'#' + TagData}</p></Link>
+            <Link to={"/posts?tag=" + TagData}><p className={styles.TagText} style={thisTextStyle}>{TagData}</p></Link>
         </div>
     )
 }

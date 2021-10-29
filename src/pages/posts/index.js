@@ -72,11 +72,11 @@ const PostsPage = () => {
                         AllTags.map(node => {
                             if(node == tag) {
                                 return (
-                                    <Tag TagData={node} key={node} textStyle={{color: 'black'}}/>
+                                    <Tag TagData={node} key={node}/>
                                 )
                             } else {
                                 return (
-                                    <Tag TagData={node} key={node}/>
+                                    <Tag TagData={node} key={node} textStyle={{color: 'black'}}/>
                                 )
                             }
                         })
