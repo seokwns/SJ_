@@ -5,15 +5,6 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Tag from '../Tag/Tag'
 
 
-const RippleButtonStyle = {
-    margin: '20px 0 0 0',
-    width: '100px',
-    backgroundColor: 'white',
-    color: 'black',
-    border: '2px solid black'
-};
-
-
 const PostPreviewLayout = ({ PostData, PostNodes }) => {
 
     const ThumbnailImage = (PostData.frontmatter.thumbnail != null? getImage(PostData.frontmatter.thumbnail.childImageSharp.gatsbyImageData) : false);
