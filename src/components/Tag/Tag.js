@@ -34,7 +34,7 @@ const Tag = ({ TagData, backgroundStyle, textStyle }) => {
 
     return (
         <div className={styles.ContainerStyle} id='tag-back' style={thisBackStyle}>
-            <Link to={"/posts?tag=" + TagData}><p className={styles.TagText} style={thisTextStyle}>{TagData}</p></Link>
+            <Link to={"/posts?tag=" + TagData}><p className={styles.TagText} style={thisTextStyle}>{'#' + TagData}</p></Link>
         </div>
     )
 }

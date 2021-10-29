@@ -51,7 +51,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                             PostData.frontmatter.tag != null && displayTag.map((node, index) => {
                                 if(index != 0) {
                                     return (
-                                        <Tag TagData={node} key={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '800'}} />
+                                        <Tag TagData={node} key={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '300'}} />
                                     )
                                 }
                             })
