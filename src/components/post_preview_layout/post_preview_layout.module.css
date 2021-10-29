@@ -1,8 +1,8 @@
 .container {
-    /* display: grid;
+    display: grid;
     grid-template-columns: 0.5fr 1fr;
     grid-column-gap: 15px;
-    grid-auto-rows: 180px; */
+    grid-auto-rows: 180px;
     padding: 20px 0 20px 0;
     /* border-radius: 5px; */
     overflow: hidden;
@@ -14,8 +14,6 @@
 
 
 .ThumbnailImage {
-    max-width: 100%;
-    height: auto;
     margin: 0;
     /* aspect-ratio: 1; */
     /* border-top-left-radius: 5px !important;
@@ -45,15 +43,15 @@
 .postContent {
     font-size: 0.9rem;
     margin: 0;
-    /* color: #757575; */
+    color: #757575;
     -webkit-line-clamp: 2;
-    line-height: 200%;
+    line-height: 180%;
 }
 
 
 .postTitle {
     font-size: 1.5rem;
-    margin: 2px 0 15px 0;
+    margin: 2px 0 5px 0;
     font-weight: 600;
     -webkit-line-clamp: 2;
 }

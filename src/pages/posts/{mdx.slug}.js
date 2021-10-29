@@ -26,7 +26,7 @@ const ViewPostPage = ({ data, location }) => {
         url: data.site.siteMetadata.siteUrl + location.pathname,
         identifier: data.mdx.id,
         title: data.mdx.frontmatter.title
-    }
+    };
 
 
     const BottomPostTitleStyle = {
@@ -34,6 +34,10 @@ const ViewPostPage = ({ data, location }) => {
         fontSize: '1.1rem',
         marginTop: '5px'
     };
+
+
+    const date = new Date(data.mdx.frontmatter.date);
+    const days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
 
 
     return (
@@ -52,7 +56,7 @@ const ViewPostPage = ({ data, location }) => {
                             })
                         }
                     </div>
-                    <p className={styles.date} style={{color: '#616161'}}>{ data.mdx.frontmatter.date }</p>
+                    <p className={styles.date} style={{color: '#616161'}}>{date.getFullYear() + '년 ' + date.getMonth() + '월 ' + date.getDate() + '일 ' +  days[date.getDay()]}</p>
                 </div>
                 <MDXRenderer className={styles.content}>
                     { data.mdx.body }
@@ -93,7 +97,7 @@ export const query = graphql`
         mdx(id: {eq: $id}) {
             frontmatter {
                 title
-                date(formatString: "YYYY년 M월 D일")
+                date(formatString: "YYYY-M-D")
                 tag
                 thumbnail {
                     childImageSharp {

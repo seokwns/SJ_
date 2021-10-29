@@ -15,7 +15,7 @@ const PostsPage = () => {
                 nodes {
                     frontmatter {
                         title
-                        date(formatString: "YYYY년 M월 D일")
+                        date(formatString: "YYYY-M-D")
                         tag
                         thumbnail {
                             childImageSharp {
@@ -72,7 +72,7 @@ const PostsPage = () => {
                         AllTags.map(node => {
                             if(node == tag) {
                                 return (
-                                    <Tag TagData={node} key={node}/>
+                                    <Tag TagData={node} key={node} textStyle={{fontWeight: '800'}}/>
                                 )
                             } else {
                                 return (
