@@ -15,7 +15,7 @@ const PostsPage = () => {
                 nodes {
                     frontmatter {
                         title
-                        date(formatString: "YYYY-M-D")
+                        date
                         tag
                         thumbnail {
                             childImageSharp {
@@ -62,6 +62,16 @@ const PostsPage = () => {
             }
         }
     }
+
+
+    if (NodesData.length >= 2) {
+        NodesData.sort((a, b) => {
+            let ad = new Date(a.frontmatter.date);
+            let bd = new Date(b.frontmatter.date);
+            return ad > bd? -1 : (ad < bd? 1 : 0);
+        });
+    }
+    
 
 
     return (

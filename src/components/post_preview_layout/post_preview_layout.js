@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as styles from './post_preview_layout.module.css'
-import RippleButton from '../ripple_effect/RippleButton'
 import { Link } from 'gatsby'
 import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Tag from '../Tag/Tag'
@@ -38,7 +37,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                             image={ThumbnailImage}
                             alt="thumbnail image"
                             className={styles.ThumbnailImage}
-                            imgStyle={{height: '150px', margin: '0'}}
+                            imgStyle={{height: '180px', margin: '0'}}
                             defer
                         />
                     </Link>

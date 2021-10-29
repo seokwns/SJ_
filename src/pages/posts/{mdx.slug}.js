@@ -97,7 +97,7 @@ export const query = graphql`
         mdx(id: {eq: $id}) {
             frontmatter {
                 title
-                date(formatString: "YYYY-M-D")
+                date
                 tag
                 thumbnail {
                     childImageSharp {

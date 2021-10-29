@@ -50,7 +50,7 @@ const MaterialIconStyle = {
 };
 
 
-const Layout = ({ pageTitle, pageCat, children }) => {
+const Layout = ({ pageTitle, children }) => {
     const data = useStaticQuery(graphql`
         query {
             site {
@@ -61,18 +61,8 @@ const Layout = ({ pageTitle, pageCat, children }) => {
             allMdx(sort: {order: DESC, fields: frontmatter___date}) {
                 nodes {
                     frontmatter {
-                        title
-                        date(formatString: "YYYY.M.D")
                         tag
-                        thumbnail {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
                     }
-                    id
-                    slug
-                    excerpt(pruneLength: 1000)
                 }
             }
         }

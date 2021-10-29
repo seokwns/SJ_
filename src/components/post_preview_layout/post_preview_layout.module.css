@@ -3,13 +3,13 @@
     grid-template-columns: 0.5fr 1fr;
     grid-column-gap: 15px;
     grid-auto-rows: 180px;
-    padding: 20px 0 20px 0;
+    padding: 40px 0 40px 0;
     /* border-radius: 5px; */
     overflow: hidden;
     /* box-shadow: rgb(0 0 0 / 6%) 0px 4px 16px 0px;  */
     /* border-top: 1px solid #E0E0E0; */
     -webkit-font-smoothing: antialiased;
-    /* border-top: 1px solid rgba(33, 33, 33, 0.2); */
+    border-top: 1px solid rgba(33, 33, 33, 0.2);
 }
 
 
