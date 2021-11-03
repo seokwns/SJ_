@@ -41,6 +41,8 @@ const IndexPage = () => {
         <div className={styles.container} id='home-container'>
             <Helmet>
                 <title>Welcome | SJ_</title>
+                <meta name="google-site-verification" content="S95aiNB-3XMc9IV5nBMwGuCWYRyGgYAmW96lzDuaGss" />
+                <meta name="naver-site-verification" content="7d028066a9f9f5a5aa584706364bfecc1189d1c6" />
             </Helmet>
             <div className={styles.contentDiv}>
                 <p style={MainTextStyle}>Thanks<br/>for<br/>coming</p>
