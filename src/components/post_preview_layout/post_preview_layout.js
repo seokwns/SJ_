@@ -68,7 +68,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                 </div>
 
                 <p style={{color: 'black', margin: '0 10px 0 0', fontSize: '0.9rem', color: '#757575'}}>
-                    {date.getFullYear() + '년 ' + date.getMonth() + '월 ' + date.getDate() + '일'}
+                    {date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일'}
                 </p>
             </Link>
             {

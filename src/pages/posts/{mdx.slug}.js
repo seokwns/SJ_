@@ -56,7 +56,7 @@ const ViewPostPage = ({ data, location }) => {
                             })
                         }
                     </div>
-                    <p className={styles.date} style={{color: '#616161'}}>{date.getFullYear() + '년 ' + date.getMonth() + '월 ' + date.getDate() + '일 ' +  days[date.getDay()]}</p>
+                    <p className={styles.date} style={{color: '#616161'}}>{date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일 ' +  days[date.getDay()]}</p>
                 </div>
                 <MDXRenderer className={styles.content}>
                     { data.mdx.body }

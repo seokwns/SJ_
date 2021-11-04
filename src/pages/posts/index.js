@@ -1,9 +1,10 @@
 import * as React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import Layout from '../../components/main_layouts/main_layout'
 import PostPreviewLayout from '../../components/post_preview_layout/post_preview_layout'
 import * as styles from './index.module.css'
 import Tag from '../../components/Tag/Tag'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 
 const PostsPage = () => {
@@ -26,6 +27,12 @@ const PostsPage = () => {
                     id
                     slug
                     excerpt(pruneLength: 1000)
+                }
+            }
+
+            file(relativePath: {eq: "profile.jpg"}) {
+                childImageSharp {
+                    gatsbyImageData(quality: 100)
                 }
             }
         }
@@ -68,7 +75,8 @@ const PostsPage = () => {
         NodesData.sort((a, b) => {
             let ad = new Date(a.frontmatter.date);
             let bd = new Date(b.frontmatter.date);
-            return ad > bd? -1 : (ad < bd? 1 : 0);
+            let condition = (ad > bd);
+            return condition? -1 : (condition? 0 : 1);
         });
     }
     
@@ -77,31 +85,40 @@ const PostsPage = () => {
     return (
         <Layout pageTitle="Posts">
             <div className={styles.container}>
-                <div className={styles.TagList}>
-                    {
-                        AllTags.map(node => {
-                            if(node == tag) {
-                                return (
-                                    <Tag TagData={node} key={node} textStyle={{fontWeight: '800'}}/>
-                                )
-                            } else {
-                                return (
-                                    <Tag TagData={node} key={node} textStyle={{color: 'black'}}/>
-                                )
-                            }
-                        })
-                    }
+                <div className={styles.profileDiv}>
+                    <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt='profile image' className={styles.profileImage} />
+                    <h3 className={styles.descriptions}>SJ</h3>
+                    <p className={styles.descriptions} style={{fontSize: '0.9rem', lineHeight: '180%'}}>하나씩 공부해나가는<br/>마음 가는데로 만들어본 블로그</p>
+                    {/* <p className={styles.descriptions} style={{fontSize: '0.9rem', lineHeight: '180%', margin: '40px 20px 10px 20px'}}>sites</p> */}
+                    {/* <Link to='https://github.com/SeokjunMoon' className={styles.descriptions} style={{fontSize: '0.8rem', margin: '0 20px', display: 'flex', justifyContent: 'right', alignItems: 'center'}}><p style={{fontSize: '0.8rem', margin: '0'}}>https://github.com/SeokjunMoon</p></Link> */}
+                    <div className={styles.TagList}>
+                        {
+                            AllTags.map(node => {
+                                if(node == tag) {
+                                    return (
+                                        <Tag TagData={node} key={node} textStyle={{fontWeight: '800'}}/>
+                                    )
+                                } else {
+                                    return (
+                                        <Tag TagData={node} key={node} textStyle={{color: 'black'}}/>
+                                    )
+                                }
+                            })
+                        }
+                    </div>
                 </div>
-                <div className={styles.ViewPost}>
-                {
-                    NodesData.map((node, index) => (
-                        <PostPreviewLayout 
-                            PostData={node}
-                            key={node.id}
-                            PostNodes={{posts: NodesData, current: index}}
-                        />
-                    ))
-                }
+                <div>
+                    <div className={styles.ViewPost}>
+                    {
+                        NodesData.map((node, index) => (
+                            <PostPreviewLayout 
+                                PostData={node}
+                                key={node.id}
+                                PostNodes={{posts: NodesData, current: index}}
+                            />
+                        ))
+                    }
+                    </div>
                 </div>
             </div>
         </Layout>
