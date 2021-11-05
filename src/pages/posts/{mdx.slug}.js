@@ -64,7 +64,7 @@ const ViewPostPage = ({ data, location }) => {
                 <div className={styles.bottomMenu}>
                     {
                         PreviousPostData != "none" && (
-                            <Link to={`/posts/${PreviousPostData.slug}`} state={{posts: posts, current: current + 1}} className={styles.BottomPostItem} style={{margin: 'auto 0 20px 0'}}>
+                            <Link to={`/posts/${PreviousPostData.slug}`} state={{posts: posts, current: current + 1}} className={styles.BottomPostItem}>
                                 <span className="material-icons" style={{margin: 'auto 20px auto 10px'}}>arrow_back</span>
                                 <div>
                                     <p style={{width: '100%'}}>이전 포스트</p>
@@ -75,7 +75,7 @@ const ViewPostPage = ({ data, location }) => {
                     }
                     {
                         NextPostData != "none" && (
-                            <Link to={`/posts/${NextPostData.slug}`} state={{posts: posts, current: current - 1}} className={styles.BottomPostItem} style={{textAlign: 'right', justifyContent: 'right', margin: '0 0 20px 0'}}>
+                            <Link to={`/posts/${NextPostData.slug}`} state={{posts: posts, current: current - 1}} className={styles.BottomPostItem} style={{display: 'flex', textAlign: 'right', justifyContent: 'right'}}>
                                 <div>
                                     <p style={{width: '100%'}}>다음 포스트</p>
                                     <p style={BottomPostTitleStyle}>{NextPostData.frontmatter.title}</p>

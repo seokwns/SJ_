@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content: right;
-    margin: 0 20px 0 0;
+    margin: 0 10px 0 0;
     border-right: 2px solid;
     border-image: linear-gradient(to top, var(--background-color-white), #EEEEEE, var(--background-color-white));
     border-image-slice: 1;
@@ -22,14 +22,15 @@
 .profileImage {
     width: 70px;
     height: 70px;
-    margin: 70px 20px 20px auto;
+    margin: 70px 30px 20px auto;
     border-radius: 50% !important;
+    isolation: isolate;
 }
 
 
 .descriptions {
     text-align: right;
-    margin: 10px 20px;
+    margin: 10px 30px;
 }
 
 
@@ -46,7 +47,7 @@
     overflow: auto;
     width: inherit;
     margin: 20px auto;
-    padding: 40px 0;
+    padding: 40px 10px;
 }
 
 
@@ -56,6 +57,7 @@
     }
     .profileDiv {
         border: none;
+        margin: 0 20px;
     }
     .descriptions {
         text-align: center;

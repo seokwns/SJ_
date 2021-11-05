@@ -59,3 +59,18 @@ a {
     text-decoration: none;
     height: auto;
 }
+
+
+@media screen and (max-width: 950px) {
+    .container {
+        border-top: 1px solid #F5F5F5;
+        border-bottom: none;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .container {
+        display: flex !important;
+        flex-flow: row wrap-reverse !important;
+    }
+}
