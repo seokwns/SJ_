@@ -7,8 +7,9 @@ import Tag from '../Tag/Tag'
 
 const gridStyle = {
     display: 'grid',
-    gridTemplateRows: 'auto auto',
-    gridRowGap: '20px'
+    gridTemplateColumns: '1fr 0.5fr',
+    gridColumnGap: '20px',
+    gridAutoRows: '180px'
 };
 
 
@@ -20,7 +21,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
         if(node != "") return node;
     });
 
-    const containerStyle = (ThumbnailImage == false? {height: 'auto', paddingTop: '20px'} : gridStyle);
+    const containerStyle = (ThumbnailImage == false? {height: '180px'} : gridStyle);
 
 
     let date = new Date(PostData.frontmatter.date);
@@ -30,22 +31,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
     
     return (
         <article className={styles.container} style={containerStyle}>
-            {
-                ThumbnailImage && (
-                    <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{maxHeight: '500px'}}>
-                        <GatsbyImage
-                            image={ThumbnailImage}
-                            alt="thumbnail image"
-                            className={styles.ThumbnailImage}
-                            imgStyle={{margin: '0', maxHeight: '500px'}}
-                            style={{overflow: 'hidden'}}
-                            defer
-                        />
-                    </Link>
-                )
-            }
-
-            <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px', padding: '0 20px 20px 20px'}}>
+            <Link to={`/posts/${PostData.slug}`} state={PostNodes} className={styles.PostInfo}>
                 <div>
                     <div style={{display: 'flex', margin: '0 0 5px 0', alignItems: 'center'}}>
                         {
@@ -72,7 +58,22 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                     {date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일'}
                 </p>
             </Link>
-            
+
+            {
+                ThumbnailImage && (
+                    <Link to={`/posts/${PostData.slug}`} state={PostNodes}>
+                        <GatsbyImage
+                            image={ThumbnailImage}
+                            alt="thumbnail image"
+                            className={styles.ThumbnailImage}
+                            imgStyle={{margin: '0'}}
+                            style={{overflow: 'hidden'}}
+                            defer
+                        />
+                    </Link>
+                )
+            }
+
         </article>
     )
 }
