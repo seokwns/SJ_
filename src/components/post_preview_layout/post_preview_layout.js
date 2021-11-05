@@ -8,7 +8,7 @@ import Tag from '../Tag/Tag'
 const gridStyle = {
     display: 'grid',
     gridTemplateRows: 'auto auto',
-    gridRowGap: '25px'
+    gridRowGap: '20px'
 };
 
 
@@ -20,7 +20,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
         if(node != "") return node;
     });
 
-    const containerStyle = (ThumbnailImage == false? {height: 'auto', paddingTop: '25px'} : gridStyle);
+    const containerStyle = (ThumbnailImage == false? {height: 'auto', paddingTop: '20px'} : gridStyle);
 
 
     let date = new Date(PostData.frontmatter.date);
@@ -45,7 +45,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                 )
             }
 
-            <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px', padding: '0 25px 25px 25px'}}>
+            <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px', padding: '0 20px 20px 20px'}}>
                 <div>
                     <div style={{display: 'flex', margin: '0 0 5px 0', alignItems: 'center'}}>
                         {
