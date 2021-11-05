@@ -1,7 +1,7 @@
 .container {
     display: grid;
     max-width: 1200px;
-    grid-template-columns: 0.4fr 1fr;
+    grid-template-columns: 0.5fr 1fr;
     margin: 0 auto;
     height: inherit;
 }
@@ -22,7 +22,7 @@
 .profileImage {
     width: 70px;
     height: 70px;
-    margin: 70px 30px 20px auto;
+    margin: 70px 20px 20px auto;
     border-radius: 50% !important;
     isolation: isolate;
 }
@@ -30,13 +30,13 @@
 
 .descriptions {
     text-align: right;
-    margin: 10px 30px;
+    margin: 10px 20px;
 }
 
 
 .ViewPost {
     margin: 0 auto;
-    padding: 0 20px 5px 10px;
+    padding: 0 10px 5px 10px;
 }
 
 
@@ -51,7 +51,7 @@
 }
 
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 849px) {
     .container {
         grid-template-columns: 1fr;
     }

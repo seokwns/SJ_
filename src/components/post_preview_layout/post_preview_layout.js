@@ -7,9 +7,8 @@ import Tag from '../Tag/Tag'
 
 const gridStyle = {
     display: 'grid',
-    gridTemplateColumns: '1fr 0.5fr',
-    gridColumnGap: '15px',
-    gridAutoRows: '180px'
+    gridTemplateRows: 'auto auto',
+    gridRowGap: '25px'
 };
 
 
@@ -21,7 +20,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
         if(node != "") return node;
     });
 
-    const containerStyle = (ThumbnailImage == false? {height: '180px'} : gridStyle);
+    const containerStyle = (ThumbnailImage == false? {height: 'auto', paddingTop: '25px'} : gridStyle);
 
 
     let date = new Date(PostData.frontmatter.date);
@@ -31,27 +30,29 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
     
     return (
         <article className={styles.container} style={containerStyle}>
-            {/* {
-                !ThumbnailImage && (
-                    <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{textAlign: 'center', padding: '10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#FBFBFB'}}>
-                        <div height='0'></div>
-                        <p style={{fontSize: '3rem', fontWeight: '800', margin: '0'}}>
-                            {date.getDate()}
-                        </p>
-                        <p style={{margin: '0', fontSize: '0.8rem', minHeight: '25px'}}>
-                            {days[date.getDay()]}
-                        </p>
+            {
+                ThumbnailImage && (
+                    <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{maxHeight: '500px'}}>
+                        <GatsbyImage
+                            image={ThumbnailImage}
+                            alt="thumbnail image"
+                            className={styles.ThumbnailImage}
+                            imgStyle={{margin: '0', maxHeight: '500px'}}
+                            style={{overflow: 'hidden'}}
+                            defer
+                        />
                     </Link>
                 )
-            } */}
-            <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px'}}>
+            }
+
+            <Link to={`/posts/${PostData.slug}`} state={PostNodes} style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '180px', padding: '0 25px 25px 25px'}}>
                 <div>
-                    <div style={{display: 'flex', marginTop: '0', alignItems: 'center'}}>
+                    <div style={{display: 'flex', margin: '0 0 5px 0', alignItems: 'center'}}>
                         {
                             PostData.frontmatter.tag != null && displayTag.map((node, index) => {
                                 if(index != 0) {
                                     return (
-                                        <Tag TagData={node} key={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '300'}} />
+                                        <Tag TagData={node} key={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '300', fontSize: '14px'}} />
                                     )
                                 }
                             })
@@ -67,23 +68,11 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                     </p>
                 </div>
 
-                <p style={{color: 'black', margin: '0 10px 0 0', fontSize: '0.9rem', color: '#757575'}}>
+                <p style={{color: 'black', margin: '0 10px 0 0', fontSize: '14px', color: '#757575'}}>
                     {date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일'}
                 </p>
             </Link>
-            {
-                ThumbnailImage && (
-                    <Link to={`/posts/${PostData.slug}`} state={PostNodes}>
-                        <GatsbyImage
-                            image={ThumbnailImage}
-                            alt="thumbnail image"
-                            className={styles.ThumbnailImage}
-                            imgStyle={{height: '180px', margin: '0'}}
-                            defer
-                        />
-                    </Link>
-                )
-            }
+            
         </article>
     )
 }

@@ -6,9 +6,9 @@ import * as styles from './Tag.module.css'
 const ContainerStyle = {
     borderRadius: '20px',
     // backgroundColor: 'rgb(241, 243, 245)',
-    marginRight: '10px',
+    margin: '0 10px 0 0',
     cursor: 'pointer',
-    padding: '4px 8px 4px 0'
+    padding: '0 8px 0 0'
 };
 
 
