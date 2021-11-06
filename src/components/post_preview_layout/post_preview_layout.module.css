@@ -56,7 +56,7 @@
 
 
 .postTitle {
-    font-size: 1.25rem;
+    font-size: 18px;
     margin: 0 0 5px 0;
     font-weight: 600;
     -webkit-line-clamp: 2;
@@ -68,7 +68,7 @@ a {
 }
 
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 649px) {
     .container {
         grid-template-rows: 1fr auto;
         grid-template-columns: 1fr !important;
@@ -76,7 +76,7 @@ a {
 
     .PostInfo {
         order: 2;
-        padding: 0 30px;
+        padding: 0 21px;
     }
 
     .ThumbnailImage {

@@ -127,24 +127,8 @@ const Layout = ({ pageTitle, children }) => {
                         <span className="material-icons" style={MaterialIconStyle} defer>menu</span>
                     </button>
 
-                    <Link to='/' style={{display: 'flex', alignItems: 'center'}}><p style={{margin: '0', fontWeight: '800', fontSize: '1.2rem'}}>SJ_log</p></Link>
-                    {/* <nav style={{display: "flex", justifyContent: "center"}}>
-                        <ul className={styles.navLinks}>
-                            {
-                                links.map(node => (
-                                    <li key={node.url}>
-                                        <Link to={node.url} className={styles.navLinkText} onClick={() => document.body.style.overflowY = 'auto'}>
-                                            {node.text}
-                                        </Link>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </nav> */}
+                    <Link to='/' style={{display: 'flex', alignItems: 'center'}}><p style={{margin: '0', fontWeight: '800', fontSize: '18px'}}>SJ_log</p></Link>
                 </div>
-{/* 
-                <Link to="/"><h2 className={styles.mobileLogo}>SJ_log</h2></Link> */}
-
                 <button>
                 <span className="material-icons" style={MaterialIconStyle} defer>search</span>
                 </button>

@@ -43,19 +43,19 @@ const ViewPostPage = ({ data, location }) => {
     return (
         <Layout pageTitle={data.mdx.frontmatter.title}>
             <div className={styles.container}>
+                <div style={{display: 'flex', flexDirection: 'row'}}>
+                    {
+                        displayTag != null && displayTag.map((node, index) => {
+                            if(index != 0) {
+                                return (
+                                    <Tag TagData={node} key={node} textStyle={{fontSize: '1rem'}}/>
+                                )
+                            }
+                        })
+                    }
+                </div>
                 <p className={styles.title}>{ data.mdx.frontmatter.title }</p>
                 <div className={styles.bottomDiv}>
-                    <div style={{display: 'flex', flexDirection: 'row'}}>
-                        {
-                            displayTag != null && displayTag.map((node, index) => {
-                                if(index != 0) {
-                                    return (
-                                        <Tag TagData={node} key={node} textStyle={{fontSize: '1rem'}}/>
-                                    )
-                                }
-                            })
-                        }
-                    </div>
                     <p className={styles.date} style={{color: '#616161'}}>{date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일 ' +  days[date.getDay()]}</p>
                 </div>
                 <MDXRenderer className={styles.content}>

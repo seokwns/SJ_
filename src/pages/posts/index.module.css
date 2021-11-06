@@ -10,9 +10,11 @@
 .profileDiv {
     height: min-content;
     display: flex;
+    /* min-width: 210px; */
     flex-direction: column;
-    justify-content: right;
-    margin: 0;
+    justify-content: left;
+    margin: 0 20px 0 30px;
+    padding: 0 20px 0 0;
     border-right: 2px solid;
     border-image: linear-gradient(to top, var(--background-color-white), #EEEEEE, var(--background-color-white));
     border-image-slice: 1;
@@ -22,15 +24,15 @@
 .profileImage {
     width: 70px;
     height: 70px;
-    margin: 70px 25px 20px auto;
+    margin: 70px auto 20px 0;
     border-radius: 50% !important;
     isolation: isolate;
 }
 
 
 .descriptions {
-    text-align: right;
-    margin: 10px 30px;
+    text-align: left;
+    margin: 10px 0;
 }
 
 
@@ -41,44 +43,24 @@
 
 
 .TagList {
-    display: flex;
-    justify-content: right;
-    flex-flow: row wrap;
-    overflow: auto;
-    width: inherit;
-    margin: 20px auto;
-    padding: 40px 20px 40px 0;
+    list-style-position: outside;
+    list-style-type: square !important;
+    margin: 0 0 20px 25px;
+    padding: 0 20px 40px 0;
 }
 
 
-@media screen and (max-width: 849px) {
+@media screen and (max-width: 649px) {
     .container {
         grid-template-columns: 1fr;
     }
     .profileDiv {
         border: none;
-        margin: 0 20px 20px 20px;
-        border-bottom: 1px solid #F5F5F5;
+        margin: 0 30px 20px 30px;
     }
-    .descriptions {
-        text-align: center;
-    }
-    .profileImage {
-        margin: 70px auto 20px auto;
-    }
-    .TagList {
-        justify-content: center;
-    }
-}
-
-
-@media screen and (max-width: 599px) {
     .ViewPost {
         padding: 0 0 5px 0;
         border-top: 1px solid #F5F5F5;
         padding-top: 20px;
-    }
-    .profileDiv {
-        border: none;
     }
 }
