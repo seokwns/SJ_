@@ -109,7 +109,13 @@ const IndexPage = () => {
             </Helmet>
 
             <div className={styles.topHeader}>
-                <GatsbyImage image={data.headContainerImage.childImageSharp.gatsbyImageData} alt='main header' className={styles.headerImage}/>
+                <GatsbyImage image={data.headContainerImage.childImageSharp.gatsbyImageData} alt='main header' className={styles.headerImage}
+                imgStyle={{
+                    position: 'absolute',
+                    overflow: 'hidden',
+                    height: '500px',
+                    zIndex: '1'
+                }}/>
                 <div className={styles.imageBlur}></div>
                 <p className={styles.mainText}>Thanks for coming!</p>
                 {/* <GatsbyImage image={data.profileImage.childImageSharp.gatsbyImageData} alt='profile' className={styles.profile}/> */}
