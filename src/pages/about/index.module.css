@@ -10,4 +10,5 @@
     height: 250px;
     border-radius: 50% !important;
     margin-top: 50px;
+    isolation: isolate;
 }
