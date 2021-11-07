@@ -29,7 +29,7 @@ body {
 
 
 .headerImage {
-    position: absolute;
+    position: absolute !important;
     overflow: hidden;
     height: var(--main-header-height);
     z-index: 1;
