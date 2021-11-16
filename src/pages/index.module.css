@@ -41,7 +41,7 @@ body {
     height: var(--main-header-height);
     width: 100%;
     z-index: 2;
-    background-color: rgb(33 33 33 / 40%);
+    background-color: rgb(33 33 33 / 50%);
 }
 
 

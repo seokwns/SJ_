@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as styles from './{mdx.slug}.module.css'
 import Layout from '../../components/main_layouts/main_layout'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Tag from '../../components/Tag/Tag'
 import { Disqus } from 'gatsby-plugin-disqus'
@@ -18,8 +18,36 @@ const ViewPostPage = ({ data, location }) => {
     const { posts } = state
     const { current } = state
 
-    const PreviousPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current + 1] == null? 'none' : posts[current + 1]) : 'none';
-    const NextPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current - 1] == null? 'none' : posts[current - 1]) : 'none';
+    let PreviousPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current + 1] == null? 'none' : posts[current + 1]) : 'none';
+    let NextPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current - 1] == null? 'none' : posts[current - 1]) : 'none';
+
+    if (typeof posts === 'undefiend' || typeof current === 'undefined') {
+        const PostNodes = data.allMdx.nodes;
+        const tag = data.mdx.frontmatter.tag;
+        let NodesData = [];
+
+        for (let i = 0; i < PostNodes.length; i++) {
+            if (PostNodes[i].frontmatter.tag.indexOf(tag) != -1) {
+                NodesData.push(PostNodes[i])
+            }
+        }
+
+        if (NodesData.length >= 2) {
+            NodesData.sort((a, b) => {
+                let ad = new Date(a.frontmatter.date);
+                let bd = new Date(b.frontmatter.date);
+                let condition = (ad > bd);
+                return condition? -1 : (condition? 0 : 1);
+            });
+
+            for (let i = 0; i < NodesData.length; i++) {
+                if (NodesData[i].frontmatter.title === data.mdx.frontmatter.title) {
+                    PreviousPostData = NodesData[i - 1];
+                    NextPostData = NodesData[i + 1];
+                }
+            }
+        }
+    }
 
 
     const disqusConfig = {
@@ -112,6 +140,16 @@ export const query = graphql`
         site {
             siteMetadata {
                 siteUrl
+            }
+        }
+        allMdx {
+            nodes {
+                frontmatter {
+                    date
+                    tag
+                    title
+                }
+                slug
             }
         }
     }

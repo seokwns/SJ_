@@ -43,9 +43,9 @@ const links = [
 
 const projects = [
     {
-        url: '',
+        url: encodeURI('/posts?tag=전체보기'),
         text: 'Custome Blog',
-        description: '직접 제작하는 개인 블로그',
+        description: '직접 디자인하는 개인 블로그',
         icon: 'auto_stories',
         color: 'rgb(224 224 224 / 40%)',
         iconColor: '#757575'
@@ -117,7 +117,7 @@ const IndexPage = () => {
                     zIndex: '1'
                 }}/>
                 <div className={styles.imageBlur}></div>
-                <p className={styles.mainText}>Thanks for coming!</p>
+                <p className={styles.mainText}>Thanks for coming</p>
                 {/* <GatsbyImage image={data.profileImage.childImageSharp.gatsbyImageData} alt='profile' className={styles.profile}/> */}
                 <span className="material-icons" style={profileStyle}>person</span>
                 <p style={{margin: '10px 0', zIndex: '3', color: 'white', fontSize: '18px'}}>SJ</p>
@@ -145,7 +145,7 @@ const IndexPage = () => {
                 </div>
 
                 <div className={styles.menu}>
-                    <p style={{fontSize: '18px', fontWeight: '600', margin: '16px 0 8px 0'}}>개인 프로젝트</p>
+                    <p style={{fontSize: '18px', fontWeight: '600', margin: '16px 0 8px 0'}}>Projects</p>
                     <div className={styles.projectNav}>
                         {
                             projects.map(node => (

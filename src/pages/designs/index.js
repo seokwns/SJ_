@@ -27,7 +27,7 @@ const DesignPage = () => {
     return (
         <Layout pageTitle="Designs">
             <div className={styles.container}>
-                <h2 style={{margin: '40px auto 40px 20px'}}>CSS / Javascript Designs</h2>
+                <h2 style={{margin: '40px auto'}}>CSS / Javascript Designs</h2>
                 <nav className={styles.DesignListNav}>
                     <ul className={styles.DesignList}>
                         {
