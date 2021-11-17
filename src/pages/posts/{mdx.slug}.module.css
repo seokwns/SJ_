@@ -36,6 +36,7 @@
 .content {
     font-size: 1rem;
     white-space: pre;
+    line-height: 250%;
 }
 
 
@@ -94,10 +95,11 @@ tbody {
 }
 
 blockquote {
-    border-left: 5px solid #E0E0E0;
+    border-left: 5px solid #757575;
     margin-left: 10px;
     margin-right: 0;
     padding: 10px 10px 10px 20px;
+    background-color: #EEEEEE;
 }
 
 blockquote p {
