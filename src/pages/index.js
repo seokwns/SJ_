@@ -9,34 +9,20 @@ const links = [
     {
         url: '/about',
         text: 'About',
-        description: '인트로',
+        description: 'Introduction',
         icon: 'badge',
-        color: 'rgb(255 204 188 / 40%)',
-        iconColor: '#FF8A65'
     },
     {
         url: encodeURI('/posts?tag=전체보기'),
         text: 'Posts',
-        description: '개인 블로그',
+        description: 'Personal Blog',
         icon: 'article',
-        color: 'rgb(187 222 251 / 40%)',
-        iconColor: '#64B5F6'
-    },
-    {
-        url: '/designs',
-        text: 'Designs',
-        description: '웹 컴포넌트 디자인',
-        icon: 'brush',
-        color: 'rgb(225 190 231 / 40%)',
-        iconColor: '#BA68C8'
     },
     {
         url: '/',
         text: 'Portfolio',
-        description: '준비중!',
+        description: 'Preparing',
         icon: 'engineering',
-        color: 'rgb(220 237 200 / 40%)',
-        iconColor: '#AED581'
     }
 ];
 
@@ -44,59 +30,78 @@ const links = [
 const projects = [
     {
         url: encodeURI('/posts?tag=전체보기'),
-        text: 'Custome Blog',
-        description: '직접 디자인하는 개인 블로그',
-        icon: 'auto_stories',
-        color: 'rgb(224 224 224 / 40%)',
-        iconColor: '#757575'
+        text: 'Blog',
+        description: 'Personal blog designed by myself',
+        language: 'React > Gatsby'
     },
     {
         url: '',
-        text: 'TextViewer',
-        description: 'PC/모바일 공용 텍스트 뷰어',
-        icon: 'visibility',
-        color: 'rgb(224 224 224 / 40%)',
-        iconColor: '#757575'
+        text: 'Text Viewer',
+        description: 'PC/mobile public text viewer',
+        language: 'React > Gatsby'
     },
     {
         url: 'https://github.com/SeokjunMoon/baekjoon_algorithm',
-        text: '백준알고리즘',
-        description: '백준알고리즘 단계별로 풀어보기 풀이 목록',
-        icon: 'edit',
-        color: 'rgb(224 224 224 / 40%)',
-        iconColor: '#757575'
+        text: 'baekjoon',
+        description: 'My solution list to baekjoon algorithm step by step',
+        language: 'Node.js'
+    },
+]
+
+
+const studies= [
+    {
+        url: 'https://www.notion.so/seokjun0915/ce74774da9b9490ba0c57deb4e2d0d5b?v=18a42f1be0164babaecf41397098bf54',
+        text: 'C',
+        description: 'One of the basic programming languages',
+        language: 'C'
+    },
+    {
+        url: 'https://www.notion.so/seokjun0915/Python-3068bb2dd968403e9bcbca8a5bd8e68b',
+        text: 'Python',
+        description: 'One of the basic programming languages',
+        language: 'Python'
     },
 ]
 
 
 const IndexPage = () => {
 
-    const data = useStaticQuery(graphql`
-        query {
-            headContainerImage: file(relativePath: {eq: "main-header.jpg"}) {
-                childImageSharp {
-                    gatsbyImageData(quality: 100)
-                }
-            }
-            profileImage: file(relativePath: {eq: "profile.jpg"}) {
-                childImageSharp {
-                    gatsbyImageData(quality: 100)
-                }
-            }
-        }
-    `)
+    // const data = useStaticQuery(graphql`
+    //     query {
+    //         headContainerImage: file(relativePath: {eq: "main-header.jpg"}) {
+    //             childImageSharp {
+    //                 gatsbyImageData(quality: 100)
+    //             }
+    //         }
+    //         profileImage: file(relativePath: {eq: "profile.jpg"}) {
+    //             childImageSharp {
+    //                 gatsbyImageData(quality: 100)
+    //             }
+    //         }
+    //     }
+    // `)
 
 
-    const profileStyle = {
-        width: '70px',
-        height: '70px',
-        borderRadius: '50%',
-        zIndex: '3',
-        fontSize: '36px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'rgb(224, 224, 224)'
+    // const descriptionStyle = {
+    //     margin: '30px 0 20px 0',
+    //     fontSize: '16px'
+    // };
+
+    // const buttonStyle = {
+    //     margin: '10px 0',
+    //     backgroundColor: 'black',
+    //     color: 'white',
+    //     padding: '10px 20px',
+    //     fontSize: '12px',
+    //     width: '100px',
+    // };
+
+
+    const MenuTitleStyle = {
+        fontSize: '24px',
+        fontWeight: '800',
+        margin: '20px 0'
     };
 
 
@@ -108,7 +113,7 @@ const IndexPage = () => {
                 <meta name="naver-site-verification" content="7d028066a9f9f5a5aa584706364bfecc1189d1c6" />
             </Helmet>
 
-            <div className={styles.topHeader}>
+            {/* <div className={styles.topHeader}>
                 <GatsbyImage image={data.headContainerImage.childImageSharp.gatsbyImageData} alt='main header' className={styles.headerImage}
                 imgStyle={{
                     position: 'absolute',
@@ -118,25 +123,26 @@ const IndexPage = () => {
                 }}/>
                 <div className={styles.imageBlur}></div>
                 <p className={styles.mainText}>Thanks for coming</p>
-                {/* <GatsbyImage image={data.profileImage.childImageSharp.gatsbyImageData} alt='profile' className={styles.profile}/> */}
-                <span className="material-icons" style={profileStyle}>person</span>
-                <p style={{margin: '10px 0', zIndex: '3', color: 'white', fontSize: '18px'}}>SJ</p>
-            </div>
+            </div> */}
 
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                 <div className={styles.menu}>
-                    <p style={{fontSize: '18px', fontWeight: '600', margin: '16px 0 8px 0'}}>Menu</p>
+                    <p style={{fontSize: '50px', fontWeight: '800', margin: '70px 0 16px 0'}}>Thansk for coming</p>
+                    <p style={{fontSize: '20px', color: '#999999', fontWeight: '400', margin: '0 0 100px 0'}}>It is a blog of a programmer<br/>who is constantly developing,<br/>always acting and contemplating.</p>
+                    <p style={MenuTitleStyle}>📑 Menu</p>
                     <div className={styles.menuNav}>
                         {
                             links.map(node => (
-                                <Link to={node.url} key={node.text} className={styles.menuItem} style={{backgroundColor: node.color}}>
-                                    <span className="material-icons" style={{fontSize: '30px', color: node.iconColor}}>{node.icon}</span>
+                                <Link to={node.url} key={node.text} className={styles.menuItem}>
+                                    <span className="material-icons" style={{fontSize: '30px', color: '#424242', margin: '0 0 20px 0'}}>{node.icon}</span>
                                     <div>
                                         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'left', alignItems: 'center'}}>
-                                            <p style={{fontSize: '16px', width: 'fit-content'}}>{node.text}</p>
-                                            <span className="material-icons" style={{fontSize: '24px'}}>navigate_next</span>
+                                            <p style={{fontSize: '24px', width: 'fit-content', color: '#424242'}}>{node.text}</p>
+                                            <span className="material-icons" style={{fontSize: '24px', color: '#424242', margin: '14px 0 0 0'}}>navigate_next</span>
                                         </div>
-                                        <p style={{fontSize: '12px', color: '#999999', fontWeight: '300', margin: '6px 0 0 0'}}>{node.description}</p>
+                                        <div style={{fontSize: '16px', color: '#999999', fontWeight: '400', margin: '8px 0 0 0'}}>
+                                            {node.description}
+                                        </div>
                                     </div>
                                 </Link>
                             ))
@@ -145,19 +151,19 @@ const IndexPage = () => {
                 </div>
 
                 <div className={styles.menu}>
-                    <p style={{fontSize: '18px', fontWeight: '600', margin: '16px 0 8px 0'}}>Projects</p>
-                    <div className={styles.projectNav}>
+                    <p style={MenuTitleStyle}>🗂️ Projects</p>
+                    <div className={styles.menuNav}>
                         {
                             projects.map(node => (
-                                <Link to={node.url} key={node.text} className={styles.projectItem}>
-                                    <div className={styles.projectIconBackground} style={{backgroundColor: node.color}}/>
-                                    <span className="material-icons" style={{fontSize: '30px', color: node.iconColor, marginRight: '20px'}}>{node.icon}</span>
-                                    <div>
-                                        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'left', alignItems: 'center'}}>
-                                            <p style={{fontSize: '16px', width: 'fit-content', fontWeight: '600', margin: '0 0 5px 16px'}}>{node.text}</p>
-                                            {/* <span className="material-icons" style={{fontSize: '24px'}}>navigate_next</span> */}
-                                        </div>
-                                        <p style={{fontSize: '12px', color: '#999999', fontWeight: '300'}}>{node.description}</p>
+                                <Link to={node.url} key={node.text} className={styles.menuItem}>
+                                    <div style={{fontSize: '13px', color: '#999999', fontWeight: '800', margin: '0 0 12px 0'}}>
+                                        {node.language}
+                                    </div>
+                                    <div style={{fontSize: '24px', width: 'fit-content', fontWeight: '800', margin: '8px 0 12px 0'}}>
+                                        {node.text}
+                                    </div>
+                                    <div style={{fontSize: '16px', color: '#999999', fontWeight: '400', margin: '8px 0 0 0'}}>
+                                        {node.description}
                                     </div>
                                 </Link>
                             ))
@@ -165,10 +171,42 @@ const IndexPage = () => {
                     </div>
                 </div>
 
-                {/* <div className={styles.footer} style={{backgroundColor: '#F5F5F5'}}>
-                    <p>Powered by Gatsby</p>
-                </div> */}
+                <div className={styles.menu}>
+                    <p style={MenuTitleStyle}>📖 Study</p>
+                    <div className={styles.menuNav}>
+                        {
+                            studies.map(node => (
+                                <Link to={node.url} key={node.text} className={styles.menuItem}>
+                                    <div style={{fontSize: '14px', color: '#999999', fontWeight: '800', margin: '0 0 12px 0'}}>
+                                        {node.language}
+                                    </div>
+                                    <div style={{fontSize: '24px', width: 'fit-content', fontWeight: '800', margin: '8px 0 12px 0'}}>
+                                        {node.text}
+                                    </div>
+                                    <div style={{fontSize: '16px', color: '#999999', fontWeight: '400', margin: '8px 0 0 0'}}>
+                                        {node.description}
+                                    </div>
+                                </Link>
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
+
+            {/* <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '50px 20px 20px 20px', textAlign: 'center'}}>
+                <h2 style={{margin: '20px 0'}}>나는 누굴까요?</h2>
+                <p style={descriptionStyle}>항상 생각하고 고민하는, 끊임없이 발전하는 프로그래머 입니다.</p>
+                <Link to='/about'><p style={buttonStyle}>About Me</p></Link>
+
+
+                <h2 style={{margin: '150px 0 20px 0'}}>내 개발일지</h2>
+                <p style={descriptionStyle}>이 곳에 한번 담아보았어요. 한번 보시겠어요?</p>
+                <Link to='/about'><p style={buttonStyle}>Blog</p></Link>
+
+                <h2 style={{margin: '150px 0 20px 0'}}>소소한 디자인들</h2>
+                <p style={descriptionStyle}>가장 먼저 해보고 싶었던 디자인을 해봤어요.</p>
+                <Link to='/about'><p style={buttonStyle}>Designs</p></Link>
+            </div> */}
         </div>
     )
 }
