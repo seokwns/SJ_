@@ -1,11 +1,25 @@
 .container {
-    overflow: hidden;
-    border-radius: 5px;
-    margin: 0 0 20px 0;
-    padding: 0 0 20px 0;
+    /* overflow: hidden; */
+    /* margin: 0 0 20px 0;
+    padding: 0 0 20px 0; */
+    /* border-bottom: 1px solid #F5F5F5; */
     -webkit-font-smoothing: antialiased;
-    border-bottom: 1px solid #F5F5F5;
     font-family: "Nanum Gothic", sans-serif !important;
+    box-sizing: border-box;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    margin: 0;
+    padding: 40px 40px;
+}
+
+.container:hover {
+    border: 1px solid #5E35B1;
+    transition: border 0.3s;
+}
+
+.container:not(:hover) {
+    border: 1px solid #EEEEEE;
+    transition: border 0.3s;
 }
 
 
@@ -20,8 +34,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 180px;
-    padding: 0 10px;
 }
 
 
@@ -34,20 +46,21 @@
 }
 
 
-.postContent {
-    font-size: 14px;
-    margin: 0;
-    color: #757575;
+.postTitle {
+    font-size: 20px;
+    font-weight: 800;
     -webkit-line-clamp: 2;
-    line-height: 180%;
+    margin: 8px 0 16px 0;
 }
 
 
-.postTitle {
-    font-size: 18px;
-    margin: 0 0 5px 0;
-    font-weight: 600;
+.postContent {
+    font-size: 14px;
+    font-weight: 400;
+    color: #757575;
     -webkit-line-clamp: 2;
+    line-height: 180%;
+    margin: 8px 0 0 0;
 }
 
 
@@ -64,7 +77,6 @@ a {
 
     .PostInfo {
         order: 2;
-        padding: 0 21px;
     }
 
     .ThumbnailImage {

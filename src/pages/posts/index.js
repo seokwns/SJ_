@@ -86,27 +86,27 @@ const PostsPage = () => {
         <Layout pageTitle="Posts">
             <div className={styles.container}>
                 <div className={styles.profileDiv}>
-                    <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt='profile image' className={styles.profileImage} />
-                    <h3 className={styles.descriptions}>SJ</h3>
-                    <p className={styles.descriptions} style={{fontSize: '14px', lineHeight: '180%', marginBottom: '0'}}>하나씩 공부해나가는<br/>마음 가는데로 만들어본 블로그</p>
+                    {/* <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} alt='profile image' className={styles.profileImage} /> */}
+                    <h3 className={styles.descriptions} style={{margin: '70px 0 16px 0', fontSize: '50px', fontWeight: '800'}}>Blog</h3>
+                    <p className={styles.descriptions} style={{fontSize: '20px', lineHeight: '180%', marginBottom: '0', color: '#999999'}}>하나씩 공부해나가는,<br/>마음 가는데로 만들어본 블로그</p>
                     {/* <p className={styles.descriptions} style={{fontSize: '0.9rem', lineHeight: '180%', margin: '40px 20px 10px 20px'}}>sites</p> */}
                     {/* <Link to='https://github.com/SeokjunMoon' className={styles.descriptions} style={{fontSize: '0.8rem', margin: '0 20px', display: 'flex', justifyContent: 'right', alignItems: 'center'}}><p style={{fontSize: '0.8rem', margin: '0'}}>https://github.com/SeokjunMoon</p></Link> */}
-                    <h3 style={{margin: '70px auto 5px 0'}}>Tags</h3>
-                    <ul className={styles.TagList}>
+                    <h3 style={{margin: '70px auto 20px 0'}}>Tags</h3>
+                    <div className={styles.TagList}>
                         {
                             AllTags.map(node => {
                                 if(node == tag) {
                                     return (
-                                        <li key={node}><Tag TagData={node} textStyle={{fontWeight: '800'}} backgroundStyle={{margin: '15px 0 15px 5px', padding: '0'}}/></li>
+                                        <Tag TagData={node} key={node} textStyle={{fontWeight: '800', color: '#5E35B1'}} backgroundStyle={{margin: '8px 20px 4px 0', padding: '0'}}/>
                                     )
                                 } else {
                                     return (
-                                        <li key={node}><Tag TagData={node} textStyle={{color: 'black'}} backgroundStyle={{margin: '15px 0 15px 5px', padding: '0'}}/></li>
+                                        <Tag TagData={node} key={node} textStyle={{color: '#999999'}} backgroundStyle={{margin: '8px 20px 4px 0', padding: '0'}}/>
                                     )
                                 }
                             })
                         }
-                    </ul>
+                    </div>
                 </div>
                 <div>
                     <div className={styles.ViewPost}>

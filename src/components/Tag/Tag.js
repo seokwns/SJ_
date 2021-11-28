@@ -15,7 +15,7 @@ const ContainerStyle = {
 const TagStyle = {
     // padding: '4px 15px',
     margin: '0',
-    color: '#0D47A1',
+    color: '#999999',
     fontSize: '14px',
     whiteSpace: 'nowrap',
     fontWeight: '400',
