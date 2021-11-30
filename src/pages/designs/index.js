@@ -18,7 +18,7 @@ const designs = [
     {
         title: 'Oil Paint Design',
         url: '/designs/oil_paint_design',
-        description: '유화 디자인'
+        description: '유화 느낌을 도전하다가 변질되어버린(?) 종이에 물감이 퍼지는 효과입니다'
     }
 ]
 
@@ -27,21 +27,17 @@ const DesignPage = () => {
     return (
         <Layout pageTitle="Designs">
             <div className={styles.container}>
-                <h2 style={{margin: '40px auto'}}>CSS / Javascript Designs</h2>
-                <nav className={styles.DesignListNav}>
-                    <ul className={styles.DesignList}>
-                        {
-                            designs.map(node => (
-                                <li key={node.title}>
-                                    <Link to={node.url}>
-                                        <h3>{node.title}</h3>
-                                        <p style={{fontSize: '0.9rem', color: '#757575'}}>{node.description}</p>
-                                    </Link>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </nav>
+                <p style={{margin: '40px auto 40px 40px', fontSize: '50px', fontWeight: '800'}}>CSS / Javascript</p>
+                <div className={styles.designItems}>
+                    {
+                        designs.map(node => (
+                            <Link to={node.url} key={node.title} className={styles.items}>
+                                <p style={{margin: '0 0 16px 0', fontSize: '24px', fontWeight: '800'}}>{node.title}</p>
+                                <p style={{fontSize: '16px', color: '#757575', fontWeight: '400', margin: '8px 0 0 0'}}>{node.description}</p>
+                            </Link>
+                        ))
+                    }
+                </div>
             </div>
         </Layout>
     )

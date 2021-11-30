@@ -30,7 +30,7 @@
 .date {
     font-size: 1rem;
     color: '#9E9E9E';
-    margin: 15px 0;
+    margin: 15px 0 40px 0;
 }
 
 
@@ -81,25 +81,31 @@
 }
 
 
-td {
-    border: 1px solid black;
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 40px auto;
+}
+
+th, td {
+    border: 1px solid #E0E0E0;
     margin: 0;
-    padding: 0;
+    padding: 10px 20px;
     width: 30px;
     height: 30px;
     text-align: center;
+    width: fit-content;
 }
 
-tbody {
-    display: table-row-group;
-
+th {
+    background-color: #EEEEEE;
 }
 
 blockquote {
     border-left: 5px solid #757575;
     margin-left: 10px;
     margin-right: 0;
-    padding: 10px 10px 10px 20px;
+    padding: 15px 20px;
     background-color: #EEEEEE;
 }
 

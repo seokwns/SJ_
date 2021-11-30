@@ -1,23 +1,40 @@
 .container {
-    margin: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto 70px auto;
+    max-width: 1200px;
 }
 
 
-.DesignListNav {
-
+.designItems {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    margin: 0 40px 40px 40px;
 }
 
 
-.DesignList {
-    padding-left: 20px;
-    margin-left: 20px;
+.items {
+    box-sizing: border-box;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    padding: 40px;
+}
+
+.items:hover {
+    border: 1px solid #5E35B1;
+    transition: border 0.3s;
+}
+
+.items:not(:hover) {
+    border: 1px solid #EEEEEE;
+    transition: border 0.3s;
 }
 
 
-.DesignList li {
-    margin: 20px auto 60px auto;
+@media screen and (max-width: 799px) {
+    .designItems {
+        grid-template-columns: 1fr;
+    }
 }

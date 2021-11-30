@@ -12,49 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    margin: 0 40px 20px 40px;
-    /* background-color: rgba(242, 243, 247, 0.12); */
-}
-
-
-.topHeader {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to top, white 20%, rgb(245, 245, 245) 80%);
-    height: var(--main-header-height);
-    margin: 0;
-}
-
-
-.headerImage {
-    position: absolute !important;
-    overflow: hidden;
-    height: var(--main-header-height);
-    z-index: 1;
-}
-
-
-.imageBlur {
-    position: absolute;
-    height: var(--main-header-height);
-    width: 100%;
-    z-index: 2;
-    background-color: rgb(0 0 0 / 50%);
-}
-
-
-.mainText {
-    margin: 50px 0;
-    padding: 20px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 120%;
-    z-index: 3;
-    color: white;
+    margin: 0 40px 80px 40px;
 }
 
 

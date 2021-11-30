@@ -3,7 +3,7 @@
     max-width: 1200px;
     /* grid-template-columns: 0.4fr 1fr; */
     grid-template-columns: 1fr;
-    margin: 0 auto;
+    margin: 0 auto 70px auto;
     height: inherit;
 }
 
