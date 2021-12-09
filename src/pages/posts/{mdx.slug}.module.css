@@ -3,7 +3,7 @@
     max-width: 800px;
     margin: 30px auto;
     overflow: auto;
-    font-family: "Nanum Gothic", sans-serif !important;
+    font-family: 'Gowun Dodum', sans-serif !important;
 }
 
 
@@ -102,14 +102,18 @@ th {
 }
 
 blockquote {
-    border-left: 5px solid #757575;
+    border-left: 5px solid #689F38;
     margin-left: 10px;
-    margin-right: 0;
+    margin: 32px 0 32px 12px;
     padding: 15px 20px;
-    background-color: #EEEEEE;
+    background-color: #F1F8E9;
 }
 
 blockquote p {
     margin: 5px 0;
     font-size: 18px;
+}
+
+p {
+    height: max-content;
 }

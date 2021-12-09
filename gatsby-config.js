@@ -112,9 +112,8 @@ module.exports = {
       options: {
         fonts: [
           'material icons',
-          'Noto+Sans+KR\:100, 300, 400, 500, 700, 900',
-          'Nanum+Gothic\:400, 700, 800',
           'Raleway\:100, 200, 300, 400, 500, 600, 700, 800, 900',
+          'Gowun+Dodum\:100, 300, 400, 500, 600, 700, 800, 900'
         ],
       },
     },
