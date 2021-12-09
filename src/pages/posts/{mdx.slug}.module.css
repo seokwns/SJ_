@@ -104,7 +104,7 @@ th {
 blockquote {
     border-left: 5px solid #689F38;
     margin-left: 10px;
-    margin: 32px 0 32px 12px;
+    margin: 32px 0 32px 0;
     padding: 15px 20px;
     background-color: #F1F8E9;
 }
