@@ -1,0 +1,176 @@
+---
+title: "백준 1316번 : 그룹 단어 체커"
+date: "2021/12/16 10:57"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+그룹 단어란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말한다. 예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고, kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만, aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.
+
+단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.
+
+<br/>
+
+## #입력
+
+첫째 줄에 단어의 개수 N이 들어온다. N은 100보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 단어가 들어온다. 단어는 알파벳 소문자로만 되어있고 중복되지 않으며, 길이는 최대 100이다.
+
+<br/>
+
+## #출력
+
+첫째 줄에 그룹 단어의 개수를 출력한다.
+
+<br/>
+
+## #예제 입/출력
+
+| 예제 입력 | 예제 출력 |
+| ----- | ----- |
+| 3<br/>happy<br/>new<br/>year | 3 |
+| 4<br/>aba<br/>abab<br/>abcabc<br/>a | 1 |
+| 5<br/>ab<br/>aa<br/>aca<br/>ba<br/>bb | 4 |
+| 2<br/>yzyzy<br/>zyzyz | 0 |
+| 1<br/>z | 1 |
+
+<br/>
+
+## #풀이
+
+연속적으로 나타나야 하며, 연속적인 부분이 한번만 존재해야 한다.
+
+우선 어떤 상황에서 참이 되는지 알아보자. 
+
+> 1. 단어의 길이가 1 또는 2인 경우에는 항상 그룹단어가 된다.
+> 2. 단어의 길이가 3인 경우, 
+>     - 첫번째 알파벳과 마지막 알파벳이 다를 경우 그룹단어가 된다.
+>     - 첫번째 알파벳과 마지막 알파벳이 같다면, 첫번째 알파벳과 두번째 알파벳이 같으면 그룹단어가 된다.
+> 3. 그 외의 경우에는 문자열을 처음부터 끝까지 검색해야 한다.
+
+우선 여기까지의 코드를 작성해보자.
+
+```javascript
+function solution(data) {
+    const testCase = parseInt(data[0]);
+    let count = 0;
+
+    for (let i = 1; i <= testCase; i++) {
+
+        if (data[i].length === 1 || data[i].length === 2) {
+            count++;
+            continue;
+        }
+
+        if (data[i].length === 3) {
+            if (data[i][0] !== data[i][2]) {
+                count++;
+            }
+            else {
+                if (data[i][0] === data[i][1]) {
+                    count++;
+                }
+            }
+            continue;
+        }
+    }
+}
+
+const input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
+
+solution(input);
+```
+
+방금 파악한 규칙 그대로 코드를 작성했다.
+
+testCase는 입력받은 케이스의 개수이고 testCase만큼 반복시켜 각각의 경우에 대해 조건문을 실행시킨다.
+
+만약 위에서 알아낸 규칙에 맞는 경우는 count변수를 1 증가시키고 continue를 이용하여 다음 케이스로 넘어가게 해두었다. 다음은 단어의 길이가 3 이상인 경우에 대해서 작성해보자.
+
+```javascript
+let sp = data[i].split('');
+let searched = '';
+let tmp = sp[0];
+
+for (let j = 0, len = sp.length; j < len; j++) {
+    if (j === len - 1) {
+        if (searched.indexOf(sp[j]) === -1) {
+            count++;
+        }
+    }
+
+    if (searched.indexOf(sp[j]) !== -1) {
+        break;
+    }
+    else {
+        if (sp[j] === tmp) {
+            if (sp[j+1] === tmp) {
+                continue;
+            }
+            else {
+                searched += sp[j];
+                tmp = sp[j+1];
+            }
+        }
+    }
+}
+```
+
+입력받은 단어를 알파벳별로 분리시킨다. 그리고 등장했던 알파벳을 저장할 변수를 만들고, 현재 판별중인 알파벳을 저장할 변수를 만들어준다.
+
+```javascript
+let sp = data[i].split('');
+let searched = '';
+let tmp = sp[0];
+```
+> sp = 단어를 알파벳 단위로 분리시킨 내용을 저장할 배열
+> searched = 이미 등장했던 알파벳을 저장할 변수
+> tmp = 판별 중인 알파벳
+
+이제 반복문을 사용해서 분리시킨 배열을 차례대로 읽어가야 한다.
+
+여기서 어떤 상황에서 어떻게 할 것인지 판단을 내려야 하는데, 우선 가장 마지막의 경우를 생각해보자.
+
+앞에 등장한 알파벳들이 모두 문제에 주어진 조건에 부합하는 알파벳이고, 단어의 마지막에 등장하는 알파벳이 이미 판별했던 것이 아니라면 이 단어는 그룹단어가 된다.
+
+```javascript
+for (let j = 0, len = sp.length; j < len; j++) {
+    if (j === len - 1) {
+        if (searched.indexOf(sp[j]) === -1) {
+            count++;
+        }
+    }
+}
+```
+
+다음으로, 단어 안의 어떤 알파벳이 이미 앞서 등장했던 알파벳이라면?? 예를 들어 aaaabbaccc의 경우, b 다음에 등장하는 a는 이미 등장했던 알파벳이므로 이 경우는 그룹단어가 아니다. 따라서 이 경우는 제외시켜야 한다.
+```javascript
+if (searched.indexOf(sp[j]) !== -1) {
+    break;
+}
+```
+만약 위의 경우가 아니라면, 이전에 등장했던 알파벳과 현재 알파벳이 같은 경우와 다를 경우 이 2가지만 존재하므로
+> 이전 알파벳 = 현재 알파벳 -> 만약 다음 알파벳도 같으면 넘어가기
+> 이전 알파벳 != 현재 알파벳 -> searched 변수에 현재 알파벳 저장, tmp 변수에 다음 알파벳을 저장
+
+
+```javascript
+else {
+    if (sp[j] === tmp) {
+        if (sp[j+1] === tmp) {
+            continue;
+        }
+        else {
+            searched += sp[j];
+            tmp = sp[j+1];
+        }
+    }
+}
+```
+
+
+말로 설명하기 어렵다...ㅜㅜ
+
+문제만 풀고 백신도 맞고 부산으로 이사오느라 너무 바쁘기도 했고 컴퓨터를 못써서 이제야 적다보니...기억이 가물가물
+

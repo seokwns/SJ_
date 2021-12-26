@@ -91,10 +91,10 @@ th, td {
     border: 1px solid #E0E0E0;
     margin: 0;
     padding: 10px 20px;
-    width: 30px;
     height: 30px;
     text-align: center;
     width: fit-content;
+    /* line-height: 180%; */
 }
 
 th {
@@ -105,7 +105,7 @@ blockquote {
     border-left: 5px solid #689F38;
     margin-left: 10px;
     margin: 32px 0 32px 0;
-    padding: 15px 20px;
+    padding: 20px 20px;
     background-color: #F1F8E9;
 }
 
@@ -116,4 +116,8 @@ blockquote p {
 
 p {
     height: max-content;
+}
+
+li {
+    margin: 8px 0;
 }
