@@ -1,16 +1,15 @@
 import * as React from 'react'
 import * as styles from './post_preview_layout.module.css'
 import { Link } from 'gatsby'
-import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 import Tag from '../Tag/Tag'
 
 
-const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: '1fr 0.5fr',
-    gridColumnGap: '20px',
-    // gridAutoRows: '180px'
-};
+// const gridStyle = {
+//     display: 'grid',
+//     gridTemplateColumns: '1fr 0.5fr',
+//     gridColumnGap: '20px',
+//     // gridAutoRows: '180px'
+// };
 
 const flexStyle = {
     display: 'flex',
@@ -20,7 +19,7 @@ const flexStyle = {
 
 const PostPreviewLayout = ({ PostData, PostNodes }) => {
 
-    const ThumbnailImage = (PostData.frontmatter.thumbnail != null? getImage(PostData.frontmatter.thumbnail.childImageSharp.gatsbyImageData) : false);
+    // const ThumbnailImage = (PostData.frontmatter.thumbnail != null? getImage(PostData.frontmatter.thumbnail.childImageSharp.gatsbyImageData) : false);
 
     const displayTag = PostData.frontmatter.tag.split("#").map((node) => {
         if(node != "") return node;
@@ -31,8 +30,8 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
 
 
     let date = new Date(PostData.frontmatter.date);
-    const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
-    const days = ['SUN', 'MON', "TUE", 'WED', 'THUR', 'FRI', 'SAT'];
+    // const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
+    // const days = ['SUN', 'MON', "TUE", 'WED', 'THUR', 'FRI', 'SAT'];
 
     
     return (
