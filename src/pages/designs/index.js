@@ -19,6 +19,11 @@ const designs = [
         title: 'Oil Paint Design',
         url: '/designs/oil_paint_design',
         description: '유화 느낌을 도전하다가 변질되어버린(?) 종이에 물감이 퍼지는 효과입니다'
+    },
+    {
+        title: 'Water Drop',
+        url: '/designs/water_drop',
+        description: '유리창에 맺힌 물방울 효과입니다'
     }
 ]
 
