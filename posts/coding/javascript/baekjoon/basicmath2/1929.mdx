@@ -1,0 +1,80 @@
+---
+title: "백준 1929번 : 소수 구하기"
+date: "2022/2/27 01:05"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오.
+
+<br/>
+
+## #입력
+
+첫째 줄에 자연수 M과 N이 빈 칸을 사이에 두고 주어진다. (1 ≤ M ≤ N ≤ 1,000,000) M이상 N이하의 소수가 하나 이상 있는 입력만 주어진다.
+
+<br/>
+
+## #출력
+
+한 줄에 하나씩, 증가하는 순서대로 소수를 출력한다.
+
+<br/>
+
+## #예제 입/출력
+
+| 예제 입력 | 예제 출력 |
+| ----- | ----- |
+| 3 16 | 3<br/>5<br/>7<br/>11<br/>13 |
+
+<br/>
+
+## #풀이
+
+또 소수 문제. 이번엔 Set을 이용해보았다. 방식은 똑같지만, 저장하는 곳만 달라졌다고 생각하면 된다.
+
+(data는 입력값이다)
+
+```javascript
+let start = parseInt(data[0]);
+let end = parseInt(data[1]);
+const set = new Set();
+
+for (let i = 1; i <= end; i += 2) {
+    set.add(i);
+}
+
+set.delete(1);
+set.add(2);
+
+for (let i = 3; i < Math.sqrt(end) + 1; i += 2) {
+    if (set.has(i)) {
+        for (let k = i * i; k <= end; k += i) {
+            set.delete(k);
+        }
+    }
+}
+```
+
+2를 제외한 모든 짝수는 소수가 될 수 없으므로 set에 추가하지 않는다. 그리고 홀수들 중에서 소수인 수들의 배수들을 삭제시킨다.
+
+결국 똑같은 과정이지만 저장하는 곳이 배열이 아니라 Set일 뿐이다
+
+자 판별이 끝났고, 출력만 하면 된다.
+
+
+```javascript
+let result = '';
+    
+for (let i = start; i <= end; i++) {
+    if (set.has(i)) {
+        result += i + '\n';
+    }
+}
+
+console.log(result);
+```
+
+끝!
