@@ -2,7 +2,6 @@ import * as React from 'react'
 import * as styles from './index.module.css'
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet'
-import { GatsbyImage } from 'gatsby-plugin-image';
 
 
 const links = [
@@ -13,7 +12,7 @@ const links = [
         icon: 'badge',
     },
     {
-        url: encodeURI('/posts?tag=전체보기'),
+        url: '/posts',
         text: 'Posts',
         description: 'Personal Blog',
         icon: 'article',
@@ -29,17 +28,11 @@ const links = [
 
 const projects = [
     {
-        url: encodeURI('/posts?tag=전체보기'),
+        url: '/posts',
         text: 'Blog',
         description: 'Personal blog designed by myself',
         language: 'React > Gatsby'
     },
-    // {
-    //     url: '',
-    //     text: 'Text Viewer',
-    //     description: 'PC/mobile public text viewer',
-    //     language: 'React > Gatsby'
-    // },
     {
         url: 'https://github.com/SeokjunMoon/baekjoon_algorithm',
         text: 'baekjoon',
@@ -50,6 +43,12 @@ const projects = [
         url: '/designs',
         text: 'Web Designs',
         description: 'Custom web designs',
+        language: 'JS / CSS'
+    },
+    {
+        url: 'https://seokjunmoon.github.io/perfume_project/',
+        text: 'Blooming Fragrance',
+        description: 'PROJECT 동아리 4주 프로젝트',
         language: 'JS / CSS'
     },
 ]

@@ -46,7 +46,6 @@
 .TagList {
     display: flex;
     flex-flow: row wrap;
-    margin-bottom: 40px;
 }
 
 

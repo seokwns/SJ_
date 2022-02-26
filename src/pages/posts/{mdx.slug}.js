@@ -21,34 +21,6 @@ const ViewPostPage = ({ data, location }) => {
     let PreviousPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current + 1] == null? 'none' : posts[current + 1]) : 'none';
     let NextPostData = (typeof posts !== 'undefiend' && typeof current !== 'undefined')? (posts[current - 1] == null? 'none' : posts[current - 1]) : 'none';
 
-    // if (typeof posts === 'undefiend' || typeof current === 'undefined') {
-    //     const PostNodes = data.allMdx.nodes;
-    //     const tag = data.mdx.frontmatter.tag;
-    //     let NodesData = [];
-
-    //     for (let i = 0; i < PostNodes.length; i++) {
-    //         if (PostNodes[i].frontmatter.tag.indexOf(tag) != -1) {
-    //             NodesData.push(PostNodes[i])
-    //         }
-    //     }
-
-    //     if (NodesData.length >= 2) {
-    //         NodesData.sort((a, b) => {
-    //             let ad = new Date(a.frontmatter.date);
-    //             let bd = new Date(b.frontmatter.date);
-    //             let condition = (ad > bd);
-    //             return condition? -1 : (condition? 0 : 1);
-    //         });
-
-    //         for (let i = 0; i < NodesData.length; i++) {
-    //             if (NodesData[i].frontmatter.title === data.mdx.frontmatter.title) {
-    //                 PreviousPostData = NodesData[i - 1];
-    //                 NextPostData = NodesData[i + 1];
-    //             }
-    //         }
-    //     }
-    // }
-
 
     const disqusConfig = {
         url: data.site.siteMetadata.siteUrl + location.pathname,
@@ -76,7 +48,7 @@ const ViewPostPage = ({ data, location }) => {
                         displayTag != null && displayTag.map((node, index) => {
                             if(index != 0) {
                                 return (
-                                    <Tag TagData={node} key={node} textStyle={{fontSize: '1rem'}}/>
+                                    <div key={index}><Tag TagData={node} textStyle={{fontSize: '1rem'}}/></div>
                                 )
                             }
                         })
