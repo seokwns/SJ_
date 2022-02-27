@@ -53,6 +53,7 @@ body p {
     justify-content: space-between;
     background-color: var(--background-color-white);
     z-index: 2;
+    overflow: hidden;
 }
 
 

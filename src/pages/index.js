@@ -34,7 +34,7 @@ const projects = [
         language: 'React > Gatsby'
     },
     {
-        url: 'https://github.com/SeokjunMoon/baekjoon_algorithm',
+        url: '/projects/baekjoon',
         text: 'baekjoon',
         description: 'My solution list to baekjoon algorithm step by step',
         language: 'Node.js'

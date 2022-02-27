@@ -1,0 +1,60 @@
+---
+title: "백준 2675번 : 문자열 반복"
+date: "2021/10/28 17:36"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+문자열 S를 입력받은 후에, 각 문자를 R번 반복해 새 문자열 P를 만든 후 출력하는 프로그램을 작성하시오. 즉, 첫 번째 문자를 R번 반복하고, 두 번째 문자를 R번 반복하는 식으로 P를 만들면 된다. S에는 QR Code "alphanumeric" 문자만 들어있다.
+
+QR Code "alphanumeric" 문자는 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\$%*+-./: 이다.
+
+<br/>
+
+## #입력
+
+첫째 줄에 테스트 케이스의 개수 T(1 ≤ T ≤ 1,000)가 주어진다. 각 테스트 케이스는 반복 횟수 R(1 ≤ R ≤ 8), 문자열 S가 공백으로 구분되어 주어진다. S의 길이는 적어도 1이며, 20글자를 넘지 않는다. 
+
+<br/>
+
+## #출력
+
+각 테스트 케이스에 대해 P를 출력한다.
+
+<br/>
+
+## #풀이
+
+문자열 반복. 문제에 주어진 문자열일 경우, 입력된 숫자만큼 반복시켜서 출력하기. 우선 조건에 맞는 문자열인지 판별해야 한다. alphanumeric 문자열을 선언하자
+
+```javascript
+const alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\$%*+-./:';
+```
+
+그리고 테스트 케이스 만큼 해당 동작을 반복해야 한다. 그리고 해당 케이스에서 alphanumeric 변수에 저장된 문자열에 있는 문자인지 검색 후, 조건에 맞는 문자면 반복시킨다.
+
+```javascript
+const testCase = parseInt(data[0]);
+
+for (let i = 1; i <= testCase; i++) {
+    const sp = data[i].split(' ');
+    const repeat = sp[0];
+    let result = '';
+
+    sp[1].split('').forEach(el => {
+        if (alphanumeric.indexOf(el) !== -1) {
+            for (let j = 0; j < repeat; j++) {
+                result += el;
+            }
+        }
+    });
+
+    console.log(result);
+}
+```
+
+forEach로 해당 케이스의 문자열을 순회한다. 그리고 alphanumeric 에서 indexOf 를 이용하여 확인 후, -1이 아니면(= 조건에 맞는 문자열이면) 반복문을 사용하여 출력할 문자열에 추가한다.
+
+이것도 간단~ 문자열은 잘 쪼개고, 잘 분류하면 끝인 것 같다. for, forEach, map, reduce를 상황에 맞게 적절하게 사용하면 수월수월한 구간인듯?

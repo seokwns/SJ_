@@ -6,7 +6,7 @@ import * as styles from './index.module.css'
 import Tag from '../../components/Tag/Tag'
 
 
-const PostsPage = ({ location }) => {
+const PostsPage = ({}) => {
 
 
     const data = useStaticQuery(graphql`

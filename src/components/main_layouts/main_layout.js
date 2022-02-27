@@ -14,7 +14,7 @@ const links = [
         text: 'About'
     },
     {
-        url: encodeURI('/posts?tag=전체보기'),
+        url: '/posts',
         text: 'Posts'
     },
     {
