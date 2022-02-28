@@ -1,0 +1,60 @@
+---
+title: "백준 10872번 : 팩토리얼"
+date: "2022/2/28 21:01"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+0보다 크거나 같은 정수 N이 주어진다. 이때, N!을 출력하는 프로그램을 작성하시오.
+
+<br/>
+
+## #입력
+
+첫째 줄에 정수 N(0 ≤ N ≤ 12)이 주어진다.
+
+<br/>
+
+## #출력
+
+첫째 줄에 N!을 출력한다.
+
+<br/>
+
+## #예제 입/출력
+
+| 예제 입력 | 예제 출력 |
+| ----- | ----- |
+| 10 | 3628800 |
+| 0 | 1 |
+
+<br/>
+
+## #풀이
+
+가장 기본적인 팩토리얼 구하는 문제.
+
+무지성 for문을 갈기면 된다.
+
+입력받은 n을 1씩 1까지 빼주면서 곱해준다.
+
+```javascript
+function solution(data) {
+    let n = parseInt(data);
+    let result = 1;
+    for (let i = n; i > 0; i--) {
+        result *= i;
+    }
+
+    console.log(result);
+}
+
+
+
+let fs = require('fs');
+let input = fs.readFileSync('/dev/stdin').toString();
+
+solution(input);
+```
