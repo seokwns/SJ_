@@ -1,0 +1,78 @@
+---
+title: "백준 3009번 : 네 번째 점"
+date: "2022/2/28 11:38"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+세 점이 주어졌을 때, 축에 평행한 직사각형을 만들기 위해서 필요한 네 번째 점을 찾는 프로그램을 작성하시오.
+
+<br/>
+
+## #입력
+
+세 점의 좌표가 한 줄에 하나씩 주어진다. 좌표는 1보다 크거나 같고, 1000보다 작거나 같은 정수이다.
+
+<br/>
+
+## #출력
+
+직사각형의 네 번째 점의 좌표를 출력한다.
+
+<br/>
+
+## #예제 입/출력
+
+| 예제 입력 | 예제 출력 |
+| ----- | ----- |
+| 5 5<br/>5 7<br/>7 5 | 7 7 |
+|30 20<br/>10 10<br/>10 20 | 30 10 |
+
+<br/>
+
+## #풀이
+
+직사각형의 4번째 점을 구해야 한다.
+
+근데 문제에서 각 변들이 축에 평행하다고 나와있으므로, x좌표들 중에서 1개 적은거랑 y좌표에서 1개 적은거 찾으면 끝
+
+```javascript
+function solution(data) {
+    let points = {
+        x: [],
+        y: []
+    }
+
+    data.forEach(value => {
+        let tmp = value.split(' ');
+        points.x.push(parseInt(tmp[0]));
+        points.y.push(parseInt(tmp[1]));
+    });
+
+    let result = [];
+
+    points.x.forEach((value) => {
+        if (points.x.filter(e => e === value).length === 1) {
+            result[0] = value;
+        }
+    });
+    points.y.forEach((value) => {
+        if (points.y.filter(e => e === value).length === 1) {
+            result[1] = value;
+        }
+    });
+
+
+    console.log(result.join(' '));
+}
+
+
+let input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
+
+solution(input);
+
+solution(['5 5', '5 7', '7 5']);
+solution(['30 20', '10 10', '10 20']);
+```

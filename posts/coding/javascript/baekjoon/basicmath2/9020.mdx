@@ -1,0 +1,101 @@
+---
+title: "백준 9020번 : 골드바흐의 추측"
+date: "2022/2/28 11:35"
+tag: "#백준알고리즘#javascript"
+thumbnail: null
+---
+
+## #문제
+
+1보다 큰 자연수 중에서  1과 자기 자신을 제외한 약수가 없는 자연수를 소수라고 한다. 예를 들어, 5는 1과 5를 제외한 약수가 없기 때문에 소수이다. 하지만, 6은 6 = 2 × 3 이기 때문에 소수가 아니다.
+
+골드바흐의 추측은 유명한 정수론의 미해결 문제로, 2보다 큰 모든 짝수는 두 소수의 합으로 나타낼 수 있다는 것이다. 이러한 수를 골드바흐 수라고 한다. 또, 짝수를 두 소수의 합으로 나타내는 표현을 그 수의 골드바흐 파티션이라고 한다. 예를 들면, 4 = 2 + 2, 6 = 3 + 3, 8 = 3 + 5, 10 = 5 + 5, 12 = 5 + 7, 14 = 3 + 11, 14 = 7 + 7이다. 10000보다 작거나 같은 모든 짝수 n에 대한 골드바흐 파티션은 존재한다.
+
+2보다 큰 짝수 n이 주어졌을 때, n의 골드바흐 파티션을 출력하는 프로그램을 작성하시오. 만약 가능한 n의 골드바흐 파티션이 여러 가지인 경우에는 두 소수의 차이가 가장 작은 것을 출력한다.
+
+<br/>
+
+## #입력
+
+첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고 짝수 n이 주어진다.
+
+<br/>
+
+## #출력
+
+각 테스트 케이스에 대해서 주어진 n의 골드바흐 파티션을 출력한다. 출력하는 소수는 작은 것부터 먼저 출력하며, 공백으로 구분한다.
+
+<br/>
+
+## #제한
+
+> 4 ≤ n ≤ 10,000
+
+<br/>
+
+## #예제 입/출력
+
+| 예제 입력 | 예제 출력 |
+| ----- | ----- |
+| 3<br/>8<br/>10<br/>16 | 3 5<br/>5 5<br/>5 11 |
+
+<br/>
+
+## #풀이
+
+짝수를 두 소수의 합으로 나타내야 한다. 어차피 진짜 커봤자 짝수를 2로 나누었을 때 소수인 경우이고 n이 1만 이하의 자연수 이므로
+
+일단 1만 이하의 소수를 구한 다음, n에서 소수를 뺀 수가 소수인지 확인해서 소수이면 저장하고 최종적으로 저장된 수들 중 차이가 가장 적은 것을 고르면 끝.
+
+```javascript
+function solution(data) {
+    const set = new Set();
+    const testCase = parseInt(data[0]);
+    const max = 10000;
+
+    set.add(2);
+
+    for (let i = 3; i <= max; i += 2) {
+        set.add(i);
+    }
+
+    for (let i = 3; i < Math.sqrt(max) + 1; i += 2) {
+        if (set.has(i)) {
+            for (let k = i * i; k <= max; k += i) {
+                set.delete(k);
+            }
+        }
+    }
+
+
+    let result = '';
+    let prime_numbers = Array.from(set);
+
+
+    for (let t = 1; t <= testCase; t++) {
+        let i = 0;
+        let now = parseInt(data[t]);
+        let dd = [0, now];
+
+        while(prime_numbers[i] <= now) {
+            let tmp = now - prime_numbers[i];
+
+            if (set.has(tmp)) {
+                if (Math.abs(prime_numbers[i] - tmp) < Math.abs(dd[0] - dd[1])) {
+                    dd = [prime_numbers[i], tmp];
+                }
+            }
+            i++;
+        }
+
+        result += Math.min(dd[0], dd[1]) + ' ' + Math.max(dd[0], dd[1]) + '\n';
+    }
+
+    console.log(result);
+}
+
+
+let input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
+
+solution(input);
+```
