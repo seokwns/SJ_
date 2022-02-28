@@ -36,6 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .solution_item {
@@ -45,9 +46,15 @@
     max-width: 600px;
     margin: 8px auto;
     cursor: pointer;
-    border-radius: 0;
-    border-bottom: 1px solid #EEEEEE;
-    padding-bottom: 16px;
-    padding-left: 24px;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    padding: 16px 20px;
     font-weight: 700;
+    transition: border 0.3s ease-in-out;
+}
+.solution_item:hover {
+    border: 1px solid #4CAF50;
+}
+.solution_item:not(:hover) {
+    border: 1px solid #EEEEEE;
 }
