@@ -96,7 +96,7 @@ const IndexPage = () => {
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                 <div className={styles.menu}>
                     <p style={{fontSize: '50px', fontWeight: '800', margin: '70px 0 16px 0'}}>Thanks for coming</p>
-                    <p style={{fontSize: '20px', color: '#999999', fontWeight: '400', margin: '0 0 100px 0'}}>It is a blog of a programmer<br/>who is constantly developing,<br/>always acting and contemplating.</p>
+                    <p style={{fontSize: '20px', color: '#999999', fontWeight: '400', margin: '0 0 100px 0'}}>기록해보자</p>
                     <p style={MenuTitleStyle}>📑 Menu</p>
                     <div className={styles.menuNav}>
                         {
