@@ -29,7 +29,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                             PostData.frontmatter.tag != null && displayTag.map((node, index) => {
                                 if(index != 0) {
                                     return (
-                                        <div key={index}><Tag TagData={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '800', fontSize: '14px'}} onClick={(event) => {}}/></div>
+                                        <div key={index}><Tag TagData={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '800', fontSize: '16px'}} onClick={(event) => {}}/></div>
                                     )
                                 }
                             })
@@ -45,7 +45,7 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                     </div>
                 </div>
 
-                <div style={{color: 'black', margin: '24px 0 0 0', fontSize: '14px', color: '#757575'}}>
+                <div style={{color: 'black', margin: '24px 0 0 0', fontSize: '16px', color: '#757575'}}>
                     {date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일'}
                 </div>
             </Link>

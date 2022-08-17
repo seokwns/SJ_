@@ -78,7 +78,7 @@ const PostsPage = ({}) => {
             <div className={styles.container}>
                 <div className={styles.profileDiv}>
                     <h3 className={styles.descriptions} style={{margin: '70px 0 16px 0', fontSize: '50px', fontWeight: '800'}}>Blog</h3>
-                    <p className={styles.descriptions} style={{fontSize: '20px', lineHeight: '180%', marginBottom: '0', color: '#999999'}}>하나씩 공부해나가는,<br/>마음 가는데로 만들어본 블로그</p>
+                    <p className={styles.descriptions} style={{fontSize: '20px', lineHeight: '180%', marginBottom: '0', color: '#999999'}}>스물, 셋</p>
                     <h3 style={{margin: '70px auto 20px 0'}}>Tags</h3>
                     <div className={styles.TagList}>
                         {

@@ -10,7 +10,7 @@ import { Disqus } from 'gatsby-plugin-disqus'
 const ViewPostPage = ({ data, location }) => {
 
     const displayTag = data.mdx.frontmatter.tag.split("#").map((node) => {
-        if(node != "") return node;
+        if(node !== "") return node;
     });
 
 
@@ -41,14 +41,15 @@ const ViewPostPage = ({ data, location }) => {
 
 
     return (
-        <Layout pageTitle={data.mdx.frontmatter.title}>
+        <Layout pageTitle={data.mdx.frontmatter.title} textColor="#FFFFFF">
             <div className={styles.container}>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
+                <div className={styles.titleBackground}></div>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                     {
-                        displayTag != null && displayTag.map((node, index) => {
+                        displayTag !== null && displayTag.map((node, index) => {
                             if(index != 0) {
                                 return (
-                                    <div key={index}><Tag TagData={node} textStyle={{fontSize: '1rem'}}/></div>
+                                    <div key={index} style={{fontSize: '16px', color: 'white', padding: '0 8px', marginBottom: '8px'}}>{node}</div>
                                 )
                             }
                         })
@@ -56,7 +57,7 @@ const ViewPostPage = ({ data, location }) => {
                 </div>
                 <p className={styles.title}>{ data.mdx.frontmatter.title }</p>
                 <div className={styles.bottomDiv}>
-                    <p className={styles.date} style={{color: '#616161'}}>{date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일 ' +  days[date.getDay()]}</p>
+                    <p className={styles.date} style={{color: 'white'}}>{date.getFullYear() + '년 ' + (date.getMonth() + 1) + '월 ' + date.getDate() + '일 ' +  days[date.getDay()]}</p>
                 </div>
                 <MDXRenderer className={styles.content}>
                     { data.mdx.body }

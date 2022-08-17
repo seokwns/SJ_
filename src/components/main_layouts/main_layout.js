@@ -48,14 +48,8 @@ const designs = [
 ];
 
 
-const MaterialIconStyle = {
-    fontSize:'30px',
-    margin: '20px', 
-    color: 'black'
-};
 
-
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ pageTitle, textColor, children }) => {
     const data = useStaticQuery(graphql`
         query {
             site {
@@ -72,6 +66,14 @@ const Layout = ({ pageTitle, children }) => {
             }
         }
     `)
+
+    textColor = (textColor === null? "#000000" : textColor);
+
+    const MaterialIconStyle = {
+        fontSize:'30px',
+        margin: '20px', 
+        color: textColor
+    };
 
     const AllTags = [];
     const _nodes = data.allMdx.nodes;
@@ -104,7 +106,7 @@ const Layout = ({ pageTitle, children }) => {
     _nodes.map((value) => {
         const tag_split = value.frontmatter.tag.split("#");
         tag_split.map(_tag => {
-            if(AllTags.indexOf(_tag) === -1 && _tag != "") AllTags.push(_tag);
+            if(AllTags.indexOf(_tag) === -1 && _tag !== "") AllTags.push(_tag);
             return _tag;
         });
         return value;
@@ -132,7 +134,7 @@ const Layout = ({ pageTitle, children }) => {
                         <span className="material-icons" style={MaterialIconStyle} defer>menu</span>
                     </button>
 
-                    <Link to='/' style={{display: 'flex', alignItems: 'center'}}><p style={{margin: 'auto 0', fontWeight: '800', fontSize: '18px'}}>SJ_</p></Link>
+                    <Link to='/' style={{display: 'flex', alignItems: 'center'}}><p style={{margin: 'auto 0', fontWeight: '800', fontSize: '18px', color: textColor}}>SJ_</p></Link>
                 </div>
                 <button>
                 <span className="material-icons" style={MaterialIconStyle} defer>search</span>
@@ -169,7 +171,7 @@ const Layout = ({ pageTitle, children }) => {
                         </li>
                         {
                             AllTags.map((node) => {
-                                if(node != "전체보기") {
+                                if(node !== "전체보기") {
                                     return (
                                         <li key={node}>
                                             <Link to={"/posts?tag=" + node} className={styles.navTagText}>
