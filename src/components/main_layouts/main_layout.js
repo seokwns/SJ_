@@ -76,7 +76,6 @@ const Layout = ({ pageTitle, textColor, children }) => {
     };
 
     const AllTags = [];
-    const _nodes = data.allMdx.nodes;
 
 
     const CloseSideMenuFunction = () => {
@@ -103,11 +102,9 @@ const Layout = ({ pageTitle, textColor, children }) => {
     }
 
 
-    _nodes.map((value) => {
-        const tag_split = value.frontmatter.tag.split("#");
-        tag_split.map(_tag => {
-            if(AllTags.indexOf(_tag) === -1 && _tag !== "") AllTags.push(_tag);
-            return _tag;
+    data.allMdx.nodes.map((value) => {
+        value.frontmatter.tag.forEach(_tag => {
+            if(AllTags.indexOf(_tag) === -1) AllTags.push(_tag);
         });
         return value;
     });

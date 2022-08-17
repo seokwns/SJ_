@@ -12,10 +12,6 @@ const flexStyle = {
 
 const PostPreviewLayout = ({ PostData, PostNodes }) => {
 
-    const displayTag = PostData.frontmatter.tag.split("#").map((node) => {
-        if(node != "") return node;
-    });
-
     const containerStyle = flexStyle;
     let date = new Date(PostData.frontmatter.date);
 
@@ -26,12 +22,10 @@ const PostPreviewLayout = ({ PostData, PostNodes }) => {
                 <div>
                     <div style={{display: 'flex', margin: '0 0 16px 0', alignItems: 'center'}}>
                         {
-                            PostData.frontmatter.tag != null && displayTag.map((node, index) => {
-                                if(index != 0) {
-                                    return (
-                                        <div key={index}><Tag TagData={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '800', fontSize: '16px'}} onClick={(event) => {}}/></div>
-                                    )
-                                }
+                            PostData.frontmatter.tag.map((node, index) => {
+                                return (
+                                    <div key={index}><Tag TagData={node} backgroundStyle={{marginRight: '0'}} textStyle={{fontWeight: '800', fontSize: '16px'}} onClick={(event) => {}}/></div>
+                                )
                             })
                         }
                     </div>

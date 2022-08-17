@@ -46,8 +46,8 @@ const PostsPage = ({}) => {
         let condition = (ad > bd);
         return condition? -1 : (condition? 0 : 1);
     }).forEach((e) => {
-        e.frontmatter.tag.split('#').forEach((v) => {
-            if (initialTags.indexOf(v) == -1 && v != '') {
+        e.frontmatter.tag.forEach((v) => {
+            if (initialTags.indexOf(v) === -1) {
                 initialTags.push(v);
             }
         })
@@ -81,25 +81,25 @@ const PostsPage = ({}) => {
                     <p className={styles.descriptions} style={{fontSize: '20px', lineHeight: '180%', marginBottom: '0', color: '#999999'}}>스물, 셋</p>
                     <h3 style={{margin: '70px auto 20px 0'}}>Tags</h3>
                     <div className={styles.TagList}>
-                        {
-                            filteredTags.map((node, index) => (
-                                <div key={index}>
-                                    <Tag TagData={node} textStyle={ (node == currentTag? CurrentTagStyle : TagStyle) } backgroundStyle={{margin: '8px 20px 4px 0', padding: '0'}} onClick={ (event) => {
-                                        if (node === '전체보기') {
-                                            setFilteredPosts(allPosts);
-                                        }
-                                        else {
-                                            setFilteredPosts(allPosts.filter((e) => {
-                                                if (e.frontmatter.tag.indexOf(node) != -1) {
-                                                    return e;
-                                                }
-                                            }))
-                                        }
-                                        setCurrentTag(node);
-                                    }}/>
-                                </div>
-                            ))
-                        }
+                    {
+                        filteredTags.map((node, index) => (
+                            <div key={index}>
+                                <Tag TagData={node} textStyle={ (node == currentTag? CurrentTagStyle : TagStyle) } backgroundStyle={{margin: '8px 20px 4px 0', padding: '0'}} onClick={ (event) => {
+                                    if (node === '전체보기') {
+                                        setFilteredPosts(allPosts);
+                                    }
+                                    else {
+                                        setFilteredPosts(allPosts.filter((e) => {
+                                            if (e.frontmatter.tag.indexOf(node) !== -1) {
+                                                return e;
+                                            }
+                                        }))
+                                    }
+                                    setCurrentTag(node);
+                                }}/>
+                            </div>
+                        ))
+                    }
                     </div>
                 </div>
                 <div>

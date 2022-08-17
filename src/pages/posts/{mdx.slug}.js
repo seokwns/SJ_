@@ -9,11 +9,6 @@ import { Disqus } from 'gatsby-plugin-disqus'
 
 const ViewPostPage = ({ data, location }) => {
 
-    const displayTag = data.mdx.frontmatter.tag.split("#").map((node) => {
-        if(node !== "") return node;
-    });
-
-
     const { state = {} } = location
     const { posts } = state
     const { current } = state
@@ -46,12 +41,10 @@ const ViewPostPage = ({ data, location }) => {
                 <div className={styles.titleBackground}></div>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
                     {
-                        displayTag !== null && displayTag.map((node, index) => {
-                            if(index != 0) {
-                                return (
-                                    <div key={index} style={{fontSize: '16px', color: 'white', padding: '0 8px', marginBottom: '8px'}}>{node}</div>
-                                )
-                            }
+                        data.mdx.frontmatter.tag.map((node, index) => {
+                            return (
+                                <div key={index} style={{fontSize: '16px', color: 'white', padding: '0 8px', marginBottom: '8px'}}>{node}</div>
+                            )
                         })
                     }
                 </div>
